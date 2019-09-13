@@ -7,10 +7,12 @@ part of built_value_generator.source_class;
 // **************************************************************************
 
 class _$SerializerSourceClass extends SerializerSourceClass {
+  final ClassElement _element;
   @override
-  final ClassElement element;
+  ClassElement get element => _element;
+  final ClassElement _builderElement;
   @override
-  final ClassElement builderElement;
+  ClassElement get builderElement => _builderElement;
   ParsedLibraryResult __parsedLibrary;
   BuiltValue __builtValueSettings;
   BuiltValueSerializer __serializerSettings;
@@ -32,7 +34,10 @@ class _$SerializerSourceClass extends SerializerSourceClass {
           [void Function(SerializerSourceClassBuilder) updates]) =>
       (new SerializerSourceClassBuilder()..update(updates)).build();
 
-  _$SerializerSourceClass._({this.element, this.builderElement}) : super._() {
+  _$SerializerSourceClass._({ClassElement element, ClassElement builderElement})
+      : _element = element,
+        _builderElement = builderElement,
+        super._() {
     if (element == null) {
       throw new BuiltValueNullFieldError('SerializerSourceClass', 'element');
     }

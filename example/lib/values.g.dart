@@ -303,15 +303,19 @@ class _$WireNameValueSerializer implements StructuredSerializer<WireNameValue> {
 }
 
 class _$SimpleValue extends SimpleValue {
+  final int _anInt;
   @override
-  final int anInt;
+  int get anInt => _anInt;
+  final String _aString;
   @override
-  final String aString;
-
+  String get aString => _aString;
   factory _$SimpleValue([void Function(SimpleValueBuilder) updates]) =>
       (new SimpleValueBuilder()..update(updates)).build();
 
-  _$SimpleValue._({this.anInt, this.aString}) : super._() {
+  _$SimpleValue._({int anInt, String aString})
+      : _anInt = anInt,
+        _aString = aString,
+        super._() {
     if (anInt == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'anInt');
     }
@@ -390,13 +394,15 @@ class SimpleValueBuilder implements Builder<SimpleValue, SimpleValueBuilder> {
 }
 
 class _$VerySimpleValue extends VerySimpleValue {
+  final int _value;
   @override
-  final int value;
-
+  int get value => _value;
   factory _$VerySimpleValue([void Function(VerySimpleValueBuilder) updates]) =>
       (new VerySimpleValueBuilder()..update(updates)).build();
 
-  _$VerySimpleValue._({this.value}) : super._() {
+  _$VerySimpleValue._({int value})
+      : _value = value,
+        super._() {
     if (value == null) {
       throw new BuiltValueNullFieldError('VerySimpleValue', 'value');
     }
@@ -468,15 +474,19 @@ class VerySimpleValueBuilder
 }
 
 class _$CompoundValue extends CompoundValue {
+  final SimpleValue _simpleValue;
   @override
-  final SimpleValue simpleValue;
+  SimpleValue get simpleValue => _simpleValue;
+  final ValidatedValue _validatedValue;
   @override
-  final ValidatedValue validatedValue;
-
+  ValidatedValue get validatedValue => _validatedValue;
   factory _$CompoundValue([void Function(CompoundValueBuilder) updates]) =>
       (new CompoundValueBuilder()..update(updates)).build();
 
-  _$CompoundValue._({this.simpleValue, this.validatedValue}) : super._() {
+  _$CompoundValue._({SimpleValue simpleValue, ValidatedValue validatedValue})
+      : _simpleValue = simpleValue,
+        _validatedValue = validatedValue,
+        super._() {
     if (simpleValue == null) {
       throw new BuiltValueNullFieldError('CompoundValue', 'simpleValue');
     }
@@ -578,15 +588,19 @@ class CompoundValueBuilder
 }
 
 class _$ValidatedValue extends ValidatedValue {
+  final int _anInt;
   @override
-  final int anInt;
+  int get anInt => _anInt;
+  final String _aString;
   @override
-  final String aString;
-
+  String get aString => _aString;
   factory _$ValidatedValue([void Function(ValidatedValueBuilder) updates]) =>
       (new ValidatedValueBuilder()..update(updates)).build();
 
-  _$ValidatedValue._({this.anInt, this.aString}) : super._() {
+  _$ValidatedValue._({int anInt, String aString})
+      : _anInt = anInt,
+        _aString = aString,
+        super._() {
     if (anInt == null) {
       throw new BuiltValueNullFieldError('ValidatedValue', 'anInt');
     }
@@ -668,15 +682,19 @@ class ValidatedValueBuilder
 }
 
 class _$ValueWithCode extends ValueWithCode {
+  final int _anInt;
   @override
-  final int anInt;
+  int get anInt => _anInt;
+  final String _aString;
   @override
-  final String aString;
-
+  String get aString => _aString;
   factory _$ValueWithCode([void Function(ValueWithCodeBuilder) updates]) =>
       (new ValueWithCodeBuilder()..update(updates)).build();
 
-  _$ValueWithCode._({this.anInt, this.aString}) : super._() {
+  _$ValueWithCode._({int anInt, String aString})
+      : _anInt = anInt,
+        _aString = aString,
+        super._() {
     if (anInt == null) {
       throw new BuiltValueNullFieldError('ValueWithCode', 'anInt');
     }
@@ -757,17 +775,21 @@ class ValueWithCodeBuilder
 }
 
 class _$ValueWithDefaults extends ValueWithDefaults {
+  final int _anInt;
   @override
-  final int anInt;
+  int get anInt => _anInt;
+  final String _aString;
   @override
-  final String aString;
-
+  String get aString => _aString;
   factory _$ValueWithDefaults(
           [void Function(ValueWithDefaultsBuilder) updates]) =>
       (new ValueWithDefaultsBuilder()..update(updates)).build()
           as _$ValueWithDefaults;
 
-  _$ValueWithDefaults._({this.anInt, this.aString}) : super._() {
+  _$ValueWithDefaults._({int anInt, String aString})
+      : _anInt = anInt,
+        _aString = aString,
+        super._() {
     if (anInt == null) {
       throw new BuiltValueNullFieldError('ValueWithDefaults', 'anInt');
     }
@@ -864,15 +886,18 @@ class _$ValueWithDefaultsBuilder extends ValueWithDefaultsBuilder {
 }
 
 class _$DerivedValue extends DerivedValue {
+  final int _anInt;
   @override
-  final int anInt;
+  int get anInt => _anInt;
   int __derivedValue;
   Iterable<String> __derivedString;
 
   factory _$DerivedValue([void Function(DerivedValueBuilder) updates]) =>
       (new DerivedValueBuilder()..update(updates)).build();
 
-  _$DerivedValue._({this.anInt}) : super._() {
+  _$DerivedValue._({int anInt})
+      : _anInt = anInt,
+        super._() {
     if (anInt == null) {
       throw new BuiltValueNullFieldError('DerivedValue', 'anInt');
     }
@@ -949,17 +974,23 @@ class DerivedValueBuilder
 }
 
 class _$Account extends Account {
+  final int _id;
   @override
-  final int id;
+  int get id => _id;
+  final String _name;
   @override
-  final String name;
+  String get name => _name;
+  final BuiltMap<String, JsonObject> _keyValues;
   @override
-  final BuiltMap<String, JsonObject> keyValues;
-
+  BuiltMap<String, JsonObject> get keyValues => _keyValues;
   factory _$Account([void Function(AccountBuilder) updates]) =>
       (new AccountBuilder()..update(updates)).build();
 
-  _$Account._({this.id, this.name, this.keyValues}) : super._() {
+  _$Account._({int id, String name, BuiltMap<String, JsonObject> keyValues})
+      : _id = id,
+        _name = name,
+        _keyValues = keyValues,
+        super._() {
     if (id == null) {
       throw new BuiltValueNullFieldError('Account', 'id');
     }
@@ -1068,13 +1099,15 @@ class AccountBuilder implements Builder<Account, AccountBuilder> {
 }
 
 class _$WireNameValue extends WireNameValue {
+  final int _value;
   @override
-  final int value;
-
+  int get value => _value;
   factory _$WireNameValue([void Function(WireNameValueBuilder) updates]) =>
       (new WireNameValueBuilder()..update(updates)).build();
 
-  _$WireNameValue._({this.value}) : super._() {
+  _$WireNameValue._({int value})
+      : _value = value,
+        super._() {
     if (value == null) {
       throw new BuiltValueNullFieldError('WireNameValue', 'value');
     }

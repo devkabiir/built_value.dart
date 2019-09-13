@@ -7,8 +7,9 @@ part of built_value_generator.source_library;
 // **************************************************************************
 
 class _$SerializerSourceLibrary extends SerializerSourceLibrary {
+  final LibraryElement _element;
   @override
-  final LibraryElement element;
+  LibraryElement get element => _element;
   ParsedLibraryResult __parsedLibrary;
   bool __hasSerializers;
   BuiltMap<String, ElementAnnotation> __serializersForAnnotations;
@@ -21,7 +22,9 @@ class _$SerializerSourceLibrary extends SerializerSourceLibrary {
           [void Function(SerializerSourceLibraryBuilder) updates]) =>
       (new SerializerSourceLibraryBuilder()..update(updates)).build();
 
-  _$SerializerSourceLibrary._({this.element}) : super._() {
+  _$SerializerSourceLibrary._({LibraryElement element})
+      : _element = element,
+        super._() {
     if (element == null) {
       throw new BuiltValueNullFieldError('SerializerSourceLibrary', 'element');
     }

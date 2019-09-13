@@ -7,8 +7,9 @@ part of built_value_generator.enum_source_class;
 // **************************************************************************
 
 class _$EnumSourceClass extends EnumSourceClass {
+  final ClassElement _element;
   @override
-  final ClassElement element;
+  ClassElement get element => _element;
   ParsedLibraryResult __parsedLibrary;
   String __name;
   String __wireName;
@@ -25,7 +26,9 @@ class _$EnumSourceClass extends EnumSourceClass {
   factory _$EnumSourceClass([void Function(EnumSourceClassBuilder) updates]) =>
       (new EnumSourceClassBuilder()..update(updates)).build();
 
-  _$EnumSourceClass._({this.element}) : super._() {
+  _$EnumSourceClass._({ClassElement element})
+      : _element = element,
+        super._() {
     if (element == null) {
       throw new BuiltValueNullFieldError('EnumSourceClass', 'element');
     }

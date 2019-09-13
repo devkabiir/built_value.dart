@@ -251,13 +251,15 @@ class _$GenericContainerSerializer
 }
 
 class _$GenericValue<T> extends GenericValue<T> {
+  final T _value;
   @override
-  final T value;
-
+  T get value => _value;
   factory _$GenericValue([void Function(GenericValueBuilder<T>) updates]) =>
       (new GenericValueBuilder<T>()..update(updates)).build();
 
-  _$GenericValue._({this.value}) : super._() {
+  _$GenericValue._({T value})
+      : _value = value,
+        super._() {
     if (value == null) {
       throw new BuiltValueNullFieldError('GenericValue', 'value');
     }
@@ -332,14 +334,16 @@ class GenericValueBuilder<T>
 }
 
 class _$BoundGenericValue<T extends num> extends BoundGenericValue<T> {
+  final T _value;
   @override
-  final T value;
-
+  T get value => _value;
   factory _$BoundGenericValue(
           [void Function(BoundGenericValueBuilder<T>) updates]) =>
       (new BoundGenericValueBuilder<T>()..update(updates)).build();
 
-  _$BoundGenericValue._({this.value}) : super._() {
+  _$BoundGenericValue._({T value})
+      : _value = value,
+        super._() {
     if (value == null) {
       throw new BuiltValueNullFieldError('BoundGenericValue', 'value');
     }
@@ -416,14 +420,16 @@ class BoundGenericValueBuilder<T extends num>
 }
 
 class _$CollectionGenericValue<T> extends CollectionGenericValue<T> {
+  final BuiltList<T> _values;
   @override
-  final BuiltList<T> values;
-
+  BuiltList<T> get values => _values;
   factory _$CollectionGenericValue(
           [void Function(CollectionGenericValueBuilder<T>) updates]) =>
       (new CollectionGenericValueBuilder<T>()..update(updates)).build();
 
-  _$CollectionGenericValue._({this.values}) : super._() {
+  _$CollectionGenericValue._({BuiltList<T> values})
+      : _values = values,
+        super._() {
     if (values == null) {
       throw new BuiltValueNullFieldError('CollectionGenericValue', 'values');
     }
@@ -515,20 +521,28 @@ class CollectionGenericValueBuilder<T>
 }
 
 class _$GenericContainer extends GenericContainer {
+  final GenericValue<String> _genericValue;
   @override
-  final GenericValue<String> genericValue;
+  GenericValue<String> get genericValue => _genericValue;
+  final BoundGenericValue<double> _boundGenericValue;
   @override
-  final BoundGenericValue<double> boundGenericValue;
+  BoundGenericValue<double> get boundGenericValue => _boundGenericValue;
+  final CollectionGenericValue<String> _collectionGenericValue;
   @override
-  final CollectionGenericValue<String> collectionGenericValue;
-
+  CollectionGenericValue<String> get collectionGenericValue =>
+      _collectionGenericValue;
   factory _$GenericContainer(
           [void Function(GenericContainerBuilder) updates]) =>
       (new GenericContainerBuilder()..update(updates)).build();
 
   _$GenericContainer._(
-      {this.genericValue, this.boundGenericValue, this.collectionGenericValue})
-      : super._() {
+      {GenericValue<String> genericValue,
+      BoundGenericValue<double> boundGenericValue,
+      CollectionGenericValue<String> collectionGenericValue})
+      : _genericValue = genericValue,
+        _boundGenericValue = boundGenericValue,
+        _collectionGenericValue = collectionGenericValue,
+        super._() {
     if (genericValue == null) {
       throw new BuiltValueNullFieldError('GenericContainer', 'genericValue');
     }

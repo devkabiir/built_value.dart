@@ -107,15 +107,19 @@ abstract class AnimalBuilder {
 }
 
 class _$Cat extends Cat {
+  final bool _tail;
   @override
-  final bool tail;
+  bool get tail => _tail;
+  final int _legs;
   @override
-  final int legs;
-
+  int get legs => _legs;
   factory _$Cat([void Function(CatBuilder) updates]) =>
       (new CatBuilder()..update(updates)).build();
 
-  _$Cat._({this.tail, this.legs}) : super._() {
+  _$Cat._({bool tail, int legs})
+      : _tail = tail,
+        _legs = legs,
+        super._() {
     if (tail == null) {
       throw new BuiltValueNullFieldError('Cat', 'tail');
     }
@@ -195,15 +199,19 @@ class CatBuilder implements Builder<Cat, CatBuilder>, AnimalBuilder {
 }
 
 class _$Fish extends Fish {
+  final int _fins;
   @override
-  final int fins;
+  int get fins => _fins;
+  final int _legs;
   @override
-  final int legs;
-
+  int get legs => _legs;
   factory _$Fish([void Function(FishBuilder) updates]) =>
       (new FishBuilder()..update(updates)).build();
 
-  _$Fish._({this.fins, this.legs}) : super._() {
+  _$Fish._({int fins, int legs})
+      : _fins = fins,
+        _legs = legs,
+        super._() {
     if (fins == null) {
       throw new BuiltValueNullFieldError('Fish', 'fins');
     }

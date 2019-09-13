@@ -7,15 +7,19 @@ part of built_value_generator.memoized_getter;
 // **************************************************************************
 
 class _$MemoizedGetter extends MemoizedGetter {
+  final String _returnType;
   @override
-  final String returnType;
+  String get returnType => _returnType;
+  final String _name;
   @override
-  final String name;
-
+  String get name => _name;
   factory _$MemoizedGetter([void Function(MemoizedGetterBuilder) updates]) =>
       (new MemoizedGetterBuilder()..update(updates)).build();
 
-  _$MemoizedGetter._({this.returnType, this.name}) : super._() {
+  _$MemoizedGetter._({String returnType, String name})
+      : _returnType = returnType,
+        _name = name,
+        super._() {
     if (returnType == null) {
       throw new BuiltValueNullFieldError('MemoizedGetter', 'returnType');
     }

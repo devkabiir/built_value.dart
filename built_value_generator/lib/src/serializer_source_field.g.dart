@@ -7,14 +7,18 @@ part of built_value_generator.source_field;
 // **************************************************************************
 
 class _$SerializerSourceField extends SerializerSourceField {
+  final BuiltValue _settings;
   @override
-  final BuiltValue settings;
+  BuiltValue get settings => _settings;
+  final ParsedLibraryResult _parsedLibrary;
   @override
-  final ParsedLibraryResult parsedLibrary;
+  ParsedLibraryResult get parsedLibrary => _parsedLibrary;
+  final FieldElement _element;
   @override
-  final FieldElement element;
+  FieldElement get element => _element;
+  final FieldElement _builderElement;
   @override
-  final FieldElement builderElement;
+  FieldElement get builderElement => _builderElement;
   bool __isSerializable;
   BuiltValueField __builtValueField;
   bool __isNullable;
@@ -31,8 +35,15 @@ class _$SerializerSourceField extends SerializerSourceField {
       (new SerializerSourceFieldBuilder()..update(updates)).build();
 
   _$SerializerSourceField._(
-      {this.settings, this.parsedLibrary, this.element, this.builderElement})
-      : super._() {
+      {BuiltValue settings,
+      ParsedLibraryResult parsedLibrary,
+      FieldElement element,
+      FieldElement builderElement})
+      : _settings = settings,
+        _parsedLibrary = parsedLibrary,
+        _element = element,
+        _builderElement = builderElement,
+        super._() {
     if (settings == null) {
       throw new BuiltValueNullFieldError('SerializerSourceField', 'settings');
     }

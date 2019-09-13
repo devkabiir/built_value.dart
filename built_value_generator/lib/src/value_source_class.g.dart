@@ -7,8 +7,9 @@ part of built_value_generator.source_class;
 // **************************************************************************
 
 class _$ValueSourceClass extends ValueSourceClass {
+  final ClassElement _element;
   @override
-  final ClassElement element;
+  ClassElement get element => _element;
   ParsedLibraryResult __parsedLibrary;
   String __name;
   String __implName;
@@ -44,7 +45,9 @@ class _$ValueSourceClass extends ValueSourceClass {
           [void Function(ValueSourceClassBuilder) updates]) =>
       (new ValueSourceClassBuilder()..update(updates)).build();
 
-  _$ValueSourceClass._({this.element}) : super._() {
+  _$ValueSourceClass._({ClassElement element})
+      : _element = element,
+        super._() {
     if (element == null) {
       throw new BuiltValueNullFieldError('ValueSourceClass', 'element');
     }

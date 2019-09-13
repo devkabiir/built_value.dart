@@ -97,15 +97,19 @@ class _$EnumWithIntSerializer implements PrimitiveSerializer<EnumWithInt> {
 }
 
 class _$ValueWithInt extends ValueWithInt {
+  final int _anInt;
   @override
-  final int anInt;
+  int get anInt => _anInt;
+  final String _note;
   @override
-  final String note;
-
+  String get note => _note;
   factory _$ValueWithInt([void Function(ValueWithIntBuilder) updates]) =>
       (new ValueWithIntBuilder()..update(updates)).build() as _$ValueWithInt;
 
-  _$ValueWithInt._({this.anInt, this.note}) : super._() {
+  _$ValueWithInt._({int anInt, String note})
+      : _anInt = anInt,
+        _note = note,
+        super._() {
     if (anInt == null) {
       throw new BuiltValueNullFieldError('ValueWithInt', 'anInt');
     }

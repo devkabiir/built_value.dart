@@ -7,14 +7,18 @@ part of built_value_generator.source_field;
 // **************************************************************************
 
 class _$ValueSourceField extends ValueSourceField {
+  final BuiltValue _settings;
   @override
-  final BuiltValue settings;
+  BuiltValue get settings => _settings;
+  final ParsedLibraryResult _parsedLibrary;
   @override
-  final ParsedLibraryResult parsedLibrary;
+  ParsedLibraryResult get parsedLibrary => _parsedLibrary;
+  final FieldElement _element;
   @override
-  final FieldElement element;
+  FieldElement get element => _element;
+  final FieldElement _builderElement;
   @override
-  final FieldElement builderElement;
+  FieldElement get builderElement => _builderElement;
   String __name;
   String __type;
   bool __isFunctionType;
@@ -34,8 +38,15 @@ class _$ValueSourceField extends ValueSourceField {
       (new ValueSourceFieldBuilder()..update(updates)).build();
 
   _$ValueSourceField._(
-      {this.settings, this.parsedLibrary, this.element, this.builderElement})
-      : super._() {
+      {BuiltValue settings,
+      ParsedLibraryResult parsedLibrary,
+      FieldElement element,
+      FieldElement builderElement})
+      : _settings = settings,
+        _parsedLibrary = parsedLibrary,
+        _element = element,
+        _builderElement = builderElement,
+        super._() {
     if (settings == null) {
       throw new BuiltValueNullFieldError('ValueSourceField', 'settings');
     }

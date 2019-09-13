@@ -7,6 +7,8 @@ import 'dart:collection';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:built_value/built_value.dart';
+import 'package:source_gen/source_gen.dart';
 
 /// Gets fields, including from interfaces. Fields from interfaces are only
 /// returned if they are not also implemented by a mixin.
@@ -15,6 +17,20 @@ import 'package:built_collection/built_collection.dart';
 /// returned.
 BuiltList<FieldElement> collectFields(ClassElement element) =>
     collectFieldsForType(element.type);
+
+/// Check whether non-abstract [field] is explicitly annotated with `BuiltValueField(serialize:true)`
+bool isValueFieldWithDefault(FieldElement field) {
+  if (field.getter.isAbstract) return false;
+
+  final result = field.getter.metadata
+      .map((annotation) => annotation.computeConstantValue())
+      .where((value) =>
+          value?.type?.displayName == 'BuiltValueField' &&
+          (value?.getField('serialize')?.toBoolValue() ?? false))
+      .isNotEmpty;
+
+  return result;
+}
 
 /// Gets fields, including from interfaces. Fields from interfaces are only
 /// returned if they are not also implemented by a mixin.
@@ -38,12 +54,18 @@ BuiltList<FieldElement> collectFieldsForType(InterfaceType type) {
       hashCode: (a) => a.displayName.hashCode);
   fieldSet.addAll(fields);
 
+  // If thisType is `false` overriden value fields with defaults are skipped,
+  // If thisType is `true` overriden value fields with defaults are collected,
+  final isValueFieldAbstract = (String name) =>
+      type.lookUpInheritedGetter(name, thisType: true)?.isAbstract ?? true;
+
   // Filter to fields that are not implemented by a mixin.
   return BuiltList<FieldElement>.build((b) => b
     ..addAll(fieldSet)
-    ..where((field) =>
-        type.lookUpInheritedGetter(field.name, thisType: false)?.isAbstract ??
-        true));
+    ..where(
+      (field) =>
+          isValueFieldWithDefault(field) || isValueFieldAbstract(field.name),
+    ));
 }
 
 BuiltList<FieldElement> _fieldElementsForType(InterfaceType type) {

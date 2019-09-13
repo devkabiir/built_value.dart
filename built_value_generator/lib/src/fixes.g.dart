@@ -7,20 +7,27 @@ part of 'fixes.dart';
 // **************************************************************************
 
 class _$GeneratorError extends GeneratorError {
+  final String _message;
   @override
-  final String message;
+  String get message => _message;
+  final int _offset;
   @override
-  final int offset;
+  int get offset => _offset;
+  final int _length;
   @override
-  final int length;
+  int get length => _length;
+  final String _fix;
   @override
-  final String fix;
-
+  String get fix => _fix;
   factory _$GeneratorError([void Function(GeneratorErrorBuilder) updates]) =>
       (new GeneratorErrorBuilder()..update(updates)).build();
 
-  _$GeneratorError._({this.message, this.offset, this.length, this.fix})
-      : super._() {
+  _$GeneratorError._({String message, int offset, int length, String fix})
+      : _message = message,
+        _offset = offset,
+        _length = length,
+        _fix = fix,
+        super._() {
     if (message == null) {
       throw new BuiltValueNullFieldError('GeneratorError', 'message');
     }

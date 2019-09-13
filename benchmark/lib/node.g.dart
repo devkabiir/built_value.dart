@@ -7,17 +7,23 @@ part of node;
 // **************************************************************************
 
 class _$Node extends Node {
+  final String _label;
   @override
-  final String label;
+  String get label => _label;
+  final Node _left;
   @override
-  final Node left;
+  Node get left => _left;
+  final Node _right;
   @override
-  final Node right;
-
+  Node get right => _right;
   factory _$Node([void Function(NodeBuilder) updates]) =>
       (new NodeBuilder()..update(updates)).build();
 
-  _$Node._({this.label, this.left, this.right}) : super._();
+  _$Node._({String label, Node left, Node right})
+      : _label = label,
+        _left = left,
+        _right = right,
+        super._();
 
   @override
   Node rebuild(void Function(NodeBuilder) updates) =>

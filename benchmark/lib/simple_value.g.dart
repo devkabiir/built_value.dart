@@ -7,15 +7,19 @@ part of simple_value;
 // **************************************************************************
 
 class _$SimpleValue extends SimpleValue {
+  final int _anInt;
   @override
-  final int anInt;
+  int get anInt => _anInt;
+  final String _aString;
   @override
-  final String aString;
-
+  String get aString => _aString;
   factory _$SimpleValue([void Function(SimpleValueBuilder) updates]) =>
       (new SimpleValueBuilder()..update(updates)).build();
 
-  _$SimpleValue._({this.anInt, this.aString}) : super._() {
+  _$SimpleValue._({int anInt, String aString})
+      : _anInt = anInt,
+        _aString = aString,
+        super._() {
     if (anInt == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'anInt');
     }

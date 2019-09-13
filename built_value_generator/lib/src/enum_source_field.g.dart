@@ -7,10 +7,12 @@ part of built_value_generator.enum_source_field;
 // **************************************************************************
 
 class _$EnumSourceField extends EnumSourceField {
+  final ParsedLibraryResult _parsedLibrary;
   @override
-  final ParsedLibraryResult parsedLibrary;
+  ParsedLibraryResult get parsedLibrary => _parsedLibrary;
+  final FieldElement _element;
   @override
-  final FieldElement element;
+  FieldElement get element => _element;
   String __name;
   String __type;
   BuiltValueEnumConst __settings;
@@ -21,7 +23,10 @@ class _$EnumSourceField extends EnumSourceField {
   factory _$EnumSourceField([void Function(EnumSourceFieldBuilder) updates]) =>
       (new EnumSourceFieldBuilder()..update(updates)).build();
 
-  _$EnumSourceField._({this.parsedLibrary, this.element}) : super._() {
+  _$EnumSourceField._({ParsedLibraryResult parsedLibrary, FieldElement element})
+      : _parsedLibrary = parsedLibrary,
+        _element = element,
+        super._() {
     if (parsedLibrary == null) {
       throw new BuiltValueNullFieldError('EnumSourceField', 'parsedLibrary');
     }

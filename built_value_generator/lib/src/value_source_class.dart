@@ -9,6 +9,7 @@ import 'package:analyzer/dart/ast/ast.dart';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
+import 'package:built_value_generator/src/fields.dart';
 import 'package:built_value_generator/src/fixes.dart';
 import 'package:built_value_generator/src/memoized_getter.dart';
 import 'package:built_value_generator/src/value_source_field.dart';
@@ -591,8 +592,12 @@ abstract class ValueSourceClass
         'extends $name$_generics {');
     for (var field in fields) {
       final type = field.typeInCompilationUnit(compilationUnit);
+      result.writeln('final $type _${field.name};');
       result.writeln('@override');
-      result.writeln('final $type ${field.name};');
+      result.write('$type get ${field.name} => _${field.name}');
+      if (isValueFieldWithDefault(field.element))
+        result.write('?? super.${field.name}');
+      result.write(';');
     }
     for (var memoizedGetter in memoizedGetters) {
       result.writeln('${memoizedGetter.returnType} __${memoizedGetter.name};');
@@ -612,8 +617,14 @@ abstract class ValueSourceClass
       result.write('$implName._() : super._()');
     } else {
       result.write('$implName._({');
-      result.write(fields.map((field) => 'this.${field.name}').join(', '));
-      result.write('}) : super._()');
+      result.write(fields
+          .map((field) =>
+              '${field.typeInCompilationUnit(compilationUnit)} ${field.name}')
+          .join(', '));
+      result.write('}) : ');
+      result.write(
+          fields.map((field) => '_${field.name} = ${field.name}').join(', '));
+      result.write(', super._()');
     }
     var requiredFields = fields.where((field) => !field.isNullable);
     if (requiredFields.isEmpty && genericParameters.isEmpty) {

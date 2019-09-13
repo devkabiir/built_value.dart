@@ -162,42 +162,63 @@ class _$CollectionsSerializer implements StructuredSerializer<Collections> {
 }
 
 class _$Collections extends Collections {
+  final BuiltList<int> _list;
   @override
-  final BuiltList<int> list;
+  BuiltList<int> get list => _list;
+  final BuiltSet<String> _set;
   @override
-  final BuiltSet<String> set;
+  BuiltSet<String> get set => _set;
+  final BuiltMap<String, int> _map;
   @override
-  final BuiltMap<String, int> map;
+  BuiltMap<String, int> get map => _map;
+  final BuiltListMultimap<int, bool> _listMultimap;
   @override
-  final BuiltListMultimap<int, bool> listMultimap;
+  BuiltListMultimap<int, bool> get listMultimap => _listMultimap;
+  final BuiltSetMultimap<String, bool> _setMultimap;
   @override
-  final BuiltSetMultimap<String, bool> setMultimap;
+  BuiltSetMultimap<String, bool> get setMultimap => _setMultimap;
+  final BuiltList<int> _nullableList;
   @override
-  final BuiltList<int> nullableList;
+  BuiltList<int> get nullableList => _nullableList;
+  final BuiltSet<String> _nullableSet;
   @override
-  final BuiltSet<String> nullableSet;
+  BuiltSet<String> get nullableSet => _nullableSet;
+  final BuiltMap<String, int> _nullableMap;
   @override
-  final BuiltMap<String, int> nullableMap;
+  BuiltMap<String, int> get nullableMap => _nullableMap;
+  final BuiltListMultimap<int, bool> _nullableListMultimap;
   @override
-  final BuiltListMultimap<int, bool> nullableListMultimap;
+  BuiltListMultimap<int, bool> get nullableListMultimap =>
+      _nullableListMultimap;
+  final BuiltSetMultimap<String, bool> _nullableSetMultimap;
   @override
-  final BuiltSetMultimap<String, bool> nullableSetMultimap;
-
+  BuiltSetMultimap<String, bool> get nullableSetMultimap =>
+      _nullableSetMultimap;
   factory _$Collections([void Function(CollectionsBuilder) updates]) =>
       (new CollectionsBuilder()..update(updates)).build();
 
   _$Collections._(
-      {this.list,
-      this.set,
-      this.map,
-      this.listMultimap,
-      this.setMultimap,
-      this.nullableList,
-      this.nullableSet,
-      this.nullableMap,
-      this.nullableListMultimap,
-      this.nullableSetMultimap})
-      : super._() {
+      {BuiltList<int> list,
+      BuiltSet<String> set,
+      BuiltMap<String, int> map,
+      BuiltListMultimap<int, bool> listMultimap,
+      BuiltSetMultimap<String, bool> setMultimap,
+      BuiltList<int> nullableList,
+      BuiltSet<String> nullableSet,
+      BuiltMap<String, int> nullableMap,
+      BuiltListMultimap<int, bool> nullableListMultimap,
+      BuiltSetMultimap<String, bool> nullableSetMultimap})
+      : _list = list,
+        _set = set,
+        _map = map,
+        _listMultimap = listMultimap,
+        _setMultimap = setMultimap,
+        _nullableList = nullableList,
+        _nullableSet = nullableSet,
+        _nullableMap = nullableMap,
+        _nullableListMultimap = nullableListMultimap,
+        _nullableSetMultimap = nullableSetMultimap,
+        super._() {
     if (list == null) {
       throw new BuiltValueNullFieldError('Collections', 'list');
     }

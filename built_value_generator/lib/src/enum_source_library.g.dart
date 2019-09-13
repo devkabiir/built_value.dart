@@ -7,8 +7,9 @@ part of built_value_generator.enum_source_library;
 // **************************************************************************
 
 class _$EnumSourceLibrary extends EnumSourceLibrary {
+  final LibraryElement _element;
   @override
-  final LibraryElement element;
+  LibraryElement get element => _element;
   ParsedLibraryResult __parsedLibrary;
   String __name;
   String __fileName;
@@ -19,7 +20,9 @@ class _$EnumSourceLibrary extends EnumSourceLibrary {
           [void Function(EnumSourceLibraryBuilder) updates]) =>
       (new EnumSourceLibraryBuilder()..update(updates)).build();
 
-  _$EnumSourceLibrary._({this.element}) : super._() {
+  _$EnumSourceLibrary._({LibraryElement element})
+      : _element = element,
+        super._() {
     if (element == null) {
       throw new BuiltValueNullFieldError('EnumSourceLibrary', 'element');
     }
