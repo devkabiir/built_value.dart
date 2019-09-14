@@ -16,6 +16,8 @@ import 'package:built_value_generator/src/value_source_field.dart';
 import 'package:quiver/iterables.dart';
 import 'package:source_gen/source_gen.dart';
 
+import 'metadata.dart';
+
 part 'value_source_class.g.dart';
 
 const String _importWithSingleQuotes =
@@ -592,11 +594,24 @@ abstract class ValueSourceClass
         'extends $name$_generics {');
     for (var field in fields) {
       final type = field.typeInCompilationUnit(compilationUnit);
-      result.writeln('final $type _${field.name};');
+      final hasDefaultValue = isValueFieldWithDefault(field.element);
+      final isMemoized = field.element.getter.metadata
+          .any((metadata) => metadataToStringValue(metadata) == 'memoized');
+
+      if (hasDefaultValue && isMemoized) {
+        result.writeln('$type _${field.name};');
+      } else {
+        result.writeln('final $type _${field.name};');
+      }
+
       result.writeln('@override');
       result.write('$type get ${field.name} => _${field.name}');
-      if (isValueFieldWithDefault(field.element)) {
-        result.write('?? super.${field.name}');
+      if (hasDefaultValue) {
+        if (isMemoized) {
+          result.write('??= super.${field.name}');
+        } else {
+          result.write('?? super.${field.name}');
+        }
       }
       result.write(';');
     }

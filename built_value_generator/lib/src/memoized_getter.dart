@@ -2,6 +2,8 @@ library built_value_generator.memoized_getter;
 
 import 'package:analyzer/dart/element/element.dart';
 import 'package:built_value/built_value.dart';
+import 'package:built_value_generator/src/fields.dart'
+    show isValueFieldWithDefault;
 import 'package:built_value_generator/src/metadata.dart'
     show metadataToStringValue;
 
@@ -18,11 +20,14 @@ abstract class MemoizedGetter
 
   static Iterable<MemoizedGetter> fromClassElement(ClassElement classElement) {
     return classElement.fields
-        .where((field) =>
-            field.getter != null &&
-            !field.getter.isAbstract &&
-            field.getter.metadata.any(
-                (metadata) => metadataToStringValue(metadata) == 'memoized'))
+        .where(
+          (field) =>
+              field.getter != null &&
+              !field.getter.isAbstract &&
+              field.getter.metadata.any((metadata) =>
+                  metadataToStringValue(metadata) == 'memoized') &&
+              !isValueFieldWithDefault(field),
+        )
         .map((field) => MemoizedGetter((b) => b
           ..returnType = field.getter.returnType.toString()
           ..name = field.displayName))
