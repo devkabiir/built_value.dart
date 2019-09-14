@@ -20,10 +20,10 @@ class _$SimpleValue extends SimpleValue {
       : _anInt = anInt,
         _aString = aString,
         super._() {
-    if (anInt == null) {
+    if (this.anInt == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'anInt');
     }
-    if (aString == null) {
+    if (this.aString == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'aString');
     }
   }

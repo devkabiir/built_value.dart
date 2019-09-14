@@ -110,10 +110,10 @@ class _$ValueWithInt extends ValueWithInt {
       : _anInt = anInt,
         _note = note,
         super._() {
-    if (anInt == null) {
+    if (this.anInt == null) {
       throw new BuiltValueNullFieldError('ValueWithInt', 'anInt');
     }
-    if (note == null) {
+    if (this.note == null) {
       throw new BuiltValueNullFieldError('ValueWithInt', 'note');
     }
   }

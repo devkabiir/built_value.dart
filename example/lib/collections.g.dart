@@ -219,19 +219,19 @@ class _$Collections extends Collections {
         _nullableListMultimap = nullableListMultimap,
         _nullableSetMultimap = nullableSetMultimap,
         super._() {
-    if (list == null) {
+    if (this.list == null) {
       throw new BuiltValueNullFieldError('Collections', 'list');
     }
-    if (set == null) {
+    if (this.set == null) {
       throw new BuiltValueNullFieldError('Collections', 'set');
     }
-    if (map == null) {
+    if (this.map == null) {
       throw new BuiltValueNullFieldError('Collections', 'map');
     }
-    if (listMultimap == null) {
+    if (this.listMultimap == null) {
       throw new BuiltValueNullFieldError('Collections', 'listMultimap');
     }
-    if (setMultimap == null) {
+    if (this.setMultimap == null) {
       throw new BuiltValueNullFieldError('Collections', 'setMultimap');
     }
   }

@@ -260,7 +260,7 @@ class _$GenericValue<T> extends GenericValue<T> {
   _$GenericValue._({T value})
       : _value = value,
         super._() {
-    if (value == null) {
+    if (this.value == null) {
       throw new BuiltValueNullFieldError('GenericValue', 'value');
     }
     if (T == dynamic) {
@@ -344,7 +344,7 @@ class _$BoundGenericValue<T extends num> extends BoundGenericValue<T> {
   _$BoundGenericValue._({T value})
       : _value = value,
         super._() {
-    if (value == null) {
+    if (this.value == null) {
       throw new BuiltValueNullFieldError('BoundGenericValue', 'value');
     }
     if (T == dynamic) {
@@ -430,7 +430,7 @@ class _$CollectionGenericValue<T> extends CollectionGenericValue<T> {
   _$CollectionGenericValue._({BuiltList<T> values})
       : _values = values,
         super._() {
-    if (values == null) {
+    if (this.values == null) {
       throw new BuiltValueNullFieldError('CollectionGenericValue', 'values');
     }
     if (T == dynamic) {
@@ -543,14 +543,14 @@ class _$GenericContainer extends GenericContainer {
         _boundGenericValue = boundGenericValue,
         _collectionGenericValue = collectionGenericValue,
         super._() {
-    if (genericValue == null) {
+    if (this.genericValue == null) {
       throw new BuiltValueNullFieldError('GenericContainer', 'genericValue');
     }
-    if (boundGenericValue == null) {
+    if (this.boundGenericValue == null) {
       throw new BuiltValueNullFieldError(
           'GenericContainer', 'boundGenericValue');
     }
-    if (collectionGenericValue == null) {
+    if (this.collectionGenericValue == null) {
       throw new BuiltValueNullFieldError(
           'GenericContainer', 'collectionGenericValue');
     }

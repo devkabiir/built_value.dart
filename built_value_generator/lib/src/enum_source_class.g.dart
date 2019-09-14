@@ -29,7 +29,7 @@ class _$EnumSourceClass extends EnumSourceClass {
   _$EnumSourceClass._({ClassElement element})
       : _element = element,
         super._() {
-    if (element == null) {
+    if (this.element == null) {
       throw new BuiltValueNullFieldError('EnumSourceClass', 'element');
     }
   }

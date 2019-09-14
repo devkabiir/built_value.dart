@@ -120,10 +120,10 @@ class _$Cat extends Cat {
       : _tail = tail,
         _legs = legs,
         super._() {
-    if (tail == null) {
+    if (this.tail == null) {
       throw new BuiltValueNullFieldError('Cat', 'tail');
     }
-    if (legs == null) {
+    if (this.legs == null) {
       throw new BuiltValueNullFieldError('Cat', 'legs');
     }
   }
@@ -212,10 +212,10 @@ class _$Fish extends Fish {
       : _fins = fins,
         _legs = legs,
         super._() {
-    if (fins == null) {
+    if (this.fins == null) {
       throw new BuiltValueNullFieldError('Fish', 'fins');
     }
-    if (legs == null) {
+    if (this.legs == null) {
       throw new BuiltValueNullFieldError('Fish', 'legs');
     }
   }

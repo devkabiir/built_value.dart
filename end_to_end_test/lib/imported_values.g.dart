@@ -180,19 +180,25 @@ class _$ImportedCustomNestedValueSerializer
 }
 
 class _$ImportedValue extends ImportedValue {
+  final prefix.SimpleValue _simpleValue;
   @override
-  final prefix.SimpleValue simpleValue;
+  prefix.SimpleValue get simpleValue => _simpleValue;
+  final BuiltList<prefix.SimpleValue> _simpleValues;
   @override
-  final BuiltList<prefix.SimpleValue> simpleValues;
-
+  BuiltList<prefix.SimpleValue> get simpleValues => _simpleValues;
   factory _$ImportedValue([void Function(ImportedValueBuilder) updates]) =>
       (new ImportedValueBuilder()..update(updates)).build();
 
-  _$ImportedValue._({this.simpleValue, this.simpleValues}) : super._() {
-    if (simpleValue == null) {
+  _$ImportedValue._(
+      {prefix.SimpleValue simpleValue,
+      BuiltList<prefix.SimpleValue> simpleValues})
+      : _simpleValue = simpleValue,
+        _simpleValues = simpleValues,
+        super._() {
+    if (this.simpleValue == null) {
       throw new BuiltValueNullFieldError('ImportedValue', 'simpleValue');
     }
-    if (simpleValues == null) {
+    if (this.simpleValues == null) {
       throw new BuiltValueNullFieldError('ImportedValue', 'simpleValues');
     }
   }
@@ -293,21 +299,27 @@ class ImportedValueBuilder
 }
 
 class _$ImportedCustomValue extends ImportedCustomValue {
+  final prefix.SimpleValue _simpleValue;
   @override
-  final prefix.SimpleValue simpleValue;
+  prefix.SimpleValue get simpleValue => _simpleValue;
+  final BuiltList<prefix.SimpleValue> _simpleValues;
   @override
-  final BuiltList<prefix.SimpleValue> simpleValues;
-
+  BuiltList<prefix.SimpleValue> get simpleValues => _simpleValues;
   factory _$ImportedCustomValue(
           [void Function(ImportedCustomValueBuilder) updates]) =>
       (new ImportedCustomValueBuilder()..update(updates)).build()
           as _$ImportedCustomValue;
 
-  _$ImportedCustomValue._({this.simpleValue, this.simpleValues}) : super._() {
-    if (simpleValue == null) {
+  _$ImportedCustomValue._(
+      {prefix.SimpleValue simpleValue,
+      BuiltList<prefix.SimpleValue> simpleValues})
+      : _simpleValue = simpleValue,
+        _simpleValues = simpleValues,
+        super._() {
+    if (this.simpleValue == null) {
       throw new BuiltValueNullFieldError('ImportedCustomValue', 'simpleValue');
     }
-    if (simpleValues == null) {
+    if (this.simpleValues == null) {
       throw new BuiltValueNullFieldError('ImportedCustomValue', 'simpleValues');
     }
   }
@@ -405,23 +417,28 @@ class _$ImportedCustomValueBuilder extends ImportedCustomValueBuilder {
 }
 
 class _$ImportedCustomNestedValue extends ImportedCustomNestedValue {
+  final prefix.SimpleValue _simpleValue;
   @override
-  final prefix.SimpleValue simpleValue;
+  prefix.SimpleValue get simpleValue => _simpleValue;
+  final BuiltList<prefix.SimpleValue> _simpleValues;
   @override
-  final BuiltList<prefix.SimpleValue> simpleValues;
-
+  BuiltList<prefix.SimpleValue> get simpleValues => _simpleValues;
   factory _$ImportedCustomNestedValue(
           [void Function(ImportedCustomNestedValueBuilder) updates]) =>
       (new ImportedCustomNestedValueBuilder()..update(updates)).build()
           as _$ImportedCustomNestedValue;
 
-  _$ImportedCustomNestedValue._({this.simpleValue, this.simpleValues})
-      : super._() {
-    if (simpleValue == null) {
+  _$ImportedCustomNestedValue._(
+      {prefix.SimpleValue simpleValue,
+      BuiltList<prefix.SimpleValue> simpleValues})
+      : _simpleValue = simpleValue,
+        _simpleValues = simpleValues,
+        super._() {
+    if (this.simpleValue == null) {
       throw new BuiltValueNullFieldError(
           'ImportedCustomNestedValue', 'simpleValue');
     }
-    if (simpleValues == null) {
+    if (this.simpleValues == null) {
       throw new BuiltValueNullFieldError(
           'ImportedCustomNestedValue', 'simpleValues');
     }

@@ -100,44 +100,55 @@ class _$StandardJsonValueSerializer
 }
 
 class _$StandardJsonValue extends StandardJsonValue {
+  final num _number;
   @override
-  final num number;
+  num get number => _number;
+  final String _text;
   @override
-  final String text;
+  String get text => _text;
+  final BuiltMap<String, JsonObject> _keyValues;
   @override
-  final BuiltMap<String, JsonObject> keyValues;
+  BuiltMap<String, JsonObject> get keyValues => _keyValues;
+  final BuiltList<Animal> _zoo;
   @override
-  final BuiltList<Animal> zoo;
+  BuiltList<Animal> get zoo => _zoo;
+  final BuiltSet<Animal> _uniqueZoo;
   @override
-  final BuiltSet<Animal> uniqueZoo;
+  BuiltSet<Animal> get uniqueZoo => _uniqueZoo;
+  final BuiltList<String> _strings;
   @override
-  final BuiltList<String> strings;
-
+  BuiltList<String> get strings => _strings;
   factory _$StandardJsonValue(
           [void Function(StandardJsonValueBuilder) updates]) =>
       (new StandardJsonValueBuilder()..update(updates)).build();
 
   _$StandardJsonValue._(
-      {this.number,
-      this.text,
-      this.keyValues,
-      this.zoo,
-      this.uniqueZoo,
-      this.strings})
-      : super._() {
-    if (number == null) {
+      {num number,
+      String text,
+      BuiltMap<String, JsonObject> keyValues,
+      BuiltList<Animal> zoo,
+      BuiltSet<Animal> uniqueZoo,
+      BuiltList<String> strings})
+      : _number = number,
+        _text = text,
+        _keyValues = keyValues,
+        _zoo = zoo,
+        _uniqueZoo = uniqueZoo,
+        _strings = strings,
+        super._() {
+    if (this.number == null) {
       throw new BuiltValueNullFieldError('StandardJsonValue', 'number');
     }
-    if (text == null) {
+    if (this.text == null) {
       throw new BuiltValueNullFieldError('StandardJsonValue', 'text');
     }
-    if (keyValues == null) {
+    if (this.keyValues == null) {
       throw new BuiltValueNullFieldError('StandardJsonValue', 'keyValues');
     }
-    if (zoo == null) {
+    if (this.zoo == null) {
       throw new BuiltValueNullFieldError('StandardJsonValue', 'zoo');
     }
-    if (uniqueZoo == null) {
+    if (this.uniqueZoo == null) {
       throw new BuiltValueNullFieldError('StandardJsonValue', 'uniqueZoo');
     }
   }

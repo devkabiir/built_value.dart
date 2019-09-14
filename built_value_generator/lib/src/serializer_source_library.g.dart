@@ -25,7 +25,7 @@ class _$SerializerSourceLibrary extends SerializerSourceLibrary {
   _$SerializerSourceLibrary._({LibraryElement element})
       : _element = element,
         super._() {
-    if (element == null) {
+    if (this.element == null) {
       throw new BuiltValueNullFieldError('SerializerSourceLibrary', 'element');
     }
   }

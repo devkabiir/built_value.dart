@@ -7,14 +7,16 @@ part of value_test;
 // **************************************************************************
 
 class _$PrivateValue extends _PrivateValue {
+  final int _value;
   @override
-  final int value;
-
+  int get value => _value;
   factory _$PrivateValue([void Function(_PrivateValueBuilder) updates]) =>
       (new _PrivateValueBuilder()..update(updates)).build();
 
-  _$PrivateValue._({this.value}) : super._() {
-    if (value == null) {
+  _$PrivateValue._({int value})
+      : _value = value,
+        super._() {
+    if (this.value == null) {
       throw new BuiltValueNullFieldError('_PrivateValue', 'value');
     }
   }

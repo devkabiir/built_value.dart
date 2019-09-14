@@ -38,7 +38,7 @@ class _$SerializerSourceClass extends SerializerSourceClass {
       : _element = element,
         _builderElement = builderElement,
         super._() {
-    if (element == null) {
+    if (this.element == null) {
       throw new BuiltValueNullFieldError('SerializerSourceClass', 'element');
     }
   }

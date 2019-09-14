@@ -394,14 +394,16 @@ class _$NonBuiltGenericSerializer
 }
 
 class _$GenericValue<T> extends GenericValue<T> {
+  final T _value;
   @override
-  final T value;
-
+  T get value => _value;
   factory _$GenericValue([void Function(GenericValueBuilder<T>) updates]) =>
       (new GenericValueBuilder<T>()..update(updates)).build();
 
-  _$GenericValue._({this.value}) : super._() {
-    if (value == null) {
+  _$GenericValue._({T value})
+      : _value = value,
+        super._() {
+    if (this.value == null) {
       throw new BuiltValueNullFieldError('GenericValue', 'value');
     }
     if (T == dynamic) {
@@ -475,15 +477,17 @@ class GenericValueBuilder<T>
 }
 
 class _$BoundGenericValue<T extends num> extends BoundGenericValue<T> {
+  final T _value;
   @override
-  final T value;
-
+  T get value => _value;
   factory _$BoundGenericValue(
           [void Function(BoundGenericValueBuilder<T>) updates]) =>
       (new BoundGenericValueBuilder<T>()..update(updates)).build();
 
-  _$BoundGenericValue._({this.value}) : super._() {
-    if (value == null) {
+  _$BoundGenericValue._({T value})
+      : _value = value,
+        super._() {
+    if (this.value == null) {
       throw new BuiltValueNullFieldError('BoundGenericValue', 'value');
     }
     if (T == dynamic) {
@@ -559,15 +563,17 @@ class BoundGenericValueBuilder<T extends num>
 }
 
 class _$CollectionGenericValue<T> extends CollectionGenericValue<T> {
+  final BuiltList<T> _values;
   @override
-  final BuiltList<T> values;
-
+  BuiltList<T> get values => _values;
   factory _$CollectionGenericValue(
           [void Function(CollectionGenericValueBuilder<T>) updates]) =>
       (new CollectionGenericValueBuilder<T>()..update(updates)).build();
 
-  _$CollectionGenericValue._({this.values}) : super._() {
-    if (values == null) {
+  _$CollectionGenericValue._({BuiltList<T> values})
+      : _values = values,
+        super._() {
+    if (this.values == null) {
       throw new BuiltValueNullFieldError('CollectionGenericValue', 'values');
     }
     if (T == dynamic) {
@@ -658,28 +664,36 @@ class CollectionGenericValueBuilder<T>
 }
 
 class _$GenericContainer extends GenericContainer {
+  final GenericValue<String> _genericValue;
   @override
-  final GenericValue<String> genericValue;
+  GenericValue<String> get genericValue => _genericValue;
+  final BoundGenericValue<double> _boundGenericValue;
   @override
-  final BoundGenericValue<double> boundGenericValue;
+  BoundGenericValue<double> get boundGenericValue => _boundGenericValue;
+  final CollectionGenericValue<String> _collectionGenericValue;
   @override
-  final CollectionGenericValue<String> collectionGenericValue;
-
+  CollectionGenericValue<String> get collectionGenericValue =>
+      _collectionGenericValue;
   factory _$GenericContainer(
           [void Function(GenericContainerBuilder) updates]) =>
       (new GenericContainerBuilder()..update(updates)).build();
 
   _$GenericContainer._(
-      {this.genericValue, this.boundGenericValue, this.collectionGenericValue})
-      : super._() {
-    if (genericValue == null) {
+      {GenericValue<String> genericValue,
+      BoundGenericValue<double> boundGenericValue,
+      CollectionGenericValue<String> collectionGenericValue})
+      : _genericValue = genericValue,
+        _boundGenericValue = boundGenericValue,
+        _collectionGenericValue = collectionGenericValue,
+        super._() {
+    if (this.genericValue == null) {
       throw new BuiltValueNullFieldError('GenericContainer', 'genericValue');
     }
-    if (boundGenericValue == null) {
+    if (this.boundGenericValue == null) {
       throw new BuiltValueNullFieldError(
           'GenericContainer', 'boundGenericValue');
     }
-    if (collectionGenericValue == null) {
+    if (this.collectionGenericValue == null) {
       throw new BuiltValueNullFieldError(
           'GenericContainer', 'collectionGenericValue');
     }
@@ -798,15 +812,17 @@ class GenericContainerBuilder
 }
 
 class _$NestedGenericContainer extends NestedGenericContainer {
+  final GenericValue<BuiltMap<int, String>> _map;
   @override
-  final GenericValue<BuiltMap<int, String>> map;
-
+  GenericValue<BuiltMap<int, String>> get map => _map;
   factory _$NestedGenericContainer(
           [void Function(NestedGenericContainerBuilder) updates]) =>
       (new NestedGenericContainerBuilder()..update(updates)).build();
 
-  _$NestedGenericContainer._({this.map}) : super._() {
-    if (map == null) {
+  _$NestedGenericContainer._({GenericValue<BuiltMap<int, String>> map})
+      : _map = map,
+        super._() {
+    if (this.map == null) {
       throw new BuiltValueNullFieldError('NestedGenericContainer', 'map');
     }
   }
@@ -893,16 +909,18 @@ class NestedGenericContainerBuilder
 }
 
 class _$CustomBuilderGenericValue<T> extends CustomBuilderGenericValue<T> {
+  final T _value;
   @override
-  final T value;
-
+  T get value => _value;
   factory _$CustomBuilderGenericValue(
           [void Function(CustomBuilderGenericValueBuilder<T>) updates]) =>
       (new CustomBuilderGenericValueBuilder<T>()..update(updates)).build()
           as _$CustomBuilderGenericValue<T>;
 
-  _$CustomBuilderGenericValue._({this.value}) : super._() {
-    if (value == null) {
+  _$CustomBuilderGenericValue._({T value})
+      : _value = value,
+        super._() {
+    if (this.value == null) {
       throw new BuiltValueNullFieldError('CustomBuilderGenericValue', 'value');
     }
     if (T == dynamic) {
@@ -987,14 +1005,16 @@ class _$CustomBuilderGenericValueBuilder<T>
 }
 
 class _$ConcreteGeneric extends ConcreteGeneric {
+  final int _value;
   @override
-  final int value;
-
+  int get value => _value;
   factory _$ConcreteGeneric([void Function(ConcreteGenericBuilder) updates]) =>
       (new ConcreteGenericBuilder()..update(updates)).build();
 
-  _$ConcreteGeneric._({this.value}) : super._() {
-    if (value == null) {
+  _$ConcreteGeneric._({int value})
+      : _value = value,
+        super._() {
+    if (this.value == null) {
       throw new BuiltValueNullFieldError('ConcreteGeneric', 'value');
     }
   }
@@ -1065,15 +1085,17 @@ class ConcreteGenericBuilder
 }
 
 class _$GenericFunction<T> extends GenericFunction<T> {
+  final Function(T) _function;
   @override
-  final Function(T) function;
-
+  Function(T) get function => _function;
   factory _$GenericFunction(
           [void Function(GenericFunctionBuilder<T>) updates]) =>
       (new GenericFunctionBuilder<T>()..update(updates)).build();
 
-  _$GenericFunction._({this.function}) : super._() {
-    if (function == null) {
+  _$GenericFunction._({Function(T) function})
+      : _function = function,
+        super._() {
+    if (this.function == null) {
       throw new BuiltValueNullFieldError('GenericFunction', 'function');
     }
     if (T == dynamic) {
@@ -1150,14 +1172,16 @@ class GenericFunctionBuilder<T>
 }
 
 class _$NonBuiltGeneric extends NonBuiltGeneric {
+  final NonBuilt<int> _value;
   @override
-  final NonBuilt<int> value;
-
+  NonBuilt<int> get value => _value;
   factory _$NonBuiltGeneric([void Function(NonBuiltGenericBuilder) updates]) =>
       (new NonBuiltGenericBuilder()..update(updates)).build();
 
-  _$NonBuiltGeneric._({this.value}) : super._() {
-    if (value == null) {
+  _$NonBuiltGeneric._({NonBuilt<int> value})
+      : _value = value,
+        super._() {
+    if (this.value == null) {
       throw new BuiltValueNullFieldError('NonBuiltGeneric', 'value');
     }
   }

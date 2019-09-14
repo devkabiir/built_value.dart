@@ -316,7 +316,7 @@ class _$SimpleValue extends SimpleValue {
       : _anInt = anInt,
         _aString = aString,
         super._() {
-    if (anInt == null) {
+    if (this.anInt == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'anInt');
     }
   }
@@ -403,7 +403,7 @@ class _$VerySimpleValue extends VerySimpleValue {
   _$VerySimpleValue._({int value})
       : _value = value,
         super._() {
-    if (value == null) {
+    if (this.value == null) {
       throw new BuiltValueNullFieldError('VerySimpleValue', 'value');
     }
   }
@@ -487,7 +487,7 @@ class _$CompoundValue extends CompoundValue {
       : _simpleValue = simpleValue,
         _validatedValue = validatedValue,
         super._() {
-    if (simpleValue == null) {
+    if (this.simpleValue == null) {
       throw new BuiltValueNullFieldError('CompoundValue', 'simpleValue');
     }
   }
@@ -601,7 +601,7 @@ class _$ValidatedValue extends ValidatedValue {
       : _anInt = anInt,
         _aString = aString,
         super._() {
-    if (anInt == null) {
+    if (this.anInt == null) {
       throw new BuiltValueNullFieldError('ValidatedValue', 'anInt');
     }
   }
@@ -695,7 +695,7 @@ class _$ValueWithCode extends ValueWithCode {
       : _anInt = anInt,
         _aString = aString,
         super._() {
-    if (anInt == null) {
+    if (this.anInt == null) {
       throw new BuiltValueNullFieldError('ValueWithCode', 'anInt');
     }
   }
@@ -790,7 +790,7 @@ class _$ValueWithDefaults extends ValueWithDefaults {
       : _anInt = anInt,
         _aString = aString,
         super._() {
-    if (anInt == null) {
+    if (this.anInt == null) {
       throw new BuiltValueNullFieldError('ValueWithDefaults', 'anInt');
     }
   }
@@ -898,7 +898,7 @@ class _$DerivedValue extends DerivedValue {
   _$DerivedValue._({int anInt})
       : _anInt = anInt,
         super._() {
-    if (anInt == null) {
+    if (this.anInt == null) {
       throw new BuiltValueNullFieldError('DerivedValue', 'anInt');
     }
   }
@@ -991,13 +991,13 @@ class _$Account extends Account {
         _name = name,
         _keyValues = keyValues,
         super._() {
-    if (id == null) {
+    if (this.id == null) {
       throw new BuiltValueNullFieldError('Account', 'id');
     }
-    if (name == null) {
+    if (this.name == null) {
       throw new BuiltValueNullFieldError('Account', 'name');
     }
-    if (keyValues == null) {
+    if (this.keyValues == null) {
       throw new BuiltValueNullFieldError('Account', 'keyValues');
     }
   }
@@ -1108,7 +1108,7 @@ class _$WireNameValue extends WireNameValue {
   _$WireNameValue._({int value})
       : _value = value,
         super._() {
-    if (value == null) {
+    if (this.value == null) {
       throw new BuiltValueNullFieldError('WireNameValue', 'value');
     }
   }

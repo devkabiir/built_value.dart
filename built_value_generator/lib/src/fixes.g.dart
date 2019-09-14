@@ -28,7 +28,7 @@ class _$GeneratorError extends GeneratorError {
         _length = length,
         _fix = fix,
         super._() {
-    if (message == null) {
+    if (this.message == null) {
       throw new BuiltValueNullFieldError('GeneratorError', 'message');
     }
   }

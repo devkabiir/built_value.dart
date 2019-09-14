@@ -632,7 +632,7 @@ abstract class ValueSourceClass
     } else {
       result.writeln('{');
       for (var field in requiredFields) {
-        result.writeln('if (${field.name} == null) {');
+        result.writeln('if (this.${field.name} == null) {');
         result.writeln(
             "throw new BuiltValueNullFieldError('$name', '${field.name}');");
         result.writeln('}');

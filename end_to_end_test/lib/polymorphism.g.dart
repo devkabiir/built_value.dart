@@ -369,19 +369,23 @@ abstract class AnimalBuilder {
 }
 
 class _$Cat extends Cat {
+  final bool _tail;
   @override
-  final bool tail;
+  bool get tail => _tail;
+  final int _legs;
   @override
-  final int legs;
-
+  int get legs => _legs;
   factory _$Cat([void Function(CatBuilder) updates]) =>
       (new CatBuilder()..update(updates)).build();
 
-  _$Cat._({this.tail, this.legs}) : super._() {
-    if (tail == null) {
+  _$Cat._({bool tail, int legs})
+      : _tail = tail,
+        _legs = legs,
+        super._() {
+    if (this.tail == null) {
       throw new BuiltValueNullFieldError('Cat', 'tail');
     }
-    if (legs == null) {
+    if (this.legs == null) {
       throw new BuiltValueNullFieldError('Cat', 'legs');
     }
   }
@@ -457,19 +461,23 @@ class CatBuilder implements Builder<Cat, CatBuilder>, AnimalBuilder {
 }
 
 class _$Fish extends Fish {
+  final int _fins;
   @override
-  final int fins;
+  int get fins => _fins;
+  final int _legs;
   @override
-  final int legs;
-
+  int get legs => _legs;
   factory _$Fish([void Function(FishBuilder) updates]) =>
       (new FishBuilder()..update(updates)).build();
 
-  _$Fish._({this.fins, this.legs}) : super._() {
-    if (fins == null) {
+  _$Fish._({int fins, int legs})
+      : _fins = fins,
+        _legs = legs,
+        super._() {
+    if (this.fins == null) {
       throw new BuiltValueNullFieldError('Fish', 'fins');
     }
-    if (legs == null) {
+    if (this.legs == null) {
       throw new BuiltValueNullFieldError('Fish', 'legs');
     }
   }
@@ -545,19 +553,23 @@ class FishBuilder implements Builder<Fish, FishBuilder>, AnimalBuilder {
 }
 
 class _$Robot extends Robot {
+  final int _fins;
   @override
-  final int fins;
+  int get fins => _fins;
+  final int _legs;
   @override
-  final int legs;
-
+  int get legs => _legs;
   factory _$Robot([void Function(RobotBuilder) updates]) =>
       (new RobotBuilder()..update(updates)).build();
 
-  _$Robot._({this.fins, this.legs}) : super._() {
-    if (fins == null) {
+  _$Robot._({int fins, int legs})
+      : _fins = fins,
+        _legs = legs,
+        super._() {
+    if (this.fins == null) {
       throw new BuiltValueNullFieldError('Robot', 'fins');
     }
-    if (legs == null) {
+    if (this.legs == null) {
       throw new BuiltValueNullFieldError('Robot', 'legs');
     }
   }
@@ -633,19 +645,23 @@ class RobotBuilder implements Builder<Robot, RobotBuilder> {
 }
 
 class _$Cage extends Cage {
+  final Animal _inhabitant;
   @override
-  final Animal inhabitant;
+  Animal get inhabitant => _inhabitant;
+  final BuiltList<Animal> _otherInhabitants;
   @override
-  final BuiltList<Animal> otherInhabitants;
-
+  BuiltList<Animal> get otherInhabitants => _otherInhabitants;
   factory _$Cage([void Function(CageBuilder) updates]) =>
       (new CageBuilder()..update(updates)).build();
 
-  _$Cage._({this.inhabitant, this.otherInhabitants}) : super._() {
-    if (inhabitant == null) {
+  _$Cage._({Animal inhabitant, BuiltList<Animal> otherInhabitants})
+      : _inhabitant = inhabitant,
+        _otherInhabitants = otherInhabitants,
+        super._() {
+    if (this.inhabitant == null) {
       throw new BuiltValueNullFieldError('Cage', 'inhabitant');
     }
-    if (otherInhabitants == null) {
+    if (this.otherInhabitants == null) {
       throw new BuiltValueNullFieldError('Cage', 'otherInhabitants');
     }
   }
@@ -741,14 +757,16 @@ class CageBuilder implements Builder<Cage, CageBuilder> {
 }
 
 class _$StandardCat extends StandardCat {
+  final bool _tail;
   @override
-  final bool tail;
-
+  bool get tail => _tail;
   factory _$StandardCat([void Function(StandardCatBuilder) updates]) =>
       (new StandardCatBuilder()..update(updates)).build();
 
-  _$StandardCat._({this.tail}) : super._() {
-    if (tail == null) {
+  _$StandardCat._({bool tail})
+      : _tail = tail,
+        super._() {
+    if (this.tail == null) {
       throw new BuiltValueNullFieldError('StandardCat', 'tail');
     }
   }
@@ -824,14 +842,16 @@ abstract class HasFieldBuilder<T> {
 }
 
 class _$HasString extends HasString {
+  final String _field;
   @override
-  final String field;
-
+  String get field => _field;
   factory _$HasString([void Function(HasStringBuilder) updates]) =>
       (new HasStringBuilder()..update(updates)).build();
 
-  _$HasString._({this.field}) : super._() {
-    if (field == null) {
+  _$HasString._({String field})
+      : _field = field,
+        super._() {
+    if (this.field == null) {
       throw new BuiltValueNullFieldError('HasString', 'field');
     }
   }
@@ -901,14 +921,16 @@ class HasStringBuilder
 }
 
 class _$HasDouble extends HasDouble {
+  final double _field;
   @override
-  final double field;
-
+  double get field => _field;
   factory _$HasDouble([void Function(HasDoubleBuilder) updates]) =>
       (new HasDoubleBuilder()..update(updates)).build();
 
-  _$HasDouble._({this.field}) : super._() {
-    if (field == null) {
+  _$HasDouble._({double field})
+      : _field = field,
+        super._() {
+    if (this.field == null) {
       throw new BuiltValueNullFieldError('HasDouble', 'field');
     }
   }
@@ -978,20 +1000,24 @@ class HasDoubleBuilder
 }
 
 class _$UsesChainedInterface extends UsesChainedInterface {
+  final int _bar;
   @override
-  final int bar;
+  int get bar => _bar;
+  final int _foo;
   @override
-  final int foo;
-
+  int get foo => _foo;
   factory _$UsesChainedInterface(
           [void Function(UsesChainedInterfaceBuilder) updates]) =>
       (new UsesChainedInterfaceBuilder()..update(updates)).build();
 
-  _$UsesChainedInterface._({this.bar, this.foo}) : super._() {
-    if (bar == null) {
+  _$UsesChainedInterface._({int bar, int foo})
+      : _bar = bar,
+        _foo = foo,
+        super._() {
+    if (this.bar == null) {
       throw new BuiltValueNullFieldError('UsesChainedInterface', 'bar');
     }
-    if (foo == null) {
+    if (this.foo == null) {
       throw new BuiltValueNullFieldError('UsesChainedInterface', 'foo');
     }
   }
@@ -1072,14 +1098,16 @@ class UsesChainedInterfaceBuilder
 }
 
 class _$UsesHandCoded extends UsesHandCoded {
+  final int _fieldInBaseBuilder;
   @override
-  final int fieldInBaseBuilder;
-
+  int get fieldInBaseBuilder => _fieldInBaseBuilder;
   factory _$UsesHandCoded([void Function(UsesHandCodedBuilder) updates]) =>
       (new UsesHandCodedBuilder()..update(updates)).build();
 
-  _$UsesHandCoded._({this.fieldInBaseBuilder}) : super._() {
-    if (fieldInBaseBuilder == null) {
+  _$UsesHandCoded._({int fieldInBaseBuilder})
+      : _fieldInBaseBuilder = fieldInBaseBuilder,
+        super._() {
+    if (this.fieldInBaseBuilder == null) {
       throw new BuiltValueNullFieldError('UsesHandCoded', 'fieldInBaseBuilder');
     }
   }

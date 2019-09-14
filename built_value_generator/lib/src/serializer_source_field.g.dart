@@ -44,14 +44,14 @@ class _$SerializerSourceField extends SerializerSourceField {
         _element = element,
         _builderElement = builderElement,
         super._() {
-    if (settings == null) {
+    if (this.settings == null) {
       throw new BuiltValueNullFieldError('SerializerSourceField', 'settings');
     }
-    if (parsedLibrary == null) {
+    if (this.parsedLibrary == null) {
       throw new BuiltValueNullFieldError(
           'SerializerSourceField', 'parsedLibrary');
     }
-    if (element == null) {
+    if (this.element == null) {
       throw new BuiltValueNullFieldError('SerializerSourceField', 'element');
     }
   }

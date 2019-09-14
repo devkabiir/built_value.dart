@@ -436,19 +436,23 @@ class _$ListUsersResponseSerializer
 }
 
 class _$Chat extends Chat {
+  final String _text;
   @override
-  final String text;
+  String get text => _text;
+  final BuiltSet<String> _targets;
   @override
-  final BuiltSet<String> targets;
-
+  BuiltSet<String> get targets => _targets;
   factory _$Chat([void Function(ChatBuilder) updates]) =>
       (new ChatBuilder()..update(updates)).build();
 
-  _$Chat._({this.text, this.targets}) : super._() {
-    if (text == null) {
+  _$Chat._({String text, BuiltSet<String> targets})
+      : _text = text,
+        _targets = targets,
+        super._() {
+    if (this.text == null) {
       throw new BuiltValueNullFieldError('Chat', 'text');
     }
-    if (targets == null) {
+    if (this.targets == null) {
       throw new BuiltValueNullFieldError('Chat', 'targets');
     }
   }
@@ -538,19 +542,23 @@ class ChatBuilder implements Builder<Chat, ChatBuilder> {
 }
 
 class _$Login extends Login {
+  final String _username;
   @override
-  final String username;
+  String get username => _username;
+  final String _password;
   @override
-  final String password;
-
+  String get password => _password;
   factory _$Login([void Function(LoginBuilder) updates]) =>
       (new LoginBuilder()..update(updates)).build();
 
-  _$Login._({this.username, this.password}) : super._() {
-    if (username == null) {
+  _$Login._({String username, String password})
+      : _username = username,
+        _password = password,
+        super._() {
+    if (this.username == null) {
       throw new BuiltValueNullFieldError('Login', 'username');
     }
-    if (password == null) {
+    if (this.password == null) {
       throw new BuiltValueNullFieldError('Login', 'password');
     }
   }
@@ -629,19 +637,23 @@ class LoginBuilder implements Builder<Login, LoginBuilder> {
 }
 
 class _$Status extends Status {
+  final String _message;
   @override
-  final String message;
+  String get message => _message;
+  final StatusType _type;
   @override
-  final StatusType type;
-
+  StatusType get type => _type;
   factory _$Status([void Function(StatusBuilder) updates]) =>
       (new StatusBuilder()..update(updates)).build();
 
-  _$Status._({this.message, this.type}) : super._() {
-    if (message == null) {
+  _$Status._({String message, StatusType type})
+      : _message = message,
+        _type = type,
+        super._() {
+    if (this.message == null) {
       throw new BuiltValueNullFieldError('Status', 'message');
     }
-    if (type == null) {
+    if (this.type == null) {
       throw new BuiltValueNullFieldError('Status', 'type');
     }
   }
@@ -717,14 +729,16 @@ class StatusBuilder implements Builder<Status, StatusBuilder> {
 }
 
 class _$ListUsers extends ListUsers {
+  final BuiltSet<StatusType> _statusTypes;
   @override
-  final BuiltSet<StatusType> statusTypes;
-
+  BuiltSet<StatusType> get statusTypes => _statusTypes;
   factory _$ListUsers([void Function(ListUsersBuilder) updates]) =>
       (new ListUsersBuilder()..update(updates)).build();
 
-  _$ListUsers._({this.statusTypes}) : super._() {
-    if (statusTypes == null) {
+  _$ListUsers._({BuiltSet<StatusType> statusTypes})
+      : _statusTypes = statusTypes,
+        super._() {
+    if (this.statusTypes == null) {
       throw new BuiltValueNullFieldError('ListUsers', 'statusTypes');
     }
   }
@@ -809,24 +823,30 @@ class ListUsersBuilder implements Builder<ListUsers, ListUsersBuilder> {
 }
 
 class _$ShowChat extends ShowChat {
+  final String _username;
   @override
-  final String username;
+  String get username => _username;
+  final bool _private;
   @override
-  final bool private;
+  bool get private => _private;
+  final String _text;
   @override
-  final String text;
-
+  String get text => _text;
   factory _$ShowChat([void Function(ShowChatBuilder) updates]) =>
       (new ShowChatBuilder()..update(updates)).build();
 
-  _$ShowChat._({this.username, this.private, this.text}) : super._() {
-    if (username == null) {
+  _$ShowChat._({String username, bool private, String text})
+      : _username = username,
+        _private = private,
+        _text = text,
+        super._() {
+    if (this.username == null) {
       throw new BuiltValueNullFieldError('ShowChat', 'username');
     }
-    if (private == null) {
+    if (this.private == null) {
       throw new BuiltValueNullFieldError('ShowChat', 'private');
     }
-    if (text == null) {
+    if (this.text == null) {
       throw new BuiltValueNullFieldError('ShowChat', 'text');
     }
   }
@@ -913,19 +933,23 @@ class ShowChatBuilder implements Builder<ShowChat, ShowChatBuilder> {
 }
 
 class _$Welcome extends Welcome {
+  final BuiltList<Response> _log;
   @override
-  final BuiltList<Response> log;
+  BuiltList<Response> get log => _log;
+  final String _message;
   @override
-  final String message;
-
+  String get message => _message;
   factory _$Welcome([void Function(WelcomeBuilder) updates]) =>
       (new WelcomeBuilder()..update(updates)).build();
 
-  _$Welcome._({this.log, this.message}) : super._() {
-    if (log == null) {
+  _$Welcome._({BuiltList<Response> log, String message})
+      : _log = log,
+        _message = message,
+        super._() {
+    if (this.log == null) {
       throw new BuiltValueNullFieldError('Welcome', 'log');
     }
-    if (message == null) {
+    if (this.message == null) {
       throw new BuiltValueNullFieldError('Welcome', 'message');
     }
   }
@@ -1014,15 +1038,17 @@ class WelcomeBuilder implements Builder<Welcome, WelcomeBuilder> {
 }
 
 class _$ListUsersResponse extends ListUsersResponse {
+  final BuiltMap<String, Status> _statuses;
   @override
-  final BuiltMap<String, Status> statuses;
-
+  BuiltMap<String, Status> get statuses => _statuses;
   factory _$ListUsersResponse(
           [void Function(ListUsersResponseBuilder) updates]) =>
       (new ListUsersResponseBuilder()..update(updates)).build();
 
-  _$ListUsersResponse._({this.statuses}) : super._() {
-    if (statuses == null) {
+  _$ListUsersResponse._({BuiltMap<String, Status> statuses})
+      : _statuses = statuses,
+        super._() {
+    if (this.statuses == null) {
       throw new BuiltValueNullFieldError('ListUsersResponse', 'statuses');
     }
   }

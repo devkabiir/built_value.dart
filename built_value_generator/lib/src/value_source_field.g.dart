@@ -47,13 +47,13 @@ class _$ValueSourceField extends ValueSourceField {
         _element = element,
         _builderElement = builderElement,
         super._() {
-    if (settings == null) {
+    if (this.settings == null) {
       throw new BuiltValueNullFieldError('ValueSourceField', 'settings');
     }
-    if (parsedLibrary == null) {
+    if (this.parsedLibrary == null) {
       throw new BuiltValueNullFieldError('ValueSourceField', 'parsedLibrary');
     }
-    if (element == null) {
+    if (this.element == null) {
       throw new BuiltValueNullFieldError('ValueSourceField', 'element');
     }
   }

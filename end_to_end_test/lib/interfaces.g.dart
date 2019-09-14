@@ -141,19 +141,23 @@ class _$ValueWithHasIntSerializer
 }
 
 class _$ValueWithInt extends ValueWithInt {
+  final int _anInt;
   @override
-  final int anInt;
+  int get anInt => _anInt;
+  final String _note;
   @override
-  final String note;
-
+  String get note => _note;
   factory _$ValueWithInt([void Function(ValueWithIntBuilder) updates]) =>
       (new ValueWithIntBuilder()..update(updates)).build();
 
-  _$ValueWithInt._({this.anInt, this.note}) : super._() {
-    if (anInt == null) {
+  _$ValueWithInt._({int anInt, String note})
+      : _anInt = anInt,
+        _note = note,
+        super._() {
+    if (this.anInt == null) {
       throw new BuiltValueNullFieldError('ValueWithInt', 'anInt');
     }
-    if (note == null) {
+    if (this.note == null) {
       throw new BuiltValueNullFieldError('ValueWithInt', 'note');
     }
   }
@@ -230,14 +234,16 @@ class ValueWithIntBuilder
 }
 
 class _$ValueWithHasInt extends ValueWithHasInt {
+  final HasInt _hasInt;
   @override
-  final HasInt hasInt;
-
+  HasInt get hasInt => _hasInt;
   factory _$ValueWithHasInt([void Function(ValueWithHasIntBuilder) updates]) =>
       (new ValueWithHasIntBuilder()..update(updates)).build();
 
-  _$ValueWithHasInt._({this.hasInt}) : super._() {
-    if (hasInt == null) {
+  _$ValueWithHasInt._({HasInt hasInt})
+      : _hasInt = hasInt,
+        super._() {
+    if (this.hasInt == null) {
       throw new BuiltValueNullFieldError('ValueWithHasInt', 'hasInt');
     }
   }

@@ -28,14 +28,16 @@ class _$UsesMixinSerializer implements StructuredSerializer<UsesMixin> {
 }
 
 class _$UsesMixin extends UsesMixin {
+  final String Function(String) _typeDef;
   @override
-  final String Function(String) typeDef;
-
+  String Function(String) get typeDef => _typeDef;
   factory _$UsesMixin([void Function(UsesMixinBuilder) updates]) =>
       (new UsesMixinBuilder()..update(updates)).build();
 
-  _$UsesMixin._({this.typeDef}) : super._() {
-    if (typeDef == null) {
+  _$UsesMixin._({String Function(String) typeDef})
+      : _typeDef = typeDef,
+        super._() {
+    if (this.typeDef == null) {
       throw new BuiltValueNullFieldError('UsesMixin', 'typeDef');
     }
   }

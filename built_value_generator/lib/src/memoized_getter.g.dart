@@ -20,10 +20,10 @@ class _$MemoizedGetter extends MemoizedGetter {
       : _returnType = returnType,
         _name = name,
         super._() {
-    if (returnType == null) {
+    if (this.returnType == null) {
       throw new BuiltValueNullFieldError('MemoizedGetter', 'returnType');
     }
-    if (name == null) {
+    if (this.name == null) {
       throw new BuiltValueNullFieldError('MemoizedGetter', 'name');
     }
   }

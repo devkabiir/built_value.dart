@@ -48,7 +48,7 @@ class _$ValueSourceClass extends ValueSourceClass {
   _$ValueSourceClass._({ClassElement element})
       : _element = element,
         super._() {
-    if (element == null) {
+    if (this.element == null) {
       throw new BuiltValueNullFieldError('ValueSourceClass', 'element');
     }
   }

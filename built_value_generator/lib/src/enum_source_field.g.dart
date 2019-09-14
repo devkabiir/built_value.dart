@@ -27,10 +27,10 @@ class _$EnumSourceField extends EnumSourceField {
       : _parsedLibrary = parsedLibrary,
         _element = element,
         super._() {
-    if (parsedLibrary == null) {
+    if (this.parsedLibrary == null) {
       throw new BuiltValueNullFieldError('EnumSourceField', 'parsedLibrary');
     }
-    if (element == null) {
+    if (this.element == null) {
       throw new BuiltValueNullFieldError('EnumSourceField', 'element');
     }
   }

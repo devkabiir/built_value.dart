@@ -7,46 +7,57 @@ part of values;
 // **************************************************************************
 
 class _$SimpleValue extends SimpleValue {
+  final int _anInt;
   @override
-  final int anInt;
+  int get anInt => _anInt;
+  final BuiltList<String> _list;
   @override
-  final BuiltList<String> list;
+  BuiltList<String> get list => _list;
+  final BuiltListMultimap<int, bool> _multimap;
   @override
-  final BuiltListMultimap<int, bool> multimap;
+  BuiltListMultimap<int, bool> get multimap => _multimap;
+  final BuiltMap<String, int> _map;
   @override
-  final BuiltMap<String, int> map;
+  BuiltMap<String, int> get map => _map;
+  final BuiltSet<int> _aSet;
   @override
-  final BuiltSet<int> aSet;
+  BuiltSet<int> get aSet => _aSet;
+  final BuiltSetMultimap<int, bool> _setMultimap;
   @override
-  final BuiltSetMultimap<int, bool> setMultimap;
-
+  BuiltSetMultimap<int, bool> get setMultimap => _setMultimap;
   factory _$SimpleValue([void Function(SimpleValueBuilder) updates]) =>
       (new SimpleValueBuilder()..update(updates)).build();
 
   _$SimpleValue._(
-      {this.anInt,
-      this.list,
-      this.multimap,
-      this.map,
-      this.aSet,
-      this.setMultimap})
-      : super._() {
-    if (anInt == null) {
+      {int anInt,
+      BuiltList<String> list,
+      BuiltListMultimap<int, bool> multimap,
+      BuiltMap<String, int> map,
+      BuiltSet<int> aSet,
+      BuiltSetMultimap<int, bool> setMultimap})
+      : _anInt = anInt,
+        _list = list,
+        _multimap = multimap,
+        _map = map,
+        _aSet = aSet,
+        _setMultimap = setMultimap,
+        super._() {
+    if (this.anInt == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'anInt');
     }
-    if (list == null) {
+    if (this.list == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'list');
     }
-    if (multimap == null) {
+    if (this.multimap == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'multimap');
     }
-    if (map == null) {
+    if (this.map == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'map');
     }
-    if (aSet == null) {
+    if (this.aSet == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'aSet');
     }
-    if (setMultimap == null) {
+    if (this.setMultimap == null) {
       throw new BuiltValueNullFieldError('SimpleValue', 'setMultimap');
     }
   }
@@ -192,16 +203,20 @@ class SimpleValueBuilder implements Builder<SimpleValue, SimpleValueBuilder> {
 }
 
 class _$CompoundValue extends CompoundValue {
+  final SimpleValue _simpleValue;
   @override
-  final SimpleValue simpleValue;
+  SimpleValue get simpleValue => _simpleValue;
+  final String _string;
   @override
-  final String string;
-
+  String get string => _string;
   factory _$CompoundValue([void Function(CompoundValueBuilder) updates]) =>
       (new CompoundValueBuilder()..update(updates)).build();
 
-  _$CompoundValue._({this.simpleValue, this.string}) : super._() {
-    if (simpleValue == null) {
+  _$CompoundValue._({SimpleValue simpleValue, String string})
+      : _simpleValue = simpleValue,
+        _string = string,
+        super._() {
+    if (this.simpleValue == null) {
       throw new BuiltValueNullFieldError('CompoundValue', 'simpleValue');
     }
   }
@@ -297,19 +312,23 @@ class CompoundValueBuilder
 }
 
 class _$ComparedValue extends ComparedValue {
+  final String _name;
   @override
-  final String name;
+  String get name => _name;
+  final Function _onChanged;
   @override
-  final Function onChanged;
-
+  Function get onChanged => _onChanged;
   factory _$ComparedValue([void Function(ComparedValueBuilder) updates]) =>
       (new ComparedValueBuilder()..update(updates)).build();
 
-  _$ComparedValue._({this.name, this.onChanged}) : super._() {
-    if (name == null) {
+  _$ComparedValue._({String name, Function onChanged})
+      : _name = name,
+        _onChanged = onChanged,
+        super._() {
+    if (this.name == null) {
       throw new BuiltValueNullFieldError('ComparedValue', 'name');
     }
-    if (onChanged == null) {
+    if (this.onChanged == null) {
       throw new BuiltValueNullFieldError('ComparedValue', 'onChanged');
     }
   }
