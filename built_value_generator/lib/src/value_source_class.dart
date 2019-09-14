@@ -595,8 +595,9 @@ abstract class ValueSourceClass
       result.writeln('final $type _${field.name};');
       result.writeln('@override');
       result.write('$type get ${field.name} => _${field.name}');
-      if (isValueFieldWithDefault(field.element))
+      if (isValueFieldWithDefault(field.element)) {
         result.write('?? super.${field.name}');
+      }
       result.write(';');
     }
     for (var memoizedGetter in memoizedGetters) {
