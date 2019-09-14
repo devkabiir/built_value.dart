@@ -7,8 +7,6 @@ import 'dart:collection';
 import 'package:analyzer/dart/element/element.dart';
 import 'package:analyzer/dart/element/type.dart';
 import 'package:built_collection/built_collection.dart';
-import 'package:built_value/built_value.dart';
-import 'package:source_gen/source_gen.dart';
 
 /// Gets fields, including from interfaces. Fields from interfaces are only
 /// returned if they are not also implemented by a mixin.
@@ -57,7 +55,8 @@ BuiltList<FieldElement> collectFieldsForType(InterfaceType type) {
   // If thisType is `false` overriden value fields with defaults are skipped,
   // If thisType is `true` overriden value fields with defaults are collected,
   final isValueFieldAbstract = (String name) =>
-      type.lookUpInheritedGetter(name, thisType: true)?.isAbstract ?? true;
+      (type.lookUpInheritedGetter(name, thisType: false)?.isAbstract ?? true) ||
+      (type.lookUpInheritedGetter(name, thisType: true)?.isAbstract ?? true);
 
   // Filter to fields that are not implemented by a mixin.
   return BuiltList<FieldElement>.build((b) => b
