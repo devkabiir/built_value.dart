@@ -94,6 +94,35 @@ abstract class ValidatedValue
   }
 }
 
+/// Fields can have default values
+abstract class DefaultValue
+    implements Built<DefaultValue, DefaultValueBuilder> {
+  static Serializer<DefaultValue> get serializer => _$defaultValueSerializer;
+
+  /// Non-abstract getters explicitly marked with `@BuiltValueField` are serializable, if the value is absent (`null`) when de-serializaing from wire
+  /// or when manually building using the `DefaultValueBuilder` this will be used
+  @BuiltValueField(serialize: true)
+  int get anInt => 5;
+
+  /// Getters may return `null` values but only those marked with `@nullable` are allowed. Otherwise `BuiltValueNullFieldError` will be thrown
+  @BuiltValueField(serialize: true)
+  @nullable
+  String get aNullableString => String.fromEnvironment('nonExistent');
+
+  /// Getters that instantiate a `new` default value each time they are accessed should be marked with `@memoized` if identity equality is required, i.e. Following will be true only if @memoized is used
+  ///
+  ///     identical(obj1.newObjectDefaultValue, obj2.newObjectDefaultValue) == true
+  @BuiltValueField(serialize: true)
+  @memoized
+  BuiltMap<String, String> get newObjectDefaultValue =>
+      BuiltMap<String, String>({'key1': 'value1'});
+
+  factory DefaultValue([void Function(DefaultValueBuilder) updates]) =
+      _$DefaultValue;
+
+  DefaultValue._();
+}
+
 /// Code can be added to value types.
 abstract class ValueWithCode
     implements Built<ValueWithCode, ValueWithCodeBuilder> {

@@ -13,6 +13,8 @@ Serializer<CompoundValue> _$compoundValueSerializer =
     new _$CompoundValueSerializer();
 Serializer<ValidatedValue> _$validatedValueSerializer =
     new _$ValidatedValueSerializer();
+Serializer<DefaultValue> _$defaultValueSerializer =
+    new _$DefaultValueSerializer();
 Serializer<Account> _$accountSerializer = new _$AccountSerializer();
 Serializer<WireNameValue> _$wireNameValueSerializer =
     new _$WireNameValueSerializer();
@@ -198,6 +200,65 @@ class _$ValidatedValueSerializer
         case 'aString':
           result.aString = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$DefaultValueSerializer implements StructuredSerializer<DefaultValue> {
+  @override
+  final Iterable<Type> types = const [DefaultValue, _$DefaultValue];
+  @override
+  final String wireName = 'DefaultValue';
+
+  @override
+  Iterable<Object> serialize(Serializers serializers, DefaultValue object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      'anInt',
+      serializers.serialize(object.anInt, specifiedType: const FullType(int)),
+      'newObjectDefaultValue',
+      serializers.serialize(object.newObjectDefaultValue,
+          specifiedType: const FullType(BuiltMap,
+              const [const FullType(String), const FullType(String)])),
+    ];
+    if (object.aNullableString != null) {
+      result
+        ..add('aNullableString')
+        ..add(serializers.serialize(object.aNullableString,
+            specifiedType: const FullType(String)));
+    }
+    return result;
+  }
+
+  @override
+  DefaultValue deserialize(Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new DefaultValueBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'anInt':
+          result.anInt = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+        case 'aNullableString':
+          result.aNullableString = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'newObjectDefaultValue':
+          result.newObjectDefaultValue.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(String)
+              ])) as BuiltMap<dynamic, dynamic>);
           break;
       }
     }
@@ -676,6 +737,138 @@ class ValidatedValueBuilder
   _$ValidatedValue build() {
     final _$result =
         _$v ?? new _$ValidatedValue._(anInt: anInt, aString: aString);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$DefaultValue extends DefaultValue {
+  final int _anInt;
+  @override
+  int get anInt => _anInt ?? super.anInt;
+  final String _aNullableString;
+  @override
+  String get aNullableString => _aNullableString ?? super.aNullableString;
+  BuiltMap<String, String> _newObjectDefaultValue;
+  @override
+  BuiltMap<String, String> get newObjectDefaultValue =>
+      _newObjectDefaultValue ??= super.newObjectDefaultValue;
+  factory _$DefaultValue([void Function(DefaultValueBuilder) updates]) =>
+      (new DefaultValueBuilder()..update(updates)).build();
+
+  _$DefaultValue._(
+      {int anInt,
+      String aNullableString,
+      BuiltMap<String, String> newObjectDefaultValue})
+      : _anInt = anInt,
+        _aNullableString = aNullableString,
+        _newObjectDefaultValue = newObjectDefaultValue,
+        super._() {
+    if (this.anInt == null) {
+      throw new BuiltValueNullFieldError('DefaultValue', 'anInt');
+    }
+    if (this.newObjectDefaultValue == null) {
+      throw new BuiltValueNullFieldError(
+          'DefaultValue', 'newObjectDefaultValue');
+    }
+  }
+
+  @override
+  DefaultValue rebuild(void Function(DefaultValueBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DefaultValueBuilder toBuilder() => new DefaultValueBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DefaultValue &&
+        anInt == other.anInt &&
+        aNullableString == other.aNullableString &&
+        newObjectDefaultValue == other.newObjectDefaultValue;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc($jc($jc(0, anInt.hashCode), aNullableString.hashCode),
+        newObjectDefaultValue.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('DefaultValue')
+          ..add('anInt', anInt)
+          ..add('aNullableString', aNullableString)
+          ..add('newObjectDefaultValue', newObjectDefaultValue))
+        .toString();
+  }
+}
+
+class DefaultValueBuilder
+    implements Builder<DefaultValue, DefaultValueBuilder> {
+  _$DefaultValue _$v;
+
+  int _anInt;
+  int get anInt => _$this._anInt;
+  set anInt(int anInt) => _$this._anInt = anInt;
+
+  String _aNullableString;
+  String get aNullableString => _$this._aNullableString;
+  set aNullableString(String aNullableString) =>
+      _$this._aNullableString = aNullableString;
+
+  MapBuilder<String, String> _newObjectDefaultValue;
+  MapBuilder<String, String> get newObjectDefaultValue =>
+      _$this._newObjectDefaultValue ??= new MapBuilder<String, String>();
+  set newObjectDefaultValue(MapBuilder<String, String> newObjectDefaultValue) =>
+      _$this._newObjectDefaultValue = newObjectDefaultValue;
+
+  DefaultValueBuilder();
+
+  DefaultValueBuilder get _$this {
+    if (_$v != null) {
+      _anInt = _$v.anInt;
+      _aNullableString = _$v.aNullableString;
+      _newObjectDefaultValue = _$v.newObjectDefaultValue?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(DefaultValue other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$DefaultValue;
+  }
+
+  @override
+  void update(void Function(DefaultValueBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$DefaultValue build() {
+    _$DefaultValue _$result;
+    try {
+      _$result = _$v ??
+          new _$DefaultValue._(
+              anInt: anInt,
+              aNullableString: aNullableString,
+              newObjectDefaultValue: newObjectDefaultValue.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'newObjectDefaultValue';
+        newObjectDefaultValue.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'DefaultValue', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
