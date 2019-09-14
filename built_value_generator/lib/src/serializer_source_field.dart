@@ -47,7 +47,7 @@ abstract class SerializerSourceField
   @memoized
   bool get isSerializable =>
       element.getter != null &&
-      element.getter.isAbstract &&
+      (isValueFieldWithDefault(element) || element.getter.isAbstract) &&
       !element.isStatic &&
       builtValueField.serialize;
 
