@@ -400,6 +400,9 @@ class _$GenericValue<T> extends GenericValue<T> {
   factory _$GenericValue([void Function(GenericValueBuilder<T>) updates]) =>
       (new GenericValueBuilder<T>()..update(updates)).build();
 
+  _$GenericValue._silent({T value})
+      : _value = value,
+        super._();
   _$GenericValue._({T value})
       : _value = value,
         super._() {
@@ -439,7 +442,7 @@ class _$GenericValue<T> extends GenericValue<T> {
 
 class GenericValueBuilder<T>
     implements Builder<GenericValue<T>, GenericValueBuilder<T>> {
-  _$GenericValue<T> _$v;
+  _$GenericValue<T> _$v = _$GenericValue._silent();
 
   T _value;
   T get value => _$this._value;
@@ -470,7 +473,7 @@ class GenericValueBuilder<T>
 
   @override
   _$GenericValue<T> build() {
-    final _$result = _$v ?? new _$GenericValue<T>._(value: value);
+    final _$result = new _$GenericValue<T>._(value: value);
     replace(_$result);
     return _$result;
   }
@@ -484,6 +487,9 @@ class _$BoundGenericValue<T extends num> extends BoundGenericValue<T> {
           [void Function(BoundGenericValueBuilder<T>) updates]) =>
       (new BoundGenericValueBuilder<T>()..update(updates)).build();
 
+  _$BoundGenericValue._silent({T value})
+      : _value = value,
+        super._();
   _$BoundGenericValue._({T value})
       : _value = value,
         super._() {
@@ -525,7 +531,7 @@ class _$BoundGenericValue<T extends num> extends BoundGenericValue<T> {
 
 class BoundGenericValueBuilder<T extends num>
     implements Builder<BoundGenericValue<T>, BoundGenericValueBuilder<T>> {
-  _$BoundGenericValue<T> _$v;
+  _$BoundGenericValue<T> _$v = _$BoundGenericValue._silent();
 
   T _value;
   T get value => _$this._value;
@@ -556,7 +562,7 @@ class BoundGenericValueBuilder<T extends num>
 
   @override
   _$BoundGenericValue<T> build() {
-    final _$result = _$v ?? new _$BoundGenericValue<T>._(value: value);
+    final _$result = new _$BoundGenericValue<T>._(value: value);
     replace(_$result);
     return _$result;
   }
@@ -570,6 +576,9 @@ class _$CollectionGenericValue<T> extends CollectionGenericValue<T> {
           [void Function(CollectionGenericValueBuilder<T>) updates]) =>
       (new CollectionGenericValueBuilder<T>()..update(updates)).build();
 
+  _$CollectionGenericValue._silent({BuiltList<T> values})
+      : _values = values,
+        super._();
   _$CollectionGenericValue._({BuiltList<T> values})
       : _values = values,
         super._() {
@@ -612,7 +621,7 @@ class _$CollectionGenericValue<T> extends CollectionGenericValue<T> {
 class CollectionGenericValueBuilder<T>
     implements
         Builder<CollectionGenericValue<T>, CollectionGenericValueBuilder<T>> {
-  _$CollectionGenericValue<T> _$v;
+  _$CollectionGenericValue<T> _$v = _$CollectionGenericValue._silent();
 
   ListBuilder<T> _values;
   ListBuilder<T> get values => _$this._values ??= new ListBuilder<T>();
@@ -645,8 +654,7 @@ class CollectionGenericValueBuilder<T>
   _$CollectionGenericValue<T> build() {
     _$CollectionGenericValue<T> _$result;
     try {
-      _$result =
-          _$v ?? new _$CollectionGenericValue<T>._(values: values.build());
+      _$result = new _$CollectionGenericValue<T>._(values: values.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -678,6 +686,14 @@ class _$GenericContainer extends GenericContainer {
           [void Function(GenericContainerBuilder) updates]) =>
       (new GenericContainerBuilder()..update(updates)).build();
 
+  _$GenericContainer._silent(
+      {GenericValue<String> genericValue,
+      BoundGenericValue<double> boundGenericValue,
+      CollectionGenericValue<String> collectionGenericValue})
+      : _genericValue = genericValue,
+        _boundGenericValue = boundGenericValue,
+        _collectionGenericValue = collectionGenericValue,
+        super._();
   _$GenericContainer._(
       {GenericValue<String> genericValue,
       BoundGenericValue<double> boundGenericValue,
@@ -735,7 +751,7 @@ class _$GenericContainer extends GenericContainer {
 
 class GenericContainerBuilder
     implements Builder<GenericContainer, GenericContainerBuilder> {
-  _$GenericContainer _$v;
+  _$GenericContainer _$v = _$GenericContainer._silent();
 
   GenericValueBuilder<String> _genericValue;
   GenericValueBuilder<String> get genericValue =>
@@ -786,11 +802,10 @@ class GenericContainerBuilder
   _$GenericContainer build() {
     _$GenericContainer _$result;
     try {
-      _$result = _$v ??
-          new _$GenericContainer._(
-              genericValue: genericValue.build(),
-              boundGenericValue: boundGenericValue.build(),
-              collectionGenericValue: collectionGenericValue.build());
+      _$result = new _$GenericContainer._(
+          genericValue: genericValue.build(),
+          boundGenericValue: boundGenericValue.build(),
+          collectionGenericValue: collectionGenericValue.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -819,6 +834,9 @@ class _$NestedGenericContainer extends NestedGenericContainer {
           [void Function(NestedGenericContainerBuilder) updates]) =>
       (new NestedGenericContainerBuilder()..update(updates)).build();
 
+  _$NestedGenericContainer._silent({GenericValue<BuiltMap<int, String>> map})
+      : _map = map,
+        super._();
   _$NestedGenericContainer._({GenericValue<BuiltMap<int, String>> map})
       : _map = map,
         super._() {
@@ -857,7 +875,7 @@ class _$NestedGenericContainer extends NestedGenericContainer {
 
 class NestedGenericContainerBuilder
     implements Builder<NestedGenericContainer, NestedGenericContainerBuilder> {
-  _$NestedGenericContainer _$v;
+  _$NestedGenericContainer _$v = _$NestedGenericContainer._silent();
 
   GenericValueBuilder<BuiltMap<int, String>> _map;
   GenericValueBuilder<BuiltMap<int, String>> get map =>
@@ -891,7 +909,7 @@ class NestedGenericContainerBuilder
   _$NestedGenericContainer build() {
     _$NestedGenericContainer _$result;
     try {
-      _$result = _$v ?? new _$NestedGenericContainer._(map: map.build());
+      _$result = new _$NestedGenericContainer._(map: map.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -917,6 +935,9 @@ class _$CustomBuilderGenericValue<T> extends CustomBuilderGenericValue<T> {
       (new CustomBuilderGenericValueBuilder<T>()..update(updates)).build()
           as _$CustomBuilderGenericValue<T>;
 
+  _$CustomBuilderGenericValue._silent({T value})
+      : _value = value,
+        super._();
   _$CustomBuilderGenericValue._({T value})
       : _value = value,
         super._() {
@@ -998,7 +1019,7 @@ class _$CustomBuilderGenericValueBuilder<T>
 
   @override
   _$CustomBuilderGenericValue<T> build() {
-    final _$result = _$v ?? new _$CustomBuilderGenericValue<T>._(value: value);
+    final _$result = new _$CustomBuilderGenericValue<T>._(value: value);
     replace(_$result);
     return _$result;
   }
@@ -1011,6 +1032,9 @@ class _$ConcreteGeneric extends ConcreteGeneric {
   factory _$ConcreteGeneric([void Function(ConcreteGenericBuilder) updates]) =>
       (new ConcreteGenericBuilder()..update(updates)).build();
 
+  _$ConcreteGeneric._silent({int value})
+      : _value = value,
+        super._();
   _$ConcreteGeneric._({int value})
       : _value = value,
         super._() {
@@ -1047,7 +1071,7 @@ class _$ConcreteGeneric extends ConcreteGeneric {
 
 class ConcreteGenericBuilder
     implements Builder<ConcreteGeneric, ConcreteGenericBuilder> {
-  _$ConcreteGeneric _$v;
+  _$ConcreteGeneric _$v = _$ConcreteGeneric._silent();
 
   int _value;
   int get value => _$this._value;
@@ -1078,7 +1102,7 @@ class ConcreteGenericBuilder
 
   @override
   _$ConcreteGeneric build() {
-    final _$result = _$v ?? new _$ConcreteGeneric._(value: value);
+    final _$result = new _$ConcreteGeneric._(value: value);
     replace(_$result);
     return _$result;
   }
@@ -1092,6 +1116,9 @@ class _$GenericFunction<T> extends GenericFunction<T> {
           [void Function(GenericFunctionBuilder<T>) updates]) =>
       (new GenericFunctionBuilder<T>()..update(updates)).build();
 
+  _$GenericFunction._silent({Function(T) function})
+      : _function = function,
+        super._();
   _$GenericFunction._({Function(T) function})
       : _function = function,
         super._() {
@@ -1134,7 +1161,7 @@ class _$GenericFunction<T> extends GenericFunction<T> {
 
 class GenericFunctionBuilder<T>
     implements Builder<GenericFunction<T>, GenericFunctionBuilder<T>> {
-  _$GenericFunction<T> _$v;
+  _$GenericFunction<T> _$v = _$GenericFunction._silent();
 
   Function(T) _function;
   Function(T) get function => _$this._function;
@@ -1165,7 +1192,7 @@ class GenericFunctionBuilder<T>
 
   @override
   _$GenericFunction<T> build() {
-    final _$result = _$v ?? new _$GenericFunction<T>._(function: function);
+    final _$result = new _$GenericFunction<T>._(function: function);
     replace(_$result);
     return _$result;
   }
@@ -1178,6 +1205,9 @@ class _$NonBuiltGeneric extends NonBuiltGeneric {
   factory _$NonBuiltGeneric([void Function(NonBuiltGenericBuilder) updates]) =>
       (new NonBuiltGenericBuilder()..update(updates)).build();
 
+  _$NonBuiltGeneric._silent({NonBuilt<int> value})
+      : _value = value,
+        super._();
   _$NonBuiltGeneric._({NonBuilt<int> value})
       : _value = value,
         super._() {
@@ -1214,7 +1244,7 @@ class _$NonBuiltGeneric extends NonBuiltGeneric {
 
 class NonBuiltGenericBuilder
     implements Builder<NonBuiltGeneric, NonBuiltGenericBuilder> {
-  _$NonBuiltGeneric _$v;
+  _$NonBuiltGeneric _$v = _$NonBuiltGeneric._silent();
 
   NonBuilt<int> _value;
   NonBuilt<int> get value => _$this._value;
@@ -1245,7 +1275,7 @@ class NonBuiltGenericBuilder
 
   @override
   _$NonBuiltGeneric build() {
-    final _$result = _$v ?? new _$NonBuiltGeneric._(value: value);
+    final _$result = new _$NonBuiltGeneric._(value: value);
     replace(_$result);
     return _$result;
   }

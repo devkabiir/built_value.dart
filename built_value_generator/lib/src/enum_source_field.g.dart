@@ -23,6 +23,11 @@ class _$EnumSourceField extends EnumSourceField {
   factory _$EnumSourceField([void Function(EnumSourceFieldBuilder) updates]) =>
       (new EnumSourceFieldBuilder()..update(updates)).build();
 
+  _$EnumSourceField._silent(
+      {ParsedLibraryResult parsedLibrary, FieldElement element})
+      : _parsedLibrary = parsedLibrary,
+        _element = element,
+        super._();
   _$EnumSourceField._({ParsedLibraryResult parsedLibrary, FieldElement element})
       : _parsedLibrary = parsedLibrary,
         _element = element,
@@ -86,7 +91,7 @@ class _$EnumSourceField extends EnumSourceField {
 
 class EnumSourceFieldBuilder
     implements Builder<EnumSourceField, EnumSourceFieldBuilder> {
-  _$EnumSourceField _$v;
+  _$EnumSourceField _$v = _$EnumSourceField._silent();
 
   ParsedLibraryResult _parsedLibrary;
   ParsedLibraryResult get parsedLibrary => _$this._parsedLibrary;
@@ -123,7 +128,7 @@ class EnumSourceFieldBuilder
 
   @override
   _$EnumSourceField build() {
-    final _$result = _$v ??
+    final _$result =
         new _$EnumSourceField._(parsedLibrary: parsedLibrary, element: element);
     replace(_$result);
     return _$result;

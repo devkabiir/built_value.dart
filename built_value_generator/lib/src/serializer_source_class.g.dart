@@ -34,6 +34,11 @@ class _$SerializerSourceClass extends SerializerSourceClass {
           [void Function(SerializerSourceClassBuilder) updates]) =>
       (new SerializerSourceClassBuilder()..update(updates)).build();
 
+  _$SerializerSourceClass._silent(
+      {ClassElement element, ClassElement builderElement})
+      : _element = element,
+        _builderElement = builderElement,
+        super._();
   _$SerializerSourceClass._({ClassElement element, ClassElement builderElement})
       : _element = element,
         _builderElement = builderElement,
@@ -134,7 +139,7 @@ class _$SerializerSourceClass extends SerializerSourceClass {
 
 class SerializerSourceClassBuilder
     implements Builder<SerializerSourceClass, SerializerSourceClassBuilder> {
-  _$SerializerSourceClass _$v;
+  _$SerializerSourceClass _$v = _$SerializerSourceClass._silent();
 
   ClassElement _element;
   ClassElement get element => _$this._element;
@@ -171,9 +176,8 @@ class SerializerSourceClassBuilder
 
   @override
   _$SerializerSourceClass build() {
-    final _$result = _$v ??
-        new _$SerializerSourceClass._(
-            element: element, builderElement: builderElement);
+    final _$result = new _$SerializerSourceClass._(
+        element: element, builderElement: builderElement);
     replace(_$result);
     return _$result;
   }

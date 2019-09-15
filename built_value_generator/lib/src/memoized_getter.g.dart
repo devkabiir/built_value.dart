@@ -16,6 +16,10 @@ class _$MemoizedGetter extends MemoizedGetter {
   factory _$MemoizedGetter([void Function(MemoizedGetterBuilder) updates]) =>
       (new MemoizedGetterBuilder()..update(updates)).build();
 
+  _$MemoizedGetter._silent({String returnType, String name})
+      : _returnType = returnType,
+        _name = name,
+        super._();
   _$MemoizedGetter._({String returnType, String name})
       : _returnType = returnType,
         _name = name,
@@ -60,7 +64,7 @@ class _$MemoizedGetter extends MemoizedGetter {
 
 class MemoizedGetterBuilder
     implements Builder<MemoizedGetter, MemoizedGetterBuilder> {
-  _$MemoizedGetter _$v;
+  _$MemoizedGetter _$v = _$MemoizedGetter._silent();
 
   String _returnType;
   String get returnType => _$this._returnType;
@@ -96,8 +100,7 @@ class MemoizedGetterBuilder
 
   @override
   _$MemoizedGetter build() {
-    final _$result =
-        _$v ?? new _$MemoizedGetter._(returnType: returnType, name: name);
+    final _$result = new _$MemoizedGetter._(returnType: returnType, name: name);
     replace(_$result);
     return _$result;
   }

@@ -630,8 +630,20 @@ abstract class ValueSourceClass
     result.writeln();
 
     if (fields.isEmpty) {
+      result.write('$implName._silent() : super._();');
       result.write('$implName._() : super._()');
     } else {
+      // Silent constructor that does not check for null values
+      result.write('$implName._silent({');
+      result.write(fields
+          .map((field) =>
+              '${field.typeInCompilationUnit(compilationUnit)} ${field.name}')
+          .join(', '));
+      result.write('}) : ');
+      result.write(
+          fields.map((field) => '_${field.name} = ${field.name}').join(', '));
+      result.write(', super._();');
+
       result.write('$implName._({');
       result.write(fields
           .map((field) =>
@@ -728,7 +740,11 @@ abstract class ValueSourceClass
     }
 
     // Builder holds a reference to a value, copies from it lazily.
-    result.writeln('$implName$_generics _\$v;');
+    if (hasBuilder) {
+      result.writeln('$implName$_generics _\$v;');
+    } else {
+      result.writeln('$implName$_generics _\$v = $implName._silent();');
+    }
     result.writeln('');
 
     if (hasBuilder) {
@@ -895,7 +911,9 @@ abstract class ValueSourceClass
     } else {
       result.write('final ');
     }
-    result.writeln('_\$result = _\$v ?? ');
+    // Why was the builder returning `_$v` here?
+    // result.writeln('_\$result = _\$v ?? ');
+    result.writeln('_\$result = ');
     result.writeln('new $implName$_generics._(');
     result.write(fieldBuilders.keys
         .map((field) => '$field: ${fieldBuilders[field]}')

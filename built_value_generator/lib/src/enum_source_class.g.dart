@@ -26,6 +26,9 @@ class _$EnumSourceClass extends EnumSourceClass {
   factory _$EnumSourceClass([void Function(EnumSourceClassBuilder) updates]) =>
       (new EnumSourceClassBuilder()..update(updates)).build();
 
+  _$EnumSourceClass._silent({ClassElement element})
+      : _element = element,
+        super._();
   _$EnumSourceClass._({ClassElement element})
       : _element = element,
         super._() {
@@ -101,7 +104,7 @@ class _$EnumSourceClass extends EnumSourceClass {
 
 class EnumSourceClassBuilder
     implements Builder<EnumSourceClass, EnumSourceClassBuilder> {
-  _$EnumSourceClass _$v;
+  _$EnumSourceClass _$v = _$EnumSourceClass._silent();
 
   ClassElement _element;
   ClassElement get element => _$this._element;
@@ -132,7 +135,7 @@ class EnumSourceClassBuilder
 
   @override
   _$EnumSourceClass build() {
-    final _$result = _$v ?? new _$EnumSourceClass._(element: element);
+    final _$result = new _$EnumSourceClass._(element: element);
     replace(_$result);
     return _$result;
   }

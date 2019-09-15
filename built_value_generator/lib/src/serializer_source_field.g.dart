@@ -34,6 +34,16 @@ class _$SerializerSourceField extends SerializerSourceField {
           [void Function(SerializerSourceFieldBuilder) updates]) =>
       (new SerializerSourceFieldBuilder()..update(updates)).build();
 
+  _$SerializerSourceField._silent(
+      {BuiltValue settings,
+      ParsedLibraryResult parsedLibrary,
+      FieldElement element,
+      FieldElement builderElement})
+      : _settings = settings,
+        _parsedLibrary = parsedLibrary,
+        _element = element,
+        _builderElement = builderElement,
+        super._();
   _$SerializerSourceField._(
       {BuiltValue settings,
       ParsedLibraryResult parsedLibrary,
@@ -128,7 +138,7 @@ class _$SerializerSourceField extends SerializerSourceField {
 
 class SerializerSourceFieldBuilder
     implements Builder<SerializerSourceField, SerializerSourceFieldBuilder> {
-  _$SerializerSourceField _$v;
+  _$SerializerSourceField _$v = _$SerializerSourceField._silent();
 
   BuiltValue _settings;
   BuiltValue get settings => _$this._settings;
@@ -176,12 +186,11 @@ class SerializerSourceFieldBuilder
 
   @override
   _$SerializerSourceField build() {
-    final _$result = _$v ??
-        new _$SerializerSourceField._(
-            settings: settings,
-            parsedLibrary: parsedLibrary,
-            element: element,
-            builderElement: builderElement);
+    final _$result = new _$SerializerSourceField._(
+        settings: settings,
+        parsedLibrary: parsedLibrary,
+        element: element,
+        builderElement: builderElement);
     replace(_$result);
     return _$result;
   }

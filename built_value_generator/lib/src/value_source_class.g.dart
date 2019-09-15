@@ -45,6 +45,9 @@ class _$ValueSourceClass extends ValueSourceClass {
           [void Function(ValueSourceClassBuilder) updates]) =>
       (new ValueSourceClassBuilder()..update(updates)).build();
 
+  _$ValueSourceClass._silent({ClassElement element})
+      : _element = element,
+        super._();
   _$ValueSourceClass._({ClassElement element})
       : _element = element,
         super._() {
@@ -191,7 +194,7 @@ class _$ValueSourceClass extends ValueSourceClass {
 
 class ValueSourceClassBuilder
     implements Builder<ValueSourceClass, ValueSourceClassBuilder> {
-  _$ValueSourceClass _$v;
+  _$ValueSourceClass _$v = _$ValueSourceClass._silent();
 
   ClassElement _element;
   ClassElement get element => _$this._element;
@@ -222,7 +225,7 @@ class ValueSourceClassBuilder
 
   @override
   _$ValueSourceClass build() {
-    final _$result = _$v ?? new _$ValueSourceClass._(element: element);
+    final _$result = new _$ValueSourceClass._(element: element);
     replace(_$result);
     return _$result;
   }

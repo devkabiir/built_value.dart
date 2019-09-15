@@ -116,6 +116,10 @@ class _$Cat extends Cat {
   factory _$Cat([void Function(CatBuilder) updates]) =>
       (new CatBuilder()..update(updates)).build();
 
+  _$Cat._silent({bool tail, int legs})
+      : _tail = tail,
+        _legs = legs,
+        super._();
   _$Cat._({bool tail, int legs})
       : _tail = tail,
         _legs = legs,
@@ -156,7 +160,7 @@ class _$Cat extends Cat {
 }
 
 class CatBuilder implements Builder<Cat, CatBuilder>, AnimalBuilder {
-  _$Cat _$v;
+  _$Cat _$v = _$Cat._silent();
 
   bool _tail;
   bool get tail => _$this._tail;
@@ -192,7 +196,7 @@ class CatBuilder implements Builder<Cat, CatBuilder>, AnimalBuilder {
 
   @override
   _$Cat build() {
-    final _$result = _$v ?? new _$Cat._(tail: tail, legs: legs);
+    final _$result = new _$Cat._(tail: tail, legs: legs);
     replace(_$result);
     return _$result;
   }
@@ -208,6 +212,10 @@ class _$Fish extends Fish {
   factory _$Fish([void Function(FishBuilder) updates]) =>
       (new FishBuilder()..update(updates)).build();
 
+  _$Fish._silent({int fins, int legs})
+      : _fins = fins,
+        _legs = legs,
+        super._();
   _$Fish._({int fins, int legs})
       : _fins = fins,
         _legs = legs,
@@ -248,7 +256,7 @@ class _$Fish extends Fish {
 }
 
 class FishBuilder implements Builder<Fish, FishBuilder>, AnimalBuilder {
-  _$Fish _$v;
+  _$Fish _$v = _$Fish._silent();
 
   int _fins;
   int get fins => _$this._fins;
@@ -284,7 +292,7 @@ class FishBuilder implements Builder<Fish, FishBuilder>, AnimalBuilder {
 
   @override
   _$Fish build() {
-    final _$result = _$v ?? new _$Fish._(fins: fins, legs: legs);
+    final _$result = new _$Fish._(fins: fins, legs: legs);
     replace(_$result);
     return _$result;
   }
