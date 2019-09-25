@@ -19,11 +19,6 @@ class _$Node extends Node {
   factory _$Node([void Function(NodeBuilder) updates]) =>
       (new NodeBuilder()..update(updates)).build();
 
-  _$Node._silent({String label, Node left, Node right})
-      : _label = label,
-        _left = left,
-        _right = right,
-        super._();
   _$Node._({String label, Node left, Node right})
       : _label = label,
         _left = left,
@@ -62,7 +57,7 @@ class _$Node extends Node {
 }
 
 class NodeBuilder implements Builder<Node, NodeBuilder> {
-  _$Node _$v = _$Node._silent();
+  _$Node _$v;
 
   String _label;
   String get label => _$this._label;
@@ -105,8 +100,9 @@ class NodeBuilder implements Builder<Node, NodeBuilder> {
   _$Node build() {
     _$Node _$result;
     try {
-      _$result = new _$Node._(
-          label: label, left: _left?.build(), right: _right?.build());
+      _$result = _$v ??
+          new _$Node._(
+              label: label, left: _left?.build(), right: _right?.build());
     } catch (_) {
       String _$failedField;
       try {

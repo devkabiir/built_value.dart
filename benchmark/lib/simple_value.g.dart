@@ -16,10 +16,6 @@ class _$SimpleValue extends SimpleValue {
   factory _$SimpleValue([void Function(SimpleValueBuilder) updates]) =>
       (new SimpleValueBuilder()..update(updates)).build();
 
-  _$SimpleValue._silent({int anInt, String aString})
-      : _anInt = anInt,
-        _aString = aString,
-        super._();
   _$SimpleValue._({int anInt, String aString})
       : _anInt = anInt,
         _aString = aString,
@@ -62,7 +58,7 @@ class _$SimpleValue extends SimpleValue {
 }
 
 class SimpleValueBuilder implements Builder<SimpleValue, SimpleValueBuilder> {
-  _$SimpleValue _$v = _$SimpleValue._silent();
+  _$SimpleValue _$v;
 
   int _anInt;
   int get anInt => _$this._anInt;
@@ -98,7 +94,7 @@ class SimpleValueBuilder implements Builder<SimpleValue, SimpleValueBuilder> {
 
   @override
   _$SimpleValue build() {
-    final _$result = new _$SimpleValue._(anInt: anInt, aString: aString);
+    final _$result = _$v ?? new _$SimpleValue._(anInt: anInt, aString: aString);
     replace(_$result);
     return _$result;
   }

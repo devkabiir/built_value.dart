@@ -445,10 +445,6 @@ class _$Chat extends Chat {
   factory _$Chat([void Function(ChatBuilder) updates]) =>
       (new ChatBuilder()..update(updates)).build();
 
-  _$Chat._silent({String text, BuiltSet<String> targets})
-      : _text = text,
-        _targets = targets,
-        super._();
   _$Chat._({String text, BuiltSet<String> targets})
       : _text = text,
         _targets = targets,
@@ -489,7 +485,7 @@ class _$Chat extends Chat {
 }
 
 class ChatBuilder implements Builder<Chat, ChatBuilder> {
-  _$Chat _$v = _$Chat._silent();
+  _$Chat _$v;
 
   String _text;
   String get text => _$this._text;
@@ -528,7 +524,7 @@ class ChatBuilder implements Builder<Chat, ChatBuilder> {
   _$Chat build() {
     _$Chat _$result;
     try {
-      _$result = new _$Chat._(text: text, targets: targets.build());
+      _$result = _$v ?? new _$Chat._(text: text, targets: targets.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -555,10 +551,6 @@ class _$Login extends Login {
   factory _$Login([void Function(LoginBuilder) updates]) =>
       (new LoginBuilder()..update(updates)).build();
 
-  _$Login._silent({String username, String password})
-      : _username = username,
-        _password = password,
-        super._();
   _$Login._({String username, String password})
       : _username = username,
         _password = password,
@@ -601,7 +593,7 @@ class _$Login extends Login {
 }
 
 class LoginBuilder implements Builder<Login, LoginBuilder> {
-  _$Login _$v = _$Login._silent();
+  _$Login _$v;
 
   String _username;
   String get username => _$this._username;
@@ -637,7 +629,8 @@ class LoginBuilder implements Builder<Login, LoginBuilder> {
 
   @override
   _$Login build() {
-    final _$result = new _$Login._(username: username, password: password);
+    final _$result =
+        _$v ?? new _$Login._(username: username, password: password);
     replace(_$result);
     return _$result;
   }
@@ -653,10 +646,6 @@ class _$Status extends Status {
   factory _$Status([void Function(StatusBuilder) updates]) =>
       (new StatusBuilder()..update(updates)).build();
 
-  _$Status._silent({String message, StatusType type})
-      : _message = message,
-        _type = type,
-        super._();
   _$Status._({String message, StatusType type})
       : _message = message,
         _type = type,
@@ -697,7 +686,7 @@ class _$Status extends Status {
 }
 
 class StatusBuilder implements Builder<Status, StatusBuilder> {
-  _$Status _$v = _$Status._silent();
+  _$Status _$v;
 
   String _message;
   String get message => _$this._message;
@@ -733,7 +722,7 @@ class StatusBuilder implements Builder<Status, StatusBuilder> {
 
   @override
   _$Status build() {
-    final _$result = new _$Status._(message: message, type: type);
+    final _$result = _$v ?? new _$Status._(message: message, type: type);
     replace(_$result);
     return _$result;
   }
@@ -746,9 +735,6 @@ class _$ListUsers extends ListUsers {
   factory _$ListUsers([void Function(ListUsersBuilder) updates]) =>
       (new ListUsersBuilder()..update(updates)).build();
 
-  _$ListUsers._silent({BuiltSet<StatusType> statusTypes})
-      : _statusTypes = statusTypes,
-        super._();
   _$ListUsers._({BuiltSet<StatusType> statusTypes})
       : _statusTypes = statusTypes,
         super._() {
@@ -784,7 +770,7 @@ class _$ListUsers extends ListUsers {
 }
 
 class ListUsersBuilder implements Builder<ListUsers, ListUsersBuilder> {
-  _$ListUsers _$v = _$ListUsers._silent();
+  _$ListUsers _$v;
 
   SetBuilder<StatusType> _statusTypes;
   SetBuilder<StatusType> get statusTypes =>
@@ -819,7 +805,7 @@ class ListUsersBuilder implements Builder<ListUsers, ListUsersBuilder> {
   _$ListUsers build() {
     _$ListUsers _$result;
     try {
-      _$result = new _$ListUsers._(statusTypes: statusTypes.build());
+      _$result = _$v ?? new _$ListUsers._(statusTypes: statusTypes.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -849,11 +835,6 @@ class _$ShowChat extends ShowChat {
   factory _$ShowChat([void Function(ShowChatBuilder) updates]) =>
       (new ShowChatBuilder()..update(updates)).build();
 
-  _$ShowChat._silent({String username, bool private, String text})
-      : _username = username,
-        _private = private,
-        _text = text,
-        super._();
   _$ShowChat._({String username, bool private, String text})
       : _username = username,
         _private = private,
@@ -903,7 +884,7 @@ class _$ShowChat extends ShowChat {
 }
 
 class ShowChatBuilder implements Builder<ShowChat, ShowChatBuilder> {
-  _$ShowChat _$v = _$ShowChat._silent();
+  _$ShowChat _$v;
 
   String _username;
   String get username => _$this._username;
@@ -944,7 +925,7 @@ class ShowChatBuilder implements Builder<ShowChat, ShowChatBuilder> {
 
   @override
   _$ShowChat build() {
-    final _$result =
+    final _$result = _$v ??
         new _$ShowChat._(username: username, private: private, text: text);
     replace(_$result);
     return _$result;
@@ -961,10 +942,6 @@ class _$Welcome extends Welcome {
   factory _$Welcome([void Function(WelcomeBuilder) updates]) =>
       (new WelcomeBuilder()..update(updates)).build();
 
-  _$Welcome._silent({BuiltList<Response> log, String message})
-      : _log = log,
-        _message = message,
-        super._();
   _$Welcome._({BuiltList<Response> log, String message})
       : _log = log,
         _message = message,
@@ -1005,7 +982,7 @@ class _$Welcome extends Welcome {
 }
 
 class WelcomeBuilder implements Builder<Welcome, WelcomeBuilder> {
-  _$Welcome _$v = _$Welcome._silent();
+  _$Welcome _$v;
 
   ListBuilder<Response> _log;
   ListBuilder<Response> get log => _$this._log ??= new ListBuilder<Response>();
@@ -1043,7 +1020,7 @@ class WelcomeBuilder implements Builder<Welcome, WelcomeBuilder> {
   _$Welcome build() {
     _$Welcome _$result;
     try {
-      _$result = new _$Welcome._(log: log.build(), message: message);
+      _$result = _$v ?? new _$Welcome._(log: log.build(), message: message);
     } catch (_) {
       String _$failedField;
       try {
@@ -1068,9 +1045,6 @@ class _$ListUsersResponse extends ListUsersResponse {
           [void Function(ListUsersResponseBuilder) updates]) =>
       (new ListUsersResponseBuilder()..update(updates)).build();
 
-  _$ListUsersResponse._silent({BuiltMap<String, Status> statuses})
-      : _statuses = statuses,
-        super._();
   _$ListUsersResponse._({BuiltMap<String, Status> statuses})
       : _statuses = statuses,
         super._() {
@@ -1108,7 +1082,7 @@ class _$ListUsersResponse extends ListUsersResponse {
 
 class ListUsersResponseBuilder
     implements Builder<ListUsersResponse, ListUsersResponseBuilder> {
-  _$ListUsersResponse _$v = _$ListUsersResponse._silent();
+  _$ListUsersResponse _$v;
 
   MapBuilder<String, Status> _statuses;
   MapBuilder<String, Status> get statuses =>
@@ -1143,7 +1117,7 @@ class ListUsersResponseBuilder
   _$ListUsersResponse build() {
     _$ListUsersResponse _$result;
     try {
-      _$result = new _$ListUsersResponse._(statuses: statuses.build());
+      _$result = _$v ?? new _$ListUsersResponse._(statuses: statuses.build());
     } catch (_) {
       String _$failedField;
       try {

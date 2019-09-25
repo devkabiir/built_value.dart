@@ -20,9 +20,6 @@ class _$EnumSourceLibrary extends EnumSourceLibrary {
           [void Function(EnumSourceLibraryBuilder) updates]) =>
       (new EnumSourceLibraryBuilder()..update(updates)).build();
 
-  _$EnumSourceLibrary._silent({LibraryElement element})
-      : _element = element,
-        super._();
   _$EnumSourceLibrary._({LibraryElement element})
       : _element = element,
         super._() {
@@ -76,7 +73,7 @@ class _$EnumSourceLibrary extends EnumSourceLibrary {
 
 class EnumSourceLibraryBuilder
     implements Builder<EnumSourceLibrary, EnumSourceLibraryBuilder> {
-  _$EnumSourceLibrary _$v = _$EnumSourceLibrary._silent();
+  _$EnumSourceLibrary _$v;
 
   LibraryElement _element;
   LibraryElement get element => _$this._element;
@@ -107,7 +104,7 @@ class EnumSourceLibraryBuilder
 
   @override
   _$EnumSourceLibrary build() {
-    final _$result = new _$EnumSourceLibrary._(element: element);
+    final _$result = _$v ?? new _$EnumSourceLibrary._(element: element);
     replace(_$result);
     return _$result;
   }

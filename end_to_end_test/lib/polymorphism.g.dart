@@ -378,10 +378,6 @@ class _$Cat extends Cat {
   factory _$Cat([void Function(CatBuilder) updates]) =>
       (new CatBuilder()..update(updates)).build();
 
-  _$Cat._silent({bool tail, int legs})
-      : _tail = tail,
-        _legs = legs,
-        super._();
   _$Cat._({bool tail, int legs})
       : _tail = tail,
         _legs = legs,
@@ -422,7 +418,7 @@ class _$Cat extends Cat {
 }
 
 class CatBuilder implements Builder<Cat, CatBuilder>, AnimalBuilder {
-  _$Cat _$v = _$Cat._silent();
+  _$Cat _$v;
 
   bool _tail;
   bool get tail => _$this._tail;
@@ -458,7 +454,7 @@ class CatBuilder implements Builder<Cat, CatBuilder>, AnimalBuilder {
 
   @override
   _$Cat build() {
-    final _$result = new _$Cat._(tail: tail, legs: legs);
+    final _$result = _$v ?? new _$Cat._(tail: tail, legs: legs);
     replace(_$result);
     return _$result;
   }
@@ -474,10 +470,6 @@ class _$Fish extends Fish {
   factory _$Fish([void Function(FishBuilder) updates]) =>
       (new FishBuilder()..update(updates)).build();
 
-  _$Fish._silent({int fins, int legs})
-      : _fins = fins,
-        _legs = legs,
-        super._();
   _$Fish._({int fins, int legs})
       : _fins = fins,
         _legs = legs,
@@ -518,7 +510,7 @@ class _$Fish extends Fish {
 }
 
 class FishBuilder implements Builder<Fish, FishBuilder>, AnimalBuilder {
-  _$Fish _$v = _$Fish._silent();
+  _$Fish _$v;
 
   int _fins;
   int get fins => _$this._fins;
@@ -554,7 +546,7 @@ class FishBuilder implements Builder<Fish, FishBuilder>, AnimalBuilder {
 
   @override
   _$Fish build() {
-    final _$result = new _$Fish._(fins: fins, legs: legs);
+    final _$result = _$v ?? new _$Fish._(fins: fins, legs: legs);
     replace(_$result);
     return _$result;
   }
@@ -570,10 +562,6 @@ class _$Robot extends Robot {
   factory _$Robot([void Function(RobotBuilder) updates]) =>
       (new RobotBuilder()..update(updates)).build();
 
-  _$Robot._silent({int fins, int legs})
-      : _fins = fins,
-        _legs = legs,
-        super._();
   _$Robot._({int fins, int legs})
       : _fins = fins,
         _legs = legs,
@@ -614,7 +602,7 @@ class _$Robot extends Robot {
 }
 
 class RobotBuilder implements Builder<Robot, RobotBuilder> {
-  _$Robot _$v = _$Robot._silent();
+  _$Robot _$v;
 
   int _fins;
   int get fins => _$this._fins;
@@ -650,7 +638,7 @@ class RobotBuilder implements Builder<Robot, RobotBuilder> {
 
   @override
   _$Robot build() {
-    final _$result = new _$Robot._(fins: fins, legs: legs);
+    final _$result = _$v ?? new _$Robot._(fins: fins, legs: legs);
     replace(_$result);
     return _$result;
   }
@@ -666,10 +654,6 @@ class _$Cage extends Cage {
   factory _$Cage([void Function(CageBuilder) updates]) =>
       (new CageBuilder()..update(updates)).build();
 
-  _$Cage._silent({Animal inhabitant, BuiltList<Animal> otherInhabitants})
-      : _inhabitant = inhabitant,
-        _otherInhabitants = otherInhabitants,
-        super._();
   _$Cage._({Animal inhabitant, BuiltList<Animal> otherInhabitants})
       : _inhabitant = inhabitant,
         _otherInhabitants = otherInhabitants,
@@ -712,7 +696,7 @@ class _$Cage extends Cage {
 }
 
 class CageBuilder implements Builder<Cage, CageBuilder> {
-  _$Cage _$v = _$Cage._silent();
+  _$Cage _$v;
 
   Animal _inhabitant;
   Animal get inhabitant => _$this._inhabitant;
@@ -752,8 +736,10 @@ class CageBuilder implements Builder<Cage, CageBuilder> {
   _$Cage build() {
     _$Cage _$result;
     try {
-      _$result = new _$Cage._(
-          inhabitant: inhabitant, otherInhabitants: otherInhabitants.build());
+      _$result = _$v ??
+          new _$Cage._(
+              inhabitant: inhabitant,
+              otherInhabitants: otherInhabitants.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -777,9 +763,6 @@ class _$StandardCat extends StandardCat {
   factory _$StandardCat([void Function(StandardCatBuilder) updates]) =>
       (new StandardCatBuilder()..update(updates)).build();
 
-  _$StandardCat._silent({bool tail})
-      : _tail = tail,
-        super._();
   _$StandardCat._({bool tail})
       : _tail = tail,
         super._() {
@@ -814,7 +797,7 @@ class _$StandardCat extends StandardCat {
 }
 
 class StandardCatBuilder implements Builder<StandardCat, StandardCatBuilder> {
-  _$StandardCat _$v = _$StandardCat._silent();
+  _$StandardCat _$v;
 
   bool _tail;
   bool get tail => _$this._tail;
@@ -845,7 +828,7 @@ class StandardCatBuilder implements Builder<StandardCat, StandardCatBuilder> {
 
   @override
   _$StandardCat build() {
-    final _$result = new _$StandardCat._(tail: tail);
+    final _$result = _$v ?? new _$StandardCat._(tail: tail);
     replace(_$result);
     return _$result;
   }
@@ -865,9 +848,6 @@ class _$HasString extends HasString {
   factory _$HasString([void Function(HasStringBuilder) updates]) =>
       (new HasStringBuilder()..update(updates)).build();
 
-  _$HasString._silent({String field})
-      : _field = field,
-        super._();
   _$HasString._({String field})
       : _field = field,
         super._() {
@@ -903,7 +883,7 @@ class _$HasString extends HasString {
 
 class HasStringBuilder
     implements Builder<HasString, HasStringBuilder>, HasFieldBuilder<String> {
-  _$HasString _$v = _$HasString._silent();
+  _$HasString _$v;
 
   String _field;
   String get field => _$this._field;
@@ -934,7 +914,7 @@ class HasStringBuilder
 
   @override
   _$HasString build() {
-    final _$result = new _$HasString._(field: field);
+    final _$result = _$v ?? new _$HasString._(field: field);
     replace(_$result);
     return _$result;
   }
@@ -947,9 +927,6 @@ class _$HasDouble extends HasDouble {
   factory _$HasDouble([void Function(HasDoubleBuilder) updates]) =>
       (new HasDoubleBuilder()..update(updates)).build();
 
-  _$HasDouble._silent({double field})
-      : _field = field,
-        super._();
   _$HasDouble._({double field})
       : _field = field,
         super._() {
@@ -985,7 +962,7 @@ class _$HasDouble extends HasDouble {
 
 class HasDoubleBuilder
     implements Builder<HasDouble, HasDoubleBuilder>, HasFieldBuilder<double> {
-  _$HasDouble _$v = _$HasDouble._silent();
+  _$HasDouble _$v;
 
   double _field;
   double get field => _$this._field;
@@ -1016,7 +993,7 @@ class HasDoubleBuilder
 
   @override
   _$HasDouble build() {
-    final _$result = new _$HasDouble._(field: field);
+    final _$result = _$v ?? new _$HasDouble._(field: field);
     replace(_$result);
     return _$result;
   }
@@ -1033,10 +1010,6 @@ class _$UsesChainedInterface extends UsesChainedInterface {
           [void Function(UsesChainedInterfaceBuilder) updates]) =>
       (new UsesChainedInterfaceBuilder()..update(updates)).build();
 
-  _$UsesChainedInterface._silent({int bar, int foo})
-      : _bar = bar,
-        _foo = foo,
-        super._();
   _$UsesChainedInterface._({int bar, int foo})
       : _bar = bar,
         _foo = foo,
@@ -1082,7 +1055,7 @@ class _$UsesChainedInterface extends UsesChainedInterface {
 
 class UsesChainedInterfaceBuilder
     implements Builder<UsesChainedInterface, UsesChainedInterfaceBuilder> {
-  _$UsesChainedInterface _$v = _$UsesChainedInterface._silent();
+  _$UsesChainedInterface _$v;
 
   int _bar;
   int get bar => _$this._bar;
@@ -1118,7 +1091,7 @@ class UsesChainedInterfaceBuilder
 
   @override
   _$UsesChainedInterface build() {
-    final _$result = new _$UsesChainedInterface._(bar: bar, foo: foo);
+    final _$result = _$v ?? new _$UsesChainedInterface._(bar: bar, foo: foo);
     replace(_$result);
     return _$result;
   }
@@ -1131,9 +1104,6 @@ class _$UsesHandCoded extends UsesHandCoded {
   factory _$UsesHandCoded([void Function(UsesHandCodedBuilder) updates]) =>
       (new UsesHandCodedBuilder()..update(updates)).build();
 
-  _$UsesHandCoded._silent({int fieldInBaseBuilder})
-      : _fieldInBaseBuilder = fieldInBaseBuilder,
-        super._();
   _$UsesHandCoded._({int fieldInBaseBuilder})
       : _fieldInBaseBuilder = fieldInBaseBuilder,
         super._() {
@@ -1171,7 +1141,7 @@ class _$UsesHandCoded extends UsesHandCoded {
 
 class UsesHandCodedBuilder
     implements Builder<UsesHandCoded, UsesHandCodedBuilder>, HandCodedBuilder {
-  _$UsesHandCoded _$v = _$UsesHandCoded._silent();
+  _$UsesHandCoded _$v;
 
   int _fieldInBaseBuilder;
   int get fieldInBaseBuilder => _$this._fieldInBaseBuilder;
@@ -1204,7 +1174,7 @@ class UsesHandCodedBuilder
   @override
   _$UsesHandCoded build() {
     final _$result =
-        new _$UsesHandCoded._(fieldInBaseBuilder: fieldInBaseBuilder);
+        _$v ?? new _$UsesHandCoded._(fieldInBaseBuilder: fieldInBaseBuilder);
     replace(_$result);
     return _$result;
   }
@@ -1224,7 +1194,6 @@ class _$ImplementsTwo extends ImplementsTwo {
   factory _$ImplementsTwo([void Function(ImplementsTwoBuilder) updates]) =>
       (new ImplementsTwoBuilder()..update(updates)).build();
 
-  _$ImplementsTwo._silent() : super._();
   _$ImplementsTwo._() : super._();
 
   @override
@@ -1256,7 +1225,7 @@ class ImplementsTwoBuilder
         Builder<ImplementsTwo, ImplementsTwoBuilder>,
         OneBuilder,
         TwoBuilder {
-  _$ImplementsTwo _$v = _$ImplementsTwo._silent();
+  _$ImplementsTwo _$v;
 
   ImplementsTwoBuilder();
 
@@ -1276,7 +1245,7 @@ class ImplementsTwoBuilder
 
   @override
   _$ImplementsTwo build() {
-    final _$result = new _$ImplementsTwo._();
+    final _$result = _$v ?? new _$ImplementsTwo._();
     replace(_$result);
     return _$result;
   }

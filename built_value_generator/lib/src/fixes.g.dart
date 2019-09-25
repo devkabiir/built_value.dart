@@ -22,12 +22,6 @@ class _$GeneratorError extends GeneratorError {
   factory _$GeneratorError([void Function(GeneratorErrorBuilder) updates]) =>
       (new GeneratorErrorBuilder()..update(updates)).build();
 
-  _$GeneratorError._silent({String message, int offset, int length, String fix})
-      : _message = message,
-        _offset = offset,
-        _length = length,
-        _fix = fix,
-        super._();
   _$GeneratorError._({String message, int offset, int length, String fix})
       : _message = message,
         _offset = offset,
@@ -77,7 +71,7 @@ class _$GeneratorError extends GeneratorError {
 
 class GeneratorErrorBuilder
     implements Builder<GeneratorError, GeneratorErrorBuilder> {
-  _$GeneratorError _$v = _$GeneratorError._silent();
+  _$GeneratorError _$v;
 
   String _message;
   String get message => _$this._message;
@@ -123,8 +117,9 @@ class GeneratorErrorBuilder
 
   @override
   _$GeneratorError build() {
-    final _$result = new _$GeneratorError._(
-        message: message, offset: offset, length: length, fix: fix);
+    final _$result = _$v ??
+        new _$GeneratorError._(
+            message: message, offset: offset, length: length, fix: fix);
     replace(_$result);
     return _$result;
   }

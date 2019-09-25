@@ -189,12 +189,6 @@ class _$ImportedValue extends ImportedValue {
   factory _$ImportedValue([void Function(ImportedValueBuilder) updates]) =>
       (new ImportedValueBuilder()..update(updates)).build();
 
-  _$ImportedValue._silent(
-      {prefix.SimpleValue simpleValue,
-      BuiltList<prefix.SimpleValue> simpleValues})
-      : _simpleValue = simpleValue,
-        _simpleValues = simpleValues,
-        super._();
   _$ImportedValue._(
       {prefix.SimpleValue simpleValue,
       BuiltList<prefix.SimpleValue> simpleValues})
@@ -240,7 +234,7 @@ class _$ImportedValue extends ImportedValue {
 
 class ImportedValueBuilder
     implements Builder<ImportedValue, ImportedValueBuilder> {
-  _$ImportedValue _$v = _$ImportedValue._silent();
+  _$ImportedValue _$v;
 
   prefix.SimpleValueBuilder _simpleValue;
   prefix.SimpleValueBuilder get simpleValue =>
@@ -282,8 +276,10 @@ class ImportedValueBuilder
   _$ImportedValue build() {
     _$ImportedValue _$result;
     try {
-      _$result = new _$ImportedValue._(
-          simpleValue: simpleValue.build(), simpleValues: simpleValues.build());
+      _$result = _$v ??
+          new _$ImportedValue._(
+              simpleValue: simpleValue.build(),
+              simpleValues: simpleValues.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -314,12 +310,6 @@ class _$ImportedCustomValue extends ImportedCustomValue {
       (new ImportedCustomValueBuilder()..update(updates)).build()
           as _$ImportedCustomValue;
 
-  _$ImportedCustomValue._silent(
-      {prefix.SimpleValue simpleValue,
-      BuiltList<prefix.SimpleValue> simpleValues})
-      : _simpleValue = simpleValue,
-        _simpleValues = simpleValues,
-        super._();
   _$ImportedCustomValue._(
       {prefix.SimpleValue simpleValue,
       BuiltList<prefix.SimpleValue> simpleValues})
@@ -418,8 +408,9 @@ class _$ImportedCustomValueBuilder extends ImportedCustomValueBuilder {
 
   @override
   _$ImportedCustomValue build() {
-    final _$result = new _$ImportedCustomValue._(
-        simpleValue: simpleValue, simpleValues: simpleValues);
+    final _$result = _$v ??
+        new _$ImportedCustomValue._(
+            simpleValue: simpleValue, simpleValues: simpleValues);
     replace(_$result);
     return _$result;
   }
@@ -437,12 +428,6 @@ class _$ImportedCustomNestedValue extends ImportedCustomNestedValue {
       (new ImportedCustomNestedValueBuilder()..update(updates)).build()
           as _$ImportedCustomNestedValue;
 
-  _$ImportedCustomNestedValue._silent(
-      {prefix.SimpleValue simpleValue,
-      BuiltList<prefix.SimpleValue> simpleValues})
-      : _simpleValue = simpleValue,
-        _simpleValues = simpleValues,
-        super._();
   _$ImportedCustomNestedValue._(
       {prefix.SimpleValue simpleValue,
       BuiltList<prefix.SimpleValue> simpleValues})
@@ -546,8 +531,10 @@ class _$ImportedCustomNestedValueBuilder
   _$ImportedCustomNestedValue build() {
     _$ImportedCustomNestedValue _$result;
     try {
-      _$result = new _$ImportedCustomNestedValue._(
-          simpleValue: simpleValue.build(), simpleValues: simpleValues.build());
+      _$result = _$v ??
+          new _$ImportedCustomNestedValue._(
+              simpleValue: simpleValue.build(),
+              simpleValues: simpleValues.build());
     } catch (_) {
       String _$failedField;
       try {

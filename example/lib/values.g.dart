@@ -373,10 +373,6 @@ class _$SimpleValue extends SimpleValue {
   factory _$SimpleValue([void Function(SimpleValueBuilder) updates]) =>
       (new SimpleValueBuilder()..update(updates)).build();
 
-  _$SimpleValue._silent({int anInt, String aString})
-      : _anInt = anInt,
-        _aString = aString,
-        super._();
   _$SimpleValue._({int anInt, String aString})
       : _anInt = anInt,
         _aString = aString,
@@ -416,7 +412,7 @@ class _$SimpleValue extends SimpleValue {
 }
 
 class SimpleValueBuilder implements Builder<SimpleValue, SimpleValueBuilder> {
-  _$SimpleValue _$v = _$SimpleValue._silent();
+  _$SimpleValue _$v;
 
   int _anInt;
   int get anInt => _$this._anInt;
@@ -452,7 +448,7 @@ class SimpleValueBuilder implements Builder<SimpleValue, SimpleValueBuilder> {
 
   @override
   _$SimpleValue build() {
-    final _$result = new _$SimpleValue._(anInt: anInt, aString: aString);
+    final _$result = _$v ?? new _$SimpleValue._(anInt: anInt, aString: aString);
     replace(_$result);
     return _$result;
   }
@@ -465,9 +461,6 @@ class _$VerySimpleValue extends VerySimpleValue {
   factory _$VerySimpleValue([void Function(VerySimpleValueBuilder) updates]) =>
       (new VerySimpleValueBuilder()..update(updates)).build();
 
-  _$VerySimpleValue._silent({int value})
-      : _value = value,
-        super._();
   _$VerySimpleValue._({int value})
       : _value = value,
         super._() {
@@ -504,7 +497,7 @@ class _$VerySimpleValue extends VerySimpleValue {
 
 class VerySimpleValueBuilder
     implements Builder<VerySimpleValue, VerySimpleValueBuilder> {
-  _$VerySimpleValue _$v = _$VerySimpleValue._silent();
+  _$VerySimpleValue _$v;
 
   int _value;
   int get value => _$this._value;
@@ -535,7 +528,7 @@ class VerySimpleValueBuilder
 
   @override
   _$VerySimpleValue build() {
-    final _$result = new _$VerySimpleValue._(value: value);
+    final _$result = _$v ?? new _$VerySimpleValue._(value: value);
     replace(_$result);
     return _$result;
   }
@@ -551,11 +544,6 @@ class _$CompoundValue extends CompoundValue {
   factory _$CompoundValue([void Function(CompoundValueBuilder) updates]) =>
       (new CompoundValueBuilder()..update(updates)).build();
 
-  _$CompoundValue._silent(
-      {SimpleValue simpleValue, ValidatedValue validatedValue})
-      : _simpleValue = simpleValue,
-        _validatedValue = validatedValue,
-        super._();
   _$CompoundValue._({SimpleValue simpleValue, ValidatedValue validatedValue})
       : _simpleValue = simpleValue,
         _validatedValue = validatedValue,
@@ -596,7 +584,7 @@ class _$CompoundValue extends CompoundValue {
 
 class CompoundValueBuilder
     implements Builder<CompoundValue, CompoundValueBuilder> {
-  _$CompoundValue _$v = _$CompoundValue._silent();
+  _$CompoundValue _$v;
 
   SimpleValueBuilder _simpleValue;
   SimpleValueBuilder get simpleValue =>
@@ -638,9 +626,10 @@ class CompoundValueBuilder
   _$CompoundValue build() {
     _$CompoundValue _$result;
     try {
-      _$result = new _$CompoundValue._(
-          simpleValue: simpleValue.build(),
-          validatedValue: _validatedValue?.build());
+      _$result = _$v ??
+          new _$CompoundValue._(
+              simpleValue: simpleValue.build(),
+              validatedValue: _validatedValue?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -669,10 +658,6 @@ class _$ValidatedValue extends ValidatedValue {
   factory _$ValidatedValue([void Function(ValidatedValueBuilder) updates]) =>
       (new ValidatedValueBuilder()..update(updates)).build();
 
-  _$ValidatedValue._silent({int anInt, String aString})
-      : _anInt = anInt,
-        _aString = aString,
-        super._();
   _$ValidatedValue._({int anInt, String aString})
       : _anInt = anInt,
         _aString = aString,
@@ -714,7 +699,7 @@ class _$ValidatedValue extends ValidatedValue {
 
 class ValidatedValueBuilder
     implements Builder<ValidatedValue, ValidatedValueBuilder> {
-  _$ValidatedValue _$v = _$ValidatedValue._silent();
+  _$ValidatedValue _$v;
 
   int _anInt;
   int get anInt => _$this._anInt;
@@ -750,7 +735,8 @@ class ValidatedValueBuilder
 
   @override
   _$ValidatedValue build() {
-    final _$result = new _$ValidatedValue._(anInt: anInt, aString: aString);
+    final _$result =
+        _$v ?? new _$ValidatedValue._(anInt: anInt, aString: aString);
     replace(_$result);
     return _$result;
   }
@@ -770,14 +756,6 @@ class _$DefaultValue extends DefaultValue {
   factory _$DefaultValue([void Function(DefaultValueBuilder) updates]) =>
       (new DefaultValueBuilder()..update(updates)).build();
 
-  _$DefaultValue._silent(
-      {int anInt,
-      String aNullableString,
-      BuiltMap<String, String> newObjectDefaultValue})
-      : _anInt = anInt,
-        _aNullableString = aNullableString,
-        _newObjectDefaultValue = newObjectDefaultValue,
-        super._();
   _$DefaultValue._(
       {int anInt,
       String aNullableString,
@@ -829,7 +807,7 @@ class _$DefaultValue extends DefaultValue {
 
 class DefaultValueBuilder
     implements Builder<DefaultValue, DefaultValueBuilder> {
-  _$DefaultValue _$v = _$DefaultValue._silent();
+  _$DefaultValue _$v;
 
   int _anInt;
   int get anInt => _$this._anInt;
@@ -875,10 +853,11 @@ class DefaultValueBuilder
   _$DefaultValue build() {
     _$DefaultValue _$result;
     try {
-      _$result = new _$DefaultValue._(
-          anInt: anInt,
-          aNullableString: aNullableString,
-          newObjectDefaultValue: newObjectDefaultValue.build());
+      _$result = _$v ??
+          new _$DefaultValue._(
+              anInt: anInt,
+              aNullableString: aNullableString,
+              newObjectDefaultValue: newObjectDefaultValue.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -905,10 +884,6 @@ class _$ValueWithCode extends ValueWithCode {
   factory _$ValueWithCode([void Function(ValueWithCodeBuilder) updates]) =>
       (new ValueWithCodeBuilder()..update(updates)).build();
 
-  _$ValueWithCode._silent({int anInt, String aString})
-      : _anInt = anInt,
-        _aString = aString,
-        super._();
   _$ValueWithCode._({int anInt, String aString})
       : _anInt = anInt,
         _aString = aString,
@@ -949,7 +924,7 @@ class _$ValueWithCode extends ValueWithCode {
 
 class ValueWithCodeBuilder
     implements Builder<ValueWithCode, ValueWithCodeBuilder> {
-  _$ValueWithCode _$v = _$ValueWithCode._silent();
+  _$ValueWithCode _$v;
 
   int _anInt;
   int get anInt => _$this._anInt;
@@ -985,7 +960,8 @@ class ValueWithCodeBuilder
 
   @override
   _$ValueWithCode build() {
-    final _$result = new _$ValueWithCode._(anInt: anInt, aString: aString);
+    final _$result =
+        _$v ?? new _$ValueWithCode._(anInt: anInt, aString: aString);
     replace(_$result);
     return _$result;
   }
@@ -1003,10 +979,6 @@ class _$ValueWithDefaults extends ValueWithDefaults {
       (new ValueWithDefaultsBuilder()..update(updates)).build()
           as _$ValueWithDefaults;
 
-  _$ValueWithDefaults._silent({int anInt, String aString})
-      : _anInt = anInt,
-        _aString = aString,
-        super._();
   _$ValueWithDefaults._({int anInt, String aString})
       : _anInt = anInt,
         _aString = aString,
@@ -1099,7 +1071,8 @@ class _$ValueWithDefaultsBuilder extends ValueWithDefaultsBuilder {
 
   @override
   _$ValueWithDefaults build() {
-    final _$result = new _$ValueWithDefaults._(anInt: anInt, aString: aString);
+    final _$result =
+        _$v ?? new _$ValueWithDefaults._(anInt: anInt, aString: aString);
     replace(_$result);
     return _$result;
   }
@@ -1115,9 +1088,6 @@ class _$DerivedValue extends DerivedValue {
   factory _$DerivedValue([void Function(DerivedValueBuilder) updates]) =>
       (new DerivedValueBuilder()..update(updates)).build();
 
-  _$DerivedValue._silent({int anInt})
-      : _anInt = anInt,
-        super._();
   _$DerivedValue._({int anInt})
       : _anInt = anInt,
         super._() {
@@ -1159,7 +1129,7 @@ class _$DerivedValue extends DerivedValue {
 
 class DerivedValueBuilder
     implements Builder<DerivedValue, DerivedValueBuilder> {
-  _$DerivedValue _$v = _$DerivedValue._silent();
+  _$DerivedValue _$v;
 
   int _anInt;
   int get anInt => _$this._anInt;
@@ -1190,7 +1160,7 @@ class DerivedValueBuilder
 
   @override
   _$DerivedValue build() {
-    final _$result = new _$DerivedValue._(anInt: anInt);
+    final _$result = _$v ?? new _$DerivedValue._(anInt: anInt);
     replace(_$result);
     return _$result;
   }
@@ -1209,12 +1179,6 @@ class _$Account extends Account {
   factory _$Account([void Function(AccountBuilder) updates]) =>
       (new AccountBuilder()..update(updates)).build();
 
-  _$Account._silent(
-      {int id, String name, BuiltMap<String, JsonObject> keyValues})
-      : _id = id,
-        _name = name,
-        _keyValues = keyValues,
-        super._();
   _$Account._({int id, String name, BuiltMap<String, JsonObject> keyValues})
       : _id = id,
         _name = name,
@@ -1264,7 +1228,7 @@ class _$Account extends Account {
 }
 
 class AccountBuilder implements Builder<Account, AccountBuilder> {
-  _$Account _$v = _$Account._silent();
+  _$Account _$v;
 
   int _id;
   int get id => _$this._id;
@@ -1309,7 +1273,7 @@ class AccountBuilder implements Builder<Account, AccountBuilder> {
   _$Account build() {
     _$Account _$result;
     try {
-      _$result =
+      _$result = _$v ??
           new _$Account._(id: id, name: name, keyValues: keyValues.build());
     } catch (_) {
       String _$failedField;
@@ -1334,9 +1298,6 @@ class _$WireNameValue extends WireNameValue {
   factory _$WireNameValue([void Function(WireNameValueBuilder) updates]) =>
       (new WireNameValueBuilder()..update(updates)).build();
 
-  _$WireNameValue._silent({int value})
-      : _value = value,
-        super._();
   _$WireNameValue._({int value})
       : _value = value,
         super._() {
@@ -1372,7 +1333,7 @@ class _$WireNameValue extends WireNameValue {
 
 class WireNameValueBuilder
     implements Builder<WireNameValue, WireNameValueBuilder> {
-  _$WireNameValue _$v = _$WireNameValue._silent();
+  _$WireNameValue _$v;
 
   int _value;
   int get value => _$this._value;
@@ -1403,7 +1364,7 @@ class WireNameValueBuilder
 
   @override
   _$WireNameValue build() {
-    final _$result = new _$WireNameValue._(value: value);
+    final _$result = _$v ?? new _$WireNameValue._(value: value);
     replace(_$result);
     return _$result;
   }

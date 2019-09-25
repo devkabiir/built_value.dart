@@ -150,10 +150,6 @@ class _$ValueWithInt extends ValueWithInt {
   factory _$ValueWithInt([void Function(ValueWithIntBuilder) updates]) =>
       (new ValueWithIntBuilder()..update(updates)).build();
 
-  _$ValueWithInt._silent({int anInt, String note})
-      : _anInt = anInt,
-        _note = note,
-        super._();
   _$ValueWithInt._({int anInt, String note})
       : _anInt = anInt,
         _note = note,
@@ -195,7 +191,7 @@ class _$ValueWithInt extends ValueWithInt {
 
 class ValueWithIntBuilder
     implements Builder<ValueWithInt, ValueWithIntBuilder> {
-  _$ValueWithInt _$v = _$ValueWithInt._silent();
+  _$ValueWithInt _$v;
 
   int _anInt;
   int get anInt => _$this._anInt;
@@ -231,7 +227,7 @@ class ValueWithIntBuilder
 
   @override
   _$ValueWithInt build() {
-    final _$result = new _$ValueWithInt._(anInt: anInt, note: note);
+    final _$result = _$v ?? new _$ValueWithInt._(anInt: anInt, note: note);
     replace(_$result);
     return _$result;
   }
@@ -244,9 +240,6 @@ class _$ValueWithHasInt extends ValueWithHasInt {
   factory _$ValueWithHasInt([void Function(ValueWithHasIntBuilder) updates]) =>
       (new ValueWithHasIntBuilder()..update(updates)).build();
 
-  _$ValueWithHasInt._silent({HasInt hasInt})
-      : _hasInt = hasInt,
-        super._();
   _$ValueWithHasInt._({HasInt hasInt})
       : _hasInt = hasInt,
         super._() {
@@ -284,7 +277,7 @@ class _$ValueWithHasInt extends ValueWithHasInt {
 
 class ValueWithHasIntBuilder
     implements Builder<ValueWithHasInt, ValueWithHasIntBuilder> {
-  _$ValueWithHasInt _$v = _$ValueWithHasInt._silent();
+  _$ValueWithHasInt _$v;
 
   HasInt _hasInt;
   HasInt get hasInt => _$this._hasInt;
@@ -315,7 +308,7 @@ class ValueWithHasIntBuilder
 
   @override
   _$ValueWithHasInt build() {
-    final _$result = new _$ValueWithHasInt._(hasInt: hasInt);
+    final _$result = _$v ?? new _$ValueWithHasInt._(hasInt: hasInt);
     replace(_$result);
     return _$result;
   }

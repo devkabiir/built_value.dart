@@ -13,9 +13,6 @@ class _$PrivateValue extends _PrivateValue {
   factory _$PrivateValue([void Function(_PrivateValueBuilder) updates]) =>
       (new _PrivateValueBuilder()..update(updates)).build();
 
-  _$PrivateValue._silent({int value})
-      : _value = value,
-        super._();
   _$PrivateValue._({int value})
       : _value = value,
         super._() {
@@ -51,7 +48,7 @@ class _$PrivateValue extends _PrivateValue {
 
 class _PrivateValueBuilder
     implements Builder<_PrivateValue, _PrivateValueBuilder> {
-  _$PrivateValue _$v = _$PrivateValue._silent();
+  _$PrivateValue _$v;
 
   int _value;
   int get value => _$this._value;
@@ -82,7 +79,7 @@ class _PrivateValueBuilder
 
   @override
   _$PrivateValue build() {
-    final _$result = new _$PrivateValue._(value: value);
+    final _$result = _$v ?? new _$PrivateValue._(value: value);
     replace(_$result);
     return _$result;
   }

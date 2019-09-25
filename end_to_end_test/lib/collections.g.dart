@@ -364,28 +364,6 @@ class _$Collections extends Collections {
   factory _$Collections([void Function(CollectionsBuilder) updates]) =>
       (new CollectionsBuilder()..update(updates)).build();
 
-  _$Collections._silent(
-      {BuiltList<int> list,
-      BuiltSet<String> set,
-      BuiltMap<String, int> map,
-      BuiltListMultimap<int, bool> listMultimap,
-      BuiltSetMultimap<String, bool> setMultimap,
-      BuiltList<int> nullableList,
-      BuiltSet<String> nullableSet,
-      BuiltMap<String, int> nullableMap,
-      BuiltListMultimap<int, bool> nullableListMultimap,
-      BuiltSetMultimap<String, bool> nullableSetMultimap})
-      : _list = list,
-        _set = set,
-        _map = map,
-        _listMultimap = listMultimap,
-        _setMultimap = setMultimap,
-        _nullableList = nullableList,
-        _nullableSet = nullableSet,
-        _nullableMap = nullableMap,
-        _nullableListMultimap = nullableListMultimap,
-        _nullableSetMultimap = nullableSetMultimap,
-        super._();
   _$Collections._(
       {BuiltList<int> list,
       BuiltSet<String> set,
@@ -486,7 +464,7 @@ class _$Collections extends Collections {
 }
 
 class CollectionsBuilder implements Builder<Collections, CollectionsBuilder> {
-  _$Collections _$v = _$Collections._silent();
+  _$Collections _$v;
 
   ListBuilder<int> _list;
   ListBuilder<int> get list => _$this._list ??= new ListBuilder<int>();
@@ -581,17 +559,18 @@ class CollectionsBuilder implements Builder<Collections, CollectionsBuilder> {
   _$Collections build() {
     _$Collections _$result;
     try {
-      _$result = new _$Collections._(
-          list: list.build(),
-          set: set.build(),
-          map: map.build(),
-          listMultimap: listMultimap.build(),
-          setMultimap: setMultimap.build(),
-          nullableList: _nullableList?.build(),
-          nullableSet: _nullableSet?.build(),
-          nullableMap: _nullableMap?.build(),
-          nullableListMultimap: _nullableListMultimap?.build(),
-          nullableSetMultimap: _nullableSetMultimap?.build());
+      _$result = _$v ??
+          new _$Collections._(
+              list: list.build(),
+              set: set.build(),
+              map: map.build(),
+              listMultimap: listMultimap.build(),
+              setMultimap: setMultimap.build(),
+              nullableList: _nullableList?.build(),
+              nullableSet: _nullableSet?.build(),
+              nullableMap: _nullableMap?.build(),
+              nullableListMultimap: _nullableListMultimap?.build(),
+              nullableSetMultimap: _nullableSetMultimap?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -663,28 +642,6 @@ class _$CollectionsWithNulls extends CollectionsWithNulls {
           [void Function(CollectionsWithNullsBuilder) updates]) =>
       (new CollectionsWithNullsBuilder()..update(updates)).build();
 
-  _$CollectionsWithNulls._silent(
-      {BuiltList<int> list,
-      BuiltSet<String> set,
-      BuiltMap<String, int> map,
-      BuiltListMultimap<int, bool> listMultimap,
-      BuiltSetMultimap<String, bool> setMultimap,
-      BuiltList<int> nullableList,
-      BuiltSet<String> nullableSet,
-      BuiltMap<String, int> nullableMap,
-      BuiltListMultimap<int, bool> nullableListMultimap,
-      BuiltSetMultimap<String, bool> nullableSetMultimap})
-      : _list = list,
-        _set = set,
-        _map = map,
-        _listMultimap = listMultimap,
-        _setMultimap = setMultimap,
-        _nullableList = nullableList,
-        _nullableSet = nullableSet,
-        _nullableMap = nullableMap,
-        _nullableListMultimap = nullableListMultimap,
-        _nullableSetMultimap = nullableSetMultimap,
-        super._();
   _$CollectionsWithNulls._(
       {BuiltList<int> list,
       BuiltSet<String> set,
@@ -789,7 +746,7 @@ class _$CollectionsWithNulls extends CollectionsWithNulls {
 
 class CollectionsWithNullsBuilder
     implements Builder<CollectionsWithNulls, CollectionsWithNullsBuilder> {
-  _$CollectionsWithNulls _$v = _$CollectionsWithNulls._silent();
+  _$CollectionsWithNulls _$v;
 
   ListBuilder<int> _list;
   ListBuilder<int> get list => _$this._list ??= new ListBuilder<int>();
@@ -884,17 +841,18 @@ class CollectionsWithNullsBuilder
   _$CollectionsWithNulls build() {
     _$CollectionsWithNulls _$result;
     try {
-      _$result = new _$CollectionsWithNulls._(
-          list: list.build(),
-          set: set.build(),
-          map: map.build(),
-          listMultimap: listMultimap.build(),
-          setMultimap: setMultimap.build(),
-          nullableList: _nullableList?.build(),
-          nullableSet: _nullableSet?.build(),
-          nullableMap: _nullableMap?.build(),
-          nullableListMultimap: _nullableListMultimap?.build(),
-          nullableSetMultimap: _nullableSetMultimap?.build());
+      _$result = _$v ??
+          new _$CollectionsWithNulls._(
+              list: list.build(),
+              set: set.build(),
+              map: map.build(),
+              listMultimap: listMultimap.build(),
+              setMultimap: setMultimap.build(),
+              nullableList: _nullableList?.build(),
+              nullableSet: _nullableSet?.build(),
+              nullableMap: _nullableMap?.build(),
+              nullableListMultimap: _nullableListMultimap?.build(),
+              nullableSetMultimap: _nullableSetMultimap?.build());
     } catch (_) {
       String _$failedField;
       try {

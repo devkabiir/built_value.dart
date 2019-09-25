@@ -28,20 +28,6 @@ class _$SimpleValue extends SimpleValue {
   factory _$SimpleValue([void Function(SimpleValueBuilder) updates]) =>
       (new SimpleValueBuilder()..update(updates)).build();
 
-  _$SimpleValue._silent(
-      {int anInt,
-      BuiltList<String> list,
-      BuiltListMultimap<int, bool> multimap,
-      BuiltMap<String, int> map,
-      BuiltSet<int> aSet,
-      BuiltSetMultimap<int, bool> setMultimap})
-      : _anInt = anInt,
-        _list = list,
-        _multimap = multimap,
-        _map = map,
-        _aSet = aSet,
-        _setMultimap = setMultimap,
-        super._();
   _$SimpleValue._(
       {int anInt,
       BuiltList<String> list,
@@ -121,7 +107,7 @@ class _$SimpleValue extends SimpleValue {
 }
 
 class SimpleValueBuilder implements Builder<SimpleValue, SimpleValueBuilder> {
-  _$SimpleValue _$v = _$SimpleValue._silent();
+  _$SimpleValue _$v;
 
   int _anInt;
   int get anInt => _$this._anInt;
@@ -184,13 +170,14 @@ class SimpleValueBuilder implements Builder<SimpleValue, SimpleValueBuilder> {
   _$SimpleValue build() {
     _$SimpleValue _$result;
     try {
-      _$result = new _$SimpleValue._(
-          anInt: anInt,
-          list: list.build(),
-          multimap: multimap.build(),
-          map: map.build(),
-          aSet: aSet.build(),
-          setMultimap: setMultimap.build());
+      _$result = _$v ??
+          new _$SimpleValue._(
+              anInt: anInt,
+              list: list.build(),
+              multimap: multimap.build(),
+              map: map.build(),
+              aSet: aSet.build(),
+              setMultimap: setMultimap.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -225,10 +212,6 @@ class _$CompoundValue extends CompoundValue {
   factory _$CompoundValue([void Function(CompoundValueBuilder) updates]) =>
       (new CompoundValueBuilder()..update(updates)).build();
 
-  _$CompoundValue._silent({SimpleValue simpleValue, String string})
-      : _simpleValue = simpleValue,
-        _string = string,
-        super._();
   _$CompoundValue._({SimpleValue simpleValue, String string})
       : _simpleValue = simpleValue,
         _string = string,
@@ -269,7 +252,7 @@ class _$CompoundValue extends CompoundValue {
 
 class CompoundValueBuilder
     implements Builder<CompoundValue, CompoundValueBuilder> {
-  _$CompoundValue _$v = _$CompoundValue._silent();
+  _$CompoundValue _$v;
 
   SimpleValueBuilder _simpleValue;
   SimpleValueBuilder get simpleValue =>
@@ -309,8 +292,9 @@ class CompoundValueBuilder
   _$CompoundValue build() {
     _$CompoundValue _$result;
     try {
-      _$result = new _$CompoundValue._(
-          simpleValue: simpleValue.build(), string: string);
+      _$result = _$v ??
+          new _$CompoundValue._(
+              simpleValue: simpleValue.build(), string: string);
     } catch (_) {
       String _$failedField;
       try {
@@ -337,10 +321,6 @@ class _$ComparedValue extends ComparedValue {
   factory _$ComparedValue([void Function(ComparedValueBuilder) updates]) =>
       (new ComparedValueBuilder()..update(updates)).build();
 
-  _$ComparedValue._silent({String name, Function onChanged})
-      : _name = name,
-        _onChanged = onChanged,
-        super._();
   _$ComparedValue._({String name, Function onChanged})
       : _name = name,
         _onChanged = onChanged,
@@ -382,7 +362,7 @@ class _$ComparedValue extends ComparedValue {
 
 class ComparedValueBuilder
     implements Builder<ComparedValue, ComparedValueBuilder> {
-  _$ComparedValue _$v = _$ComparedValue._silent();
+  _$ComparedValue _$v;
 
   String _name;
   String get name => _$this._name;
@@ -418,7 +398,8 @@ class ComparedValueBuilder
 
   @override
   _$ComparedValue build() {
-    final _$result = new _$ComparedValue._(name: name, onChanged: onChanged);
+    final _$result =
+        _$v ?? new _$ComparedValue._(name: name, onChanged: onChanged);
     replace(_$result);
     return _$result;
   }

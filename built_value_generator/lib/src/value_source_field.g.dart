@@ -37,16 +37,6 @@ class _$ValueSourceField extends ValueSourceField {
           [void Function(ValueSourceFieldBuilder) updates]) =>
       (new ValueSourceFieldBuilder()..update(updates)).build();
 
-  _$ValueSourceField._silent(
-      {BuiltValue settings,
-      ParsedLibraryResult parsedLibrary,
-      FieldElement element,
-      FieldElement builderElement})
-      : _settings = settings,
-        _parsedLibrary = parsedLibrary,
-        _element = element,
-        _builderElement = builderElement,
-        super._();
   _$ValueSourceField._(
       {BuiltValue settings,
       ParsedLibraryResult parsedLibrary,
@@ -151,7 +141,7 @@ class _$ValueSourceField extends ValueSourceField {
 
 class ValueSourceFieldBuilder
     implements Builder<ValueSourceField, ValueSourceFieldBuilder> {
-  _$ValueSourceField _$v = _$ValueSourceField._silent();
+  _$ValueSourceField _$v;
 
   BuiltValue _settings;
   BuiltValue get settings => _$this._settings;
@@ -199,11 +189,12 @@ class ValueSourceFieldBuilder
 
   @override
   _$ValueSourceField build() {
-    final _$result = new _$ValueSourceField._(
-        settings: settings,
-        parsedLibrary: parsedLibrary,
-        element: element,
-        builderElement: builderElement);
+    final _$result = _$v ??
+        new _$ValueSourceField._(
+            settings: settings,
+            parsedLibrary: parsedLibrary,
+            element: element,
+            builderElement: builderElement);
     replace(_$result);
     return _$result;
   }

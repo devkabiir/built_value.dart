@@ -106,10 +106,6 @@ class _$ValueWithInt extends ValueWithInt {
   factory _$ValueWithInt([void Function(ValueWithIntBuilder) updates]) =>
       (new ValueWithIntBuilder()..update(updates)).build() as _$ValueWithInt;
 
-  _$ValueWithInt._silent({int anInt, String note})
-      : _anInt = anInt,
-        _note = note,
-        super._();
   _$ValueWithInt._({int anInt, String note})
       : _anInt = anInt,
         _note = note,
@@ -203,7 +199,7 @@ class _$ValueWithIntBuilder extends ValueWithIntBuilder {
 
   @override
   _$ValueWithInt build() {
-    final _$result = new _$ValueWithInt._(anInt: anInt, note: note);
+    final _$result = _$v ?? new _$ValueWithInt._(anInt: anInt, note: note);
     replace(_$result);
     return _$result;
   }

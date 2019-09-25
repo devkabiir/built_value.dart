@@ -34,9 +34,6 @@ class _$UsesMixin extends UsesMixin {
   factory _$UsesMixin([void Function(UsesMixinBuilder) updates]) =>
       (new UsesMixinBuilder()..update(updates)).build();
 
-  _$UsesMixin._silent({String Function(String) typeDef})
-      : _typeDef = typeDef,
-        super._();
   _$UsesMixin._({String Function(String) typeDef})
       : _typeDef = typeDef,
         super._() {
@@ -72,7 +69,7 @@ class _$UsesMixin extends UsesMixin {
 }
 
 class UsesMixinBuilder implements Builder<UsesMixin, UsesMixinBuilder> {
-  _$UsesMixin _$v = _$UsesMixin._silent();
+  _$UsesMixin _$v;
 
   String Function(String) _typeDef;
   String Function(String) get typeDef => _$this._typeDef;
@@ -103,7 +100,7 @@ class UsesMixinBuilder implements Builder<UsesMixin, UsesMixinBuilder> {
 
   @override
   _$UsesMixin build() {
-    final _$result = new _$UsesMixin._(typeDef: typeDef);
+    final _$result = _$v ?? new _$UsesMixin._(typeDef: typeDef);
     replace(_$result);
     return _$result;
   }

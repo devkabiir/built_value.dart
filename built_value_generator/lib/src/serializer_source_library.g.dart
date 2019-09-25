@@ -22,9 +22,6 @@ class _$SerializerSourceLibrary extends SerializerSourceLibrary {
           [void Function(SerializerSourceLibraryBuilder) updates]) =>
       (new SerializerSourceLibraryBuilder()..update(updates)).build();
 
-  _$SerializerSourceLibrary._silent({LibraryElement element})
-      : _element = element,
-        super._();
   _$SerializerSourceLibrary._({LibraryElement element})
       : _element = element,
         super._() {
@@ -88,7 +85,7 @@ class _$SerializerSourceLibrary extends SerializerSourceLibrary {
 class SerializerSourceLibraryBuilder
     implements
         Builder<SerializerSourceLibrary, SerializerSourceLibraryBuilder> {
-  _$SerializerSourceLibrary _$v = _$SerializerSourceLibrary._silent();
+  _$SerializerSourceLibrary _$v;
 
   LibraryElement _element;
   LibraryElement get element => _$this._element;
@@ -119,7 +116,7 @@ class SerializerSourceLibraryBuilder
 
   @override
   _$SerializerSourceLibrary build() {
-    final _$result = new _$SerializerSourceLibrary._(element: element);
+    final _$result = _$v ?? new _$SerializerSourceLibrary._(element: element);
     replace(_$result);
     return _$result;
   }

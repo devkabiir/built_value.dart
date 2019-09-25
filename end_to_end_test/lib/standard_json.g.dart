@@ -122,20 +122,6 @@ class _$StandardJsonValue extends StandardJsonValue {
           [void Function(StandardJsonValueBuilder) updates]) =>
       (new StandardJsonValueBuilder()..update(updates)).build();
 
-  _$StandardJsonValue._silent(
-      {num number,
-      String text,
-      BuiltMap<String, JsonObject> keyValues,
-      BuiltList<Animal> zoo,
-      BuiltSet<Animal> uniqueZoo,
-      BuiltList<String> strings})
-      : _number = number,
-        _text = text,
-        _keyValues = keyValues,
-        _zoo = zoo,
-        _uniqueZoo = uniqueZoo,
-        _strings = strings,
-        super._();
   _$StandardJsonValue._(
       {num number,
       String text,
@@ -214,7 +200,7 @@ class _$StandardJsonValue extends StandardJsonValue {
 
 class StandardJsonValueBuilder
     implements Builder<StandardJsonValue, StandardJsonValueBuilder> {
-  _$StandardJsonValue _$v = _$StandardJsonValue._silent();
+  _$StandardJsonValue _$v;
 
   num _number;
   num get number => _$this._number;
@@ -276,13 +262,14 @@ class StandardJsonValueBuilder
   _$StandardJsonValue build() {
     _$StandardJsonValue _$result;
     try {
-      _$result = new _$StandardJsonValue._(
-          number: number,
-          text: text,
-          keyValues: keyValues.build(),
-          zoo: zoo.build(),
-          uniqueZoo: uniqueZoo.build(),
-          strings: _strings?.build());
+      _$result = _$v ??
+          new _$StandardJsonValue._(
+              number: number,
+              text: text,
+              keyValues: keyValues.build(),
+              zoo: zoo.build(),
+              uniqueZoo: uniqueZoo.build(),
+              strings: _strings?.build());
     } catch (_) {
       String _$failedField;
       try {
