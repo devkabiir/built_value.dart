@@ -94,6 +94,148 @@ abstract class ValidatedValue
   }
 }
 
+abstract class SimpleValueWithDefault
+    implements Built<SimpleValueWithDefault, SimpleValueWithDefaultBuilder> {
+  static Serializer<SimpleValueWithDefault> get serializer =>
+      _$simpleValueWithDefaultSerializer;
+
+  /// An integer with default value 42
+  /// This cannot be null, but it can be skipped when constructing the built value
+  @BuiltValueField()
+  int get anInt => 42;
+
+  factory SimpleValueWithDefault(
+          [void Function(SimpleValueWithDefaultBuilder) updates]) =
+      _$SimpleValueWithDefault;
+  SimpleValueWithDefault._();
+}
+
+abstract class ValidatedValueWithDefault
+    implements
+        Built<ValidatedValueWithDefault, ValidatedValueWithDefaultBuilder> {
+  static Serializer<ValidatedValueWithDefault> get serializer =>
+      _$validatedValueWithDefaultSerializer;
+
+  /// An integer with default value 42
+  /// It MUST not be 7
+  /// This cannot be null, but it can be skipped when constructing the built value
+  @BuiltValueField()
+  int get anInt => 42;
+
+  ValidatedValueWithDefault._() {
+    if (anInt == 7) throw Exception('anInt may not be 7');
+  }
+
+  factory ValidatedValueWithDefault(
+          [void Function(ValidatedValueWithDefaultBuilder) updates]) =
+      _$ValidatedValueWithDefault;
+}
+
+abstract class CollectionsValueWithDefault
+    implements
+        Built<CollectionsValueWithDefault, CollectionsValueWithDefaultBuilder> {
+  static Serializer<CollectionsValueWithDefault> get serializer =>
+      _$collectionsValueWithDefaultSerializer;
+
+  // ** Collections that are non-nullable, but have defaults **
+
+  @BuiltValueField()
+  BuiltList<int> get list => BuiltList([42]);
+
+  @BuiltValueField()
+  BuiltSet<String> get set => BuiltSet(Set.of(['42']));
+  @BuiltValueField()
+  BuiltMap<String, int> get map => BuiltMap({'answer': 42});
+  @BuiltValueField()
+  BuiltListMultimap<int, String> get listMultimap => BuiltListMultimap({
+        1: ['1'],
+        2: ['2'],
+        3: ['3']
+      });
+  @BuiltValueField()
+  BuiltSetMultimap<int, String> get setMultimap => BuiltSetMultimap({
+        1: ['1'],
+        2: ['2'],
+        3: ['3']
+      });
+
+  // ** Collections that are nullable, and do not have defaults **
+
+  @nullable
+  BuiltList<int> get nullableList;
+  @nullable
+  BuiltSet<String> get nullableSet;
+  @nullable
+  BuiltMap<String, int> get nullableMap;
+  @nullable
+  BuiltListMultimap<int, bool> get nullableListMultimap;
+  @nullable
+  BuiltSetMultimap<String, bool> get nullableSetMultimap;
+
+  // ** Collections that are nullable, but also have defaults **
+
+  @BuiltValueField()
+  @nullable
+  BuiltList<int> get nullableListWithDefault => BuiltList([42]);
+
+  @BuiltValueField()
+  @nullable
+  BuiltSet<String> get nullableSetWIthDefault => BuiltSet(Set.of(['42']));
+  @BuiltValueField()
+  @nullable
+  BuiltMap<String, int> get nullableMapWIthDefault => BuiltMap({'answer': 42});
+  @BuiltValueField()
+  @nullable
+  BuiltListMultimap<int, String> get nullableListMultimapWIthDefault =>
+      BuiltListMultimap({
+        1: ['1'],
+        2: ['2'],
+        3: ['3']
+      });
+  @BuiltValueField()
+  @nullable
+  BuiltSetMultimap<int, String> get nullableSetMultimapWIthDefault =>
+      BuiltSetMultimap({
+        1: ['1'],
+        2: ['2'],
+        3: ['3']
+      });
+  factory CollectionsValueWithDefault(
+          [void Function(CollectionsValueWithDefaultBuilder) updates]) =
+      _$CollectionsValueWithDefault;
+  CollectionsValueWithDefault._();
+}
+
+abstract class CompoundValueWithDefault
+    implements
+        Built<CompoundValueWithDefault, CompoundValueWithDefaultBuilder> {
+  static Serializer<CompoundValueWithDefault> get serializer =>
+      _$compoundValueWithDefaultSerializer;
+
+  @BuiltValueField()
+  SimpleValueWithDefault get simpleValue => SimpleValueWithDefault();
+  @BuiltValueField()
+  SimpleValueWithDefault get simpleValueFromBuilder =>
+      SimpleValueWithDefaultBuilder().build();
+
+  @BuiltValueField()
+  ValidatedValueWithDefault get validatedValue => ValidatedValueWithDefault();
+  @BuiltValueField()
+  ValidatedValueWithDefault get validatedValueFromBuilder =>
+      ValidatedValueWithDefaultBuilder().build();
+
+  @BuiltValueField()
+  CollectionsValueWithDefault get collections => CollectionsValueWithDefault();
+  @BuiltValueField()
+  CollectionsValueWithDefault get collectionsFromBuilder =>
+      CollectionsValueWithDefaultBuilder().build();
+
+  factory CompoundValueWithDefault(
+          [void Function(CompoundValueWithDefaultBuilder) updates]) =
+      _$CompoundValueWithDefault;
+  CompoundValueWithDefault._();
+}
+
 /// Fields can have default values
 abstract class DefaultValue
     implements Built<DefaultValue, DefaultValueBuilder> {

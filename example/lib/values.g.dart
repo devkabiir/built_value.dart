@@ -13,6 +13,15 @@ Serializer<CompoundValue> _$compoundValueSerializer =
     new _$CompoundValueSerializer();
 Serializer<ValidatedValue> _$validatedValueSerializer =
     new _$ValidatedValueSerializer();
+Serializer<SimpleValueWithDefault> _$simpleValueWithDefaultSerializer =
+    new _$SimpleValueWithDefaultSerializer();
+Serializer<ValidatedValueWithDefault> _$validatedValueWithDefaultSerializer =
+    new _$ValidatedValueWithDefaultSerializer();
+Serializer<CollectionsValueWithDefault>
+    _$collectionsValueWithDefaultSerializer =
+    new _$CollectionsValueWithDefaultSerializer();
+Serializer<CompoundValueWithDefault> _$compoundValueWithDefaultSerializer =
+    new _$CompoundValueWithDefaultSerializer();
 Serializer<DefaultValue> _$defaultValueSerializer =
     new _$DefaultValueSerializer();
 Serializer<Account> _$accountSerializer = new _$AccountSerializer();
@@ -200,6 +209,413 @@ class _$ValidatedValueSerializer
         case 'aString':
           result.aString = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$SimpleValueWithDefaultSerializer
+    implements StructuredSerializer<SimpleValueWithDefault> {
+  @override
+  final Iterable<Type> types = const [
+    SimpleValueWithDefault,
+    _$SimpleValueWithDefault
+  ];
+  @override
+  final String wireName = 'SimpleValueWithDefault';
+
+  @override
+  Iterable<Object> serialize(
+      Serializers serializers, SimpleValueWithDefault object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      'anInt',
+      serializers.serialize(object.anInt, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  SimpleValueWithDefault deserialize(
+      Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new SimpleValueWithDefaultBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'anInt':
+          result.anInt = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$ValidatedValueWithDefaultSerializer
+    implements StructuredSerializer<ValidatedValueWithDefault> {
+  @override
+  final Iterable<Type> types = const [
+    ValidatedValueWithDefault,
+    _$ValidatedValueWithDefault
+  ];
+  @override
+  final String wireName = 'ValidatedValueWithDefault';
+
+  @override
+  Iterable<Object> serialize(
+      Serializers serializers, ValidatedValueWithDefault object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      'anInt',
+      serializers.serialize(object.anInt, specifiedType: const FullType(int)),
+    ];
+
+    return result;
+  }
+
+  @override
+  ValidatedValueWithDefault deserialize(
+      Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new ValidatedValueWithDefaultBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'anInt':
+          result.anInt = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int;
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CollectionsValueWithDefaultSerializer
+    implements StructuredSerializer<CollectionsValueWithDefault> {
+  @override
+  final Iterable<Type> types = const [
+    CollectionsValueWithDefault,
+    _$CollectionsValueWithDefault
+  ];
+  @override
+  final String wireName = 'CollectionsValueWithDefault';
+
+  @override
+  Iterable<Object> serialize(
+      Serializers serializers, CollectionsValueWithDefault object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      'list',
+      serializers.serialize(object.list,
+          specifiedType:
+              const FullType(BuiltList, const [const FullType(int)])),
+      'set',
+      serializers.serialize(object.set,
+          specifiedType:
+              const FullType(BuiltSet, const [const FullType(String)])),
+      'map',
+      serializers.serialize(object.map,
+          specifiedType: const FullType(
+              BuiltMap, const [const FullType(String), const FullType(int)])),
+      'listMultimap',
+      serializers.serialize(object.listMultimap,
+          specifiedType: const FullType(BuiltListMultimap,
+              const [const FullType(int), const FullType(String)])),
+      'setMultimap',
+      serializers.serialize(object.setMultimap,
+          specifiedType: const FullType(BuiltSetMultimap,
+              const [const FullType(int), const FullType(String)])),
+    ];
+    if (object.nullableList != null) {
+      result
+        ..add('nullableList')
+        ..add(serializers.serialize(object.nullableList,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(int)])));
+    }
+    if (object.nullableSet != null) {
+      result
+        ..add('nullableSet')
+        ..add(serializers.serialize(object.nullableSet,
+            specifiedType:
+                const FullType(BuiltSet, const [const FullType(String)])));
+    }
+    if (object.nullableMap != null) {
+      result
+        ..add('nullableMap')
+        ..add(serializers.serialize(object.nullableMap,
+            specifiedType: const FullType(BuiltMap,
+                const [const FullType(String), const FullType(int)])));
+    }
+    if (object.nullableListMultimap != null) {
+      result
+        ..add('nullableListMultimap')
+        ..add(serializers.serialize(object.nullableListMultimap,
+            specifiedType: const FullType(BuiltListMultimap,
+                const [const FullType(int), const FullType(bool)])));
+    }
+    if (object.nullableSetMultimap != null) {
+      result
+        ..add('nullableSetMultimap')
+        ..add(serializers.serialize(object.nullableSetMultimap,
+            specifiedType: const FullType(BuiltSetMultimap,
+                const [const FullType(String), const FullType(bool)])));
+    }
+    if (object.nullableListWithDefault != null) {
+      result
+        ..add('nullableListWithDefault')
+        ..add(serializers.serialize(object.nullableListWithDefault,
+            specifiedType:
+                const FullType(BuiltList, const [const FullType(int)])));
+    }
+    if (object.nullableSetWIthDefault != null) {
+      result
+        ..add('nullableSetWIthDefault')
+        ..add(serializers.serialize(object.nullableSetWIthDefault,
+            specifiedType:
+                const FullType(BuiltSet, const [const FullType(String)])));
+    }
+    if (object.nullableMapWIthDefault != null) {
+      result
+        ..add('nullableMapWIthDefault')
+        ..add(serializers.serialize(object.nullableMapWIthDefault,
+            specifiedType: const FullType(BuiltMap,
+                const [const FullType(String), const FullType(int)])));
+    }
+    if (object.nullableListMultimapWIthDefault != null) {
+      result
+        ..add('nullableListMultimapWIthDefault')
+        ..add(serializers.serialize(object.nullableListMultimapWIthDefault,
+            specifiedType: const FullType(BuiltListMultimap,
+                const [const FullType(int), const FullType(String)])));
+    }
+    if (object.nullableSetMultimapWIthDefault != null) {
+      result
+        ..add('nullableSetMultimapWIthDefault')
+        ..add(serializers.serialize(object.nullableSetMultimapWIthDefault,
+            specifiedType: const FullType(BuiltSetMultimap,
+                const [const FullType(int), const FullType(String)])));
+    }
+    return result;
+  }
+
+  @override
+  CollectionsValueWithDefault deserialize(
+      Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new CollectionsValueWithDefaultBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'list':
+          result.list.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(int)]))
+              as BuiltList<dynamic>);
+          break;
+        case 'set':
+          result.set.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltSet, const [const FullType(String)]))
+              as BuiltSet<dynamic>);
+          break;
+        case 'map':
+          result.map.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(int)
+              ])) as BuiltMap<dynamic, dynamic>);
+          break;
+        case 'listMultimap':
+          result.listMultimap.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltListMultimap, const [
+                const FullType(int),
+                const FullType(String)
+              ])) as BuiltListMultimap<dynamic, dynamic>);
+          break;
+        case 'setMultimap':
+          result.setMultimap.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltSetMultimap, const [
+                const FullType(int),
+                const FullType(String)
+              ])) as BuiltSetMultimap<dynamic, dynamic>);
+          break;
+        case 'nullableList':
+          result.nullableList.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(int)]))
+              as BuiltList<dynamic>);
+          break;
+        case 'nullableSet':
+          result.nullableSet.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltSet, const [const FullType(String)]))
+              as BuiltSet<dynamic>);
+          break;
+        case 'nullableMap':
+          result.nullableMap.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(int)
+              ])) as BuiltMap<dynamic, dynamic>);
+          break;
+        case 'nullableListMultimap':
+          result.nullableListMultimap.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltListMultimap, const [
+                const FullType(int),
+                const FullType(bool)
+              ])) as BuiltListMultimap<dynamic, dynamic>);
+          break;
+        case 'nullableSetMultimap':
+          result.nullableSetMultimap.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltSetMultimap, const [
+                const FullType(String),
+                const FullType(bool)
+              ])) as BuiltSetMultimap<dynamic, dynamic>);
+          break;
+        case 'nullableListWithDefault':
+          result.nullableListWithDefault.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltList, const [const FullType(int)]))
+              as BuiltList<dynamic>);
+          break;
+        case 'nullableSetWIthDefault':
+          result.nullableSetWIthDefault.replace(serializers.deserialize(value,
+                  specifiedType:
+                      const FullType(BuiltSet, const [const FullType(String)]))
+              as BuiltSet<dynamic>);
+          break;
+        case 'nullableMapWIthDefault':
+          result.nullableMapWIthDefault.replace(serializers.deserialize(value,
+              specifiedType: const FullType(BuiltMap, const [
+                const FullType(String),
+                const FullType(int)
+              ])) as BuiltMap<dynamic, dynamic>);
+          break;
+        case 'nullableListMultimapWIthDefault':
+          result.nullableListMultimapWIthDefault.replace(
+              serializers.deserialize(value,
+                  specifiedType: const FullType(BuiltListMultimap, const [
+                    const FullType(int),
+                    const FullType(String)
+                  ])) as BuiltListMultimap<dynamic, dynamic>);
+          break;
+        case 'nullableSetMultimapWIthDefault':
+          result.nullableSetMultimapWIthDefault.replace(serializers.deserialize(
+              value,
+              specifiedType: const FullType(BuiltSetMultimap, const [
+                const FullType(int),
+                const FullType(String)
+              ])) as BuiltSetMultimap<dynamic, dynamic>);
+          break;
+      }
+    }
+
+    return result.build();
+  }
+}
+
+class _$CompoundValueWithDefaultSerializer
+    implements StructuredSerializer<CompoundValueWithDefault> {
+  @override
+  final Iterable<Type> types = const [
+    CompoundValueWithDefault,
+    _$CompoundValueWithDefault
+  ];
+  @override
+  final String wireName = 'CompoundValueWithDefault';
+
+  @override
+  Iterable<Object> serialize(
+      Serializers serializers, CompoundValueWithDefault object,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = <Object>[
+      'simpleValue',
+      serializers.serialize(object.simpleValue,
+          specifiedType: const FullType(SimpleValueWithDefault)),
+      'simpleValueFromBuilder',
+      serializers.serialize(object.simpleValueFromBuilder,
+          specifiedType: const FullType(SimpleValueWithDefault)),
+      'validatedValue',
+      serializers.serialize(object.validatedValue,
+          specifiedType: const FullType(ValidatedValueWithDefault)),
+      'validatedValueFromBuilder',
+      serializers.serialize(object.validatedValueFromBuilder,
+          specifiedType: const FullType(ValidatedValueWithDefault)),
+      'collections',
+      serializers.serialize(object.collections,
+          specifiedType: const FullType(CollectionsValueWithDefault)),
+      'collectionsFromBuilder',
+      serializers.serialize(object.collectionsFromBuilder,
+          specifiedType: const FullType(CollectionsValueWithDefault)),
+    ];
+
+    return result;
+  }
+
+  @override
+  CompoundValueWithDefault deserialize(
+      Serializers serializers, Iterable<Object> serialized,
+      {FullType specifiedType = FullType.unspecified}) {
+    final result = new CompoundValueWithDefaultBuilder();
+
+    final iterator = serialized.iterator;
+    while (iterator.moveNext()) {
+      final key = iterator.current as String;
+      iterator.moveNext();
+      final dynamic value = iterator.current;
+      switch (key) {
+        case 'simpleValue':
+          result.simpleValue.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SimpleValueWithDefault))
+              as SimpleValueWithDefault);
+          break;
+        case 'simpleValueFromBuilder':
+          result.simpleValueFromBuilder.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(SimpleValueWithDefault))
+              as SimpleValueWithDefault);
+          break;
+        case 'validatedValue':
+          result.validatedValue.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(ValidatedValueWithDefault))
+              as ValidatedValueWithDefault);
+          break;
+        case 'validatedValueFromBuilder':
+          result.validatedValueFromBuilder.replace(serializers.deserialize(
+                  value,
+                  specifiedType: const FullType(ValidatedValueWithDefault))
+              as ValidatedValueWithDefault);
+          break;
+        case 'collections':
+          result.collections.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CollectionsValueWithDefault))
+              as CollectionsValueWithDefault);
+          break;
+        case 'collectionsFromBuilder':
+          result.collectionsFromBuilder.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(CollectionsValueWithDefault))
+              as CollectionsValueWithDefault);
           break;
       }
     }
@@ -737,6 +1153,803 @@ class ValidatedValueBuilder
   _$ValidatedValue build() {
     final _$result =
         _$v ?? new _$ValidatedValue._(anInt: anInt, aString: aString);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$SimpleValueWithDefault extends SimpleValueWithDefault {
+  final int _anInt;
+  @override
+  int get anInt => _anInt ?? super.anInt;
+  factory _$SimpleValueWithDefault(
+          [void Function(SimpleValueWithDefaultBuilder) updates]) =>
+      (new SimpleValueWithDefaultBuilder()..update(updates)).build();
+
+  _$SimpleValueWithDefault._({int anInt})
+      : _anInt = anInt,
+        super._() {
+    if (this.anInt == null) {
+      throw new BuiltValueNullFieldError('SimpleValueWithDefault', 'anInt');
+    }
+  }
+
+  @override
+  SimpleValueWithDefault rebuild(
+          void Function(SimpleValueWithDefaultBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SimpleValueWithDefaultBuilder toBuilder() =>
+      new SimpleValueWithDefaultBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SimpleValueWithDefault && anInt == other.anInt;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(0, anInt.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('SimpleValueWithDefault')
+          ..add('anInt', anInt))
+        .toString();
+  }
+}
+
+class SimpleValueWithDefaultBuilder
+    implements Builder<SimpleValueWithDefault, SimpleValueWithDefaultBuilder> {
+  _$SimpleValueWithDefault _$v;
+
+  int _anInt;
+  int get anInt => _$this._anInt;
+  set anInt(int anInt) => _$this._anInt = anInt;
+
+  SimpleValueWithDefaultBuilder();
+
+  SimpleValueWithDefaultBuilder get _$this {
+    if (_$v != null) {
+      _anInt = _$v.anInt;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(SimpleValueWithDefault other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$SimpleValueWithDefault;
+  }
+
+  @override
+  void update(void Function(SimpleValueWithDefaultBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$SimpleValueWithDefault build() {
+    final _$result = _$v ?? new _$SimpleValueWithDefault._(anInt: anInt);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$ValidatedValueWithDefault extends ValidatedValueWithDefault {
+  final int _anInt;
+  @override
+  int get anInt => _anInt ?? super.anInt;
+  factory _$ValidatedValueWithDefault(
+          [void Function(ValidatedValueWithDefaultBuilder) updates]) =>
+      (new ValidatedValueWithDefaultBuilder()..update(updates)).build();
+
+  _$ValidatedValueWithDefault._({int anInt})
+      : _anInt = anInt,
+        super._() {
+    if (this.anInt == null) {
+      throw new BuiltValueNullFieldError('ValidatedValueWithDefault', 'anInt');
+    }
+  }
+
+  @override
+  ValidatedValueWithDefault rebuild(
+          void Function(ValidatedValueWithDefaultBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  ValidatedValueWithDefaultBuilder toBuilder() =>
+      new ValidatedValueWithDefaultBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is ValidatedValueWithDefault && anInt == other.anInt;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(0, anInt.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('ValidatedValueWithDefault')
+          ..add('anInt', anInt))
+        .toString();
+  }
+}
+
+class ValidatedValueWithDefaultBuilder
+    implements
+        Builder<ValidatedValueWithDefault, ValidatedValueWithDefaultBuilder> {
+  _$ValidatedValueWithDefault _$v;
+
+  int _anInt;
+  int get anInt => _$this._anInt;
+  set anInt(int anInt) => _$this._anInt = anInt;
+
+  ValidatedValueWithDefaultBuilder();
+
+  ValidatedValueWithDefaultBuilder get _$this {
+    if (_$v != null) {
+      _anInt = _$v.anInt;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(ValidatedValueWithDefault other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$ValidatedValueWithDefault;
+  }
+
+  @override
+  void update(void Function(ValidatedValueWithDefaultBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$ValidatedValueWithDefault build() {
+    final _$result = _$v ?? new _$ValidatedValueWithDefault._(anInt: anInt);
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CollectionsValueWithDefault extends CollectionsValueWithDefault {
+  final BuiltList<int> _list;
+  @override
+  BuiltList<int> get list => _list ?? super.list;
+  final BuiltSet<String> _set;
+  @override
+  BuiltSet<String> get set => _set ?? super.set;
+  final BuiltMap<String, int> _map;
+  @override
+  BuiltMap<String, int> get map => _map ?? super.map;
+  final BuiltListMultimap<int, String> _listMultimap;
+  @override
+  BuiltListMultimap<int, String> get listMultimap =>
+      _listMultimap ?? super.listMultimap;
+  final BuiltSetMultimap<int, String> _setMultimap;
+  @override
+  BuiltSetMultimap<int, String> get setMultimap =>
+      _setMultimap ?? super.setMultimap;
+  final BuiltList<int> _nullableList;
+  @override
+  BuiltList<int> get nullableList => _nullableList;
+  final BuiltSet<String> _nullableSet;
+  @override
+  BuiltSet<String> get nullableSet => _nullableSet;
+  final BuiltMap<String, int> _nullableMap;
+  @override
+  BuiltMap<String, int> get nullableMap => _nullableMap;
+  final BuiltListMultimap<int, bool> _nullableListMultimap;
+  @override
+  BuiltListMultimap<int, bool> get nullableListMultimap =>
+      _nullableListMultimap;
+  final BuiltSetMultimap<String, bool> _nullableSetMultimap;
+  @override
+  BuiltSetMultimap<String, bool> get nullableSetMultimap =>
+      _nullableSetMultimap;
+  final BuiltList<int> _nullableListWithDefault;
+  @override
+  BuiltList<int> get nullableListWithDefault =>
+      _nullableListWithDefault ?? super.nullableListWithDefault;
+  final BuiltSet<String> _nullableSetWIthDefault;
+  @override
+  BuiltSet<String> get nullableSetWIthDefault =>
+      _nullableSetWIthDefault ?? super.nullableSetWIthDefault;
+  final BuiltMap<String, int> _nullableMapWIthDefault;
+  @override
+  BuiltMap<String, int> get nullableMapWIthDefault =>
+      _nullableMapWIthDefault ?? super.nullableMapWIthDefault;
+  final BuiltListMultimap<int, String> _nullableListMultimapWIthDefault;
+  @override
+  BuiltListMultimap<int, String> get nullableListMultimapWIthDefault =>
+      _nullableListMultimapWIthDefault ?? super.nullableListMultimapWIthDefault;
+  final BuiltSetMultimap<int, String> _nullableSetMultimapWIthDefault;
+  @override
+  BuiltSetMultimap<int, String> get nullableSetMultimapWIthDefault =>
+      _nullableSetMultimapWIthDefault ?? super.nullableSetMultimapWIthDefault;
+  factory _$CollectionsValueWithDefault(
+          [void Function(CollectionsValueWithDefaultBuilder) updates]) =>
+      (new CollectionsValueWithDefaultBuilder()..update(updates)).build();
+
+  _$CollectionsValueWithDefault._(
+      {BuiltList<int> list,
+      BuiltSet<String> set,
+      BuiltMap<String, int> map,
+      BuiltListMultimap<int, String> listMultimap,
+      BuiltSetMultimap<int, String> setMultimap,
+      BuiltList<int> nullableList,
+      BuiltSet<String> nullableSet,
+      BuiltMap<String, int> nullableMap,
+      BuiltListMultimap<int, bool> nullableListMultimap,
+      BuiltSetMultimap<String, bool> nullableSetMultimap,
+      BuiltList<int> nullableListWithDefault,
+      BuiltSet<String> nullableSetWIthDefault,
+      BuiltMap<String, int> nullableMapWIthDefault,
+      BuiltListMultimap<int, String> nullableListMultimapWIthDefault,
+      BuiltSetMultimap<int, String> nullableSetMultimapWIthDefault})
+      : _list = list,
+        _set = set,
+        _map = map,
+        _listMultimap = listMultimap,
+        _setMultimap = setMultimap,
+        _nullableList = nullableList,
+        _nullableSet = nullableSet,
+        _nullableMap = nullableMap,
+        _nullableListMultimap = nullableListMultimap,
+        _nullableSetMultimap = nullableSetMultimap,
+        _nullableListWithDefault = nullableListWithDefault,
+        _nullableSetWIthDefault = nullableSetWIthDefault,
+        _nullableMapWIthDefault = nullableMapWIthDefault,
+        _nullableListMultimapWIthDefault = nullableListMultimapWIthDefault,
+        _nullableSetMultimapWIthDefault = nullableSetMultimapWIthDefault,
+        super._() {
+    if (this.list == null) {
+      throw new BuiltValueNullFieldError('CollectionsValueWithDefault', 'list');
+    }
+    if (this.set == null) {
+      throw new BuiltValueNullFieldError('CollectionsValueWithDefault', 'set');
+    }
+    if (this.map == null) {
+      throw new BuiltValueNullFieldError('CollectionsValueWithDefault', 'map');
+    }
+    if (this.listMultimap == null) {
+      throw new BuiltValueNullFieldError(
+          'CollectionsValueWithDefault', 'listMultimap');
+    }
+    if (this.setMultimap == null) {
+      throw new BuiltValueNullFieldError(
+          'CollectionsValueWithDefault', 'setMultimap');
+    }
+  }
+
+  @override
+  CollectionsValueWithDefault rebuild(
+          void Function(CollectionsValueWithDefaultBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CollectionsValueWithDefaultBuilder toBuilder() =>
+      new CollectionsValueWithDefaultBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CollectionsValueWithDefault &&
+        list == other.list &&
+        set == other.set &&
+        map == other.map &&
+        listMultimap == other.listMultimap &&
+        setMultimap == other.setMultimap &&
+        nullableList == other.nullableList &&
+        nullableSet == other.nullableSet &&
+        nullableMap == other.nullableMap &&
+        nullableListMultimap == other.nullableListMultimap &&
+        nullableSetMultimap == other.nullableSetMultimap &&
+        nullableListWithDefault == other.nullableListWithDefault &&
+        nullableSetWIthDefault == other.nullableSetWIthDefault &&
+        nullableMapWIthDefault == other.nullableMapWIthDefault &&
+        nullableListMultimapWIthDefault ==
+            other.nullableListMultimapWIthDefault &&
+        nullableSetMultimapWIthDefault == other.nullableSetMultimapWIthDefault;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc(
+                    $jc(
+                        $jc(
+                            $jc(
+                                $jc(
+                                    $jc(
+                                        $jc(
+                                            $jc(
+                                                $jc(
+                                                    $jc(
+                                                        $jc(
+                                                            $jc(0,
+                                                                list.hashCode),
+                                                            set.hashCode),
+                                                        map.hashCode),
+                                                    listMultimap.hashCode),
+                                                setMultimap.hashCode),
+                                            nullableList.hashCode),
+                                        nullableSet.hashCode),
+                                    nullableMap.hashCode),
+                                nullableListMultimap.hashCode),
+                            nullableSetMultimap.hashCode),
+                        nullableListWithDefault.hashCode),
+                    nullableSetWIthDefault.hashCode),
+                nullableMapWIthDefault.hashCode),
+            nullableListMultimapWIthDefault.hashCode),
+        nullableSetMultimapWIthDefault.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('CollectionsValueWithDefault')
+          ..add('list', list)
+          ..add('set', set)
+          ..add('map', map)
+          ..add('listMultimap', listMultimap)
+          ..add('setMultimap', setMultimap)
+          ..add('nullableList', nullableList)
+          ..add('nullableSet', nullableSet)
+          ..add('nullableMap', nullableMap)
+          ..add('nullableListMultimap', nullableListMultimap)
+          ..add('nullableSetMultimap', nullableSetMultimap)
+          ..add('nullableListWithDefault', nullableListWithDefault)
+          ..add('nullableSetWIthDefault', nullableSetWIthDefault)
+          ..add('nullableMapWIthDefault', nullableMapWIthDefault)
+          ..add('nullableListMultimapWIthDefault',
+              nullableListMultimapWIthDefault)
+          ..add(
+              'nullableSetMultimapWIthDefault', nullableSetMultimapWIthDefault))
+        .toString();
+  }
+}
+
+class CollectionsValueWithDefaultBuilder
+    implements
+        Builder<CollectionsValueWithDefault,
+            CollectionsValueWithDefaultBuilder> {
+  _$CollectionsValueWithDefault _$v;
+
+  ListBuilder<int> _list;
+  ListBuilder<int> get list => _$this._list ??= new ListBuilder<int>();
+  set list(ListBuilder<int> list) => _$this._list = list;
+
+  SetBuilder<String> _set;
+  SetBuilder<String> get set => _$this._set ??= new SetBuilder<String>();
+  set set(SetBuilder<String> set) => _$this._set = set;
+
+  MapBuilder<String, int> _map;
+  MapBuilder<String, int> get map =>
+      _$this._map ??= new MapBuilder<String, int>();
+  set map(MapBuilder<String, int> map) => _$this._map = map;
+
+  ListMultimapBuilder<int, String> _listMultimap;
+  ListMultimapBuilder<int, String> get listMultimap =>
+      _$this._listMultimap ??= new ListMultimapBuilder<int, String>();
+  set listMultimap(ListMultimapBuilder<int, String> listMultimap) =>
+      _$this._listMultimap = listMultimap;
+
+  SetMultimapBuilder<int, String> _setMultimap;
+  SetMultimapBuilder<int, String> get setMultimap =>
+      _$this._setMultimap ??= new SetMultimapBuilder<int, String>();
+  set setMultimap(SetMultimapBuilder<int, String> setMultimap) =>
+      _$this._setMultimap = setMultimap;
+
+  ListBuilder<int> _nullableList;
+  ListBuilder<int> get nullableList =>
+      _$this._nullableList ??= new ListBuilder<int>();
+  set nullableList(ListBuilder<int> nullableList) =>
+      _$this._nullableList = nullableList;
+
+  SetBuilder<String> _nullableSet;
+  SetBuilder<String> get nullableSet =>
+      _$this._nullableSet ??= new SetBuilder<String>();
+  set nullableSet(SetBuilder<String> nullableSet) =>
+      _$this._nullableSet = nullableSet;
+
+  MapBuilder<String, int> _nullableMap;
+  MapBuilder<String, int> get nullableMap =>
+      _$this._nullableMap ??= new MapBuilder<String, int>();
+  set nullableMap(MapBuilder<String, int> nullableMap) =>
+      _$this._nullableMap = nullableMap;
+
+  ListMultimapBuilder<int, bool> _nullableListMultimap;
+  ListMultimapBuilder<int, bool> get nullableListMultimap =>
+      _$this._nullableListMultimap ??= new ListMultimapBuilder<int, bool>();
+  set nullableListMultimap(
+          ListMultimapBuilder<int, bool> nullableListMultimap) =>
+      _$this._nullableListMultimap = nullableListMultimap;
+
+  SetMultimapBuilder<String, bool> _nullableSetMultimap;
+  SetMultimapBuilder<String, bool> get nullableSetMultimap =>
+      _$this._nullableSetMultimap ??= new SetMultimapBuilder<String, bool>();
+  set nullableSetMultimap(
+          SetMultimapBuilder<String, bool> nullableSetMultimap) =>
+      _$this._nullableSetMultimap = nullableSetMultimap;
+
+  ListBuilder<int> _nullableListWithDefault;
+  ListBuilder<int> get nullableListWithDefault =>
+      _$this._nullableListWithDefault ??= new ListBuilder<int>();
+  set nullableListWithDefault(ListBuilder<int> nullableListWithDefault) =>
+      _$this._nullableListWithDefault = nullableListWithDefault;
+
+  SetBuilder<String> _nullableSetWIthDefault;
+  SetBuilder<String> get nullableSetWIthDefault =>
+      _$this._nullableSetWIthDefault ??= new SetBuilder<String>();
+  set nullableSetWIthDefault(SetBuilder<String> nullableSetWIthDefault) =>
+      _$this._nullableSetWIthDefault = nullableSetWIthDefault;
+
+  MapBuilder<String, int> _nullableMapWIthDefault;
+  MapBuilder<String, int> get nullableMapWIthDefault =>
+      _$this._nullableMapWIthDefault ??= new MapBuilder<String, int>();
+  set nullableMapWIthDefault(MapBuilder<String, int> nullableMapWIthDefault) =>
+      _$this._nullableMapWIthDefault = nullableMapWIthDefault;
+
+  ListMultimapBuilder<int, String> _nullableListMultimapWIthDefault;
+  ListMultimapBuilder<int, String> get nullableListMultimapWIthDefault =>
+      _$this._nullableListMultimapWIthDefault ??=
+          new ListMultimapBuilder<int, String>();
+  set nullableListMultimapWIthDefault(
+          ListMultimapBuilder<int, String> nullableListMultimapWIthDefault) =>
+      _$this._nullableListMultimapWIthDefault = nullableListMultimapWIthDefault;
+
+  SetMultimapBuilder<int, String> _nullableSetMultimapWIthDefault;
+  SetMultimapBuilder<int, String> get nullableSetMultimapWIthDefault =>
+      _$this._nullableSetMultimapWIthDefault ??=
+          new SetMultimapBuilder<int, String>();
+  set nullableSetMultimapWIthDefault(
+          SetMultimapBuilder<int, String> nullableSetMultimapWIthDefault) =>
+      _$this._nullableSetMultimapWIthDefault = nullableSetMultimapWIthDefault;
+
+  CollectionsValueWithDefaultBuilder();
+
+  CollectionsValueWithDefaultBuilder get _$this {
+    if (_$v != null) {
+      _list = _$v.list?.toBuilder();
+      _set = _$v.set?.toBuilder();
+      _map = _$v.map?.toBuilder();
+      _listMultimap = _$v.listMultimap?.toBuilder();
+      _setMultimap = _$v.setMultimap?.toBuilder();
+      _nullableList = _$v.nullableList?.toBuilder();
+      _nullableSet = _$v.nullableSet?.toBuilder();
+      _nullableMap = _$v.nullableMap?.toBuilder();
+      _nullableListMultimap = _$v.nullableListMultimap?.toBuilder();
+      _nullableSetMultimap = _$v.nullableSetMultimap?.toBuilder();
+      _nullableListWithDefault = _$v.nullableListWithDefault?.toBuilder();
+      _nullableSetWIthDefault = _$v.nullableSetWIthDefault?.toBuilder();
+      _nullableMapWIthDefault = _$v.nullableMapWIthDefault?.toBuilder();
+      _nullableListMultimapWIthDefault =
+          _$v.nullableListMultimapWIthDefault?.toBuilder();
+      _nullableSetMultimapWIthDefault =
+          _$v.nullableSetMultimapWIthDefault?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CollectionsValueWithDefault other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$CollectionsValueWithDefault;
+  }
+
+  @override
+  void update(void Function(CollectionsValueWithDefaultBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$CollectionsValueWithDefault build() {
+    _$CollectionsValueWithDefault _$result;
+    try {
+      _$result = _$v ??
+          new _$CollectionsValueWithDefault._(
+              list: list.build(),
+              set: set.build(),
+              map: map.build(),
+              listMultimap: listMultimap.build(),
+              setMultimap: setMultimap.build(),
+              nullableList: _nullableList?.build(),
+              nullableSet: _nullableSet?.build(),
+              nullableMap: _nullableMap?.build(),
+              nullableListMultimap: _nullableListMultimap?.build(),
+              nullableSetMultimap: _nullableSetMultimap?.build(),
+              nullableListWithDefault: _nullableListWithDefault?.build(),
+              nullableSetWIthDefault: _nullableSetWIthDefault?.build(),
+              nullableMapWIthDefault: _nullableMapWIthDefault?.build(),
+              nullableListMultimapWIthDefault:
+                  _nullableListMultimapWIthDefault?.build(),
+              nullableSetMultimapWIthDefault:
+                  _nullableSetMultimapWIthDefault?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'list';
+        list.build();
+        _$failedField = 'set';
+        set.build();
+        _$failedField = 'map';
+        map.build();
+        _$failedField = 'listMultimap';
+        listMultimap.build();
+        _$failedField = 'setMultimap';
+        setMultimap.build();
+        _$failedField = 'nullableList';
+        _nullableList?.build();
+        _$failedField = 'nullableSet';
+        _nullableSet?.build();
+        _$failedField = 'nullableMap';
+        _nullableMap?.build();
+        _$failedField = 'nullableListMultimap';
+        _nullableListMultimap?.build();
+        _$failedField = 'nullableSetMultimap';
+        _nullableSetMultimap?.build();
+        _$failedField = 'nullableListWithDefault';
+        _nullableListWithDefault?.build();
+        _$failedField = 'nullableSetWIthDefault';
+        _nullableSetWIthDefault?.build();
+        _$failedField = 'nullableMapWIthDefault';
+        _nullableMapWIthDefault?.build();
+        _$failedField = 'nullableListMultimapWIthDefault';
+        _nullableListMultimapWIthDefault?.build();
+        _$failedField = 'nullableSetMultimapWIthDefault';
+        _nullableSetMultimapWIthDefault?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'CollectionsValueWithDefault', _$failedField, e.toString());
+      }
+      rethrow;
+    }
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$CompoundValueWithDefault extends CompoundValueWithDefault {
+  final SimpleValueWithDefault _simpleValue;
+  @override
+  SimpleValueWithDefault get simpleValue => _simpleValue ?? super.simpleValue;
+  final SimpleValueWithDefault _simpleValueFromBuilder;
+  @override
+  SimpleValueWithDefault get simpleValueFromBuilder =>
+      _simpleValueFromBuilder ?? super.simpleValueFromBuilder;
+  final ValidatedValueWithDefault _validatedValue;
+  @override
+  ValidatedValueWithDefault get validatedValue =>
+      _validatedValue ?? super.validatedValue;
+  final ValidatedValueWithDefault _validatedValueFromBuilder;
+  @override
+  ValidatedValueWithDefault get validatedValueFromBuilder =>
+      _validatedValueFromBuilder ?? super.validatedValueFromBuilder;
+  final CollectionsValueWithDefault _collections;
+  @override
+  CollectionsValueWithDefault get collections =>
+      _collections ?? super.collections;
+  final CollectionsValueWithDefault _collectionsFromBuilder;
+  @override
+  CollectionsValueWithDefault get collectionsFromBuilder =>
+      _collectionsFromBuilder ?? super.collectionsFromBuilder;
+  factory _$CompoundValueWithDefault(
+          [void Function(CompoundValueWithDefaultBuilder) updates]) =>
+      (new CompoundValueWithDefaultBuilder()..update(updates)).build();
+
+  _$CompoundValueWithDefault._(
+      {SimpleValueWithDefault simpleValue,
+      SimpleValueWithDefault simpleValueFromBuilder,
+      ValidatedValueWithDefault validatedValue,
+      ValidatedValueWithDefault validatedValueFromBuilder,
+      CollectionsValueWithDefault collections,
+      CollectionsValueWithDefault collectionsFromBuilder})
+      : _simpleValue = simpleValue,
+        _simpleValueFromBuilder = simpleValueFromBuilder,
+        _validatedValue = validatedValue,
+        _validatedValueFromBuilder = validatedValueFromBuilder,
+        _collections = collections,
+        _collectionsFromBuilder = collectionsFromBuilder,
+        super._() {
+    if (this.simpleValue == null) {
+      throw new BuiltValueNullFieldError(
+          'CompoundValueWithDefault', 'simpleValue');
+    }
+    if (this.simpleValueFromBuilder == null) {
+      throw new BuiltValueNullFieldError(
+          'CompoundValueWithDefault', 'simpleValueFromBuilder');
+    }
+    if (this.validatedValue == null) {
+      throw new BuiltValueNullFieldError(
+          'CompoundValueWithDefault', 'validatedValue');
+    }
+    if (this.validatedValueFromBuilder == null) {
+      throw new BuiltValueNullFieldError(
+          'CompoundValueWithDefault', 'validatedValueFromBuilder');
+    }
+    if (this.collections == null) {
+      throw new BuiltValueNullFieldError(
+          'CompoundValueWithDefault', 'collections');
+    }
+    if (this.collectionsFromBuilder == null) {
+      throw new BuiltValueNullFieldError(
+          'CompoundValueWithDefault', 'collectionsFromBuilder');
+    }
+  }
+
+  @override
+  CompoundValueWithDefault rebuild(
+          void Function(CompoundValueWithDefaultBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CompoundValueWithDefaultBuilder toBuilder() =>
+      new CompoundValueWithDefaultBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CompoundValueWithDefault &&
+        simpleValue == other.simpleValue &&
+        simpleValueFromBuilder == other.simpleValueFromBuilder &&
+        validatedValue == other.validatedValue &&
+        validatedValueFromBuilder == other.validatedValueFromBuilder &&
+        collections == other.collections &&
+        collectionsFromBuilder == other.collectionsFromBuilder;
+  }
+
+  @override
+  int get hashCode {
+    return $jf($jc(
+        $jc(
+            $jc(
+                $jc(
+                    $jc($jc(0, simpleValue.hashCode),
+                        simpleValueFromBuilder.hashCode),
+                    validatedValue.hashCode),
+                validatedValueFromBuilder.hashCode),
+            collections.hashCode),
+        collectionsFromBuilder.hashCode));
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper('CompoundValueWithDefault')
+          ..add('simpleValue', simpleValue)
+          ..add('simpleValueFromBuilder', simpleValueFromBuilder)
+          ..add('validatedValue', validatedValue)
+          ..add('validatedValueFromBuilder', validatedValueFromBuilder)
+          ..add('collections', collections)
+          ..add('collectionsFromBuilder', collectionsFromBuilder))
+        .toString();
+  }
+}
+
+class CompoundValueWithDefaultBuilder
+    implements
+        Builder<CompoundValueWithDefault, CompoundValueWithDefaultBuilder> {
+  _$CompoundValueWithDefault _$v;
+
+  SimpleValueWithDefaultBuilder _simpleValue;
+  SimpleValueWithDefaultBuilder get simpleValue =>
+      _$this._simpleValue ??= new SimpleValueWithDefaultBuilder();
+  set simpleValue(SimpleValueWithDefaultBuilder simpleValue) =>
+      _$this._simpleValue = simpleValue;
+
+  SimpleValueWithDefaultBuilder _simpleValueFromBuilder;
+  SimpleValueWithDefaultBuilder get simpleValueFromBuilder =>
+      _$this._simpleValueFromBuilder ??= new SimpleValueWithDefaultBuilder();
+  set simpleValueFromBuilder(
+          SimpleValueWithDefaultBuilder simpleValueFromBuilder) =>
+      _$this._simpleValueFromBuilder = simpleValueFromBuilder;
+
+  ValidatedValueWithDefaultBuilder _validatedValue;
+  ValidatedValueWithDefaultBuilder get validatedValue =>
+      _$this._validatedValue ??= new ValidatedValueWithDefaultBuilder();
+  set validatedValue(ValidatedValueWithDefaultBuilder validatedValue) =>
+      _$this._validatedValue = validatedValue;
+
+  ValidatedValueWithDefaultBuilder _validatedValueFromBuilder;
+  ValidatedValueWithDefaultBuilder get validatedValueFromBuilder =>
+      _$this._validatedValueFromBuilder ??=
+          new ValidatedValueWithDefaultBuilder();
+  set validatedValueFromBuilder(
+          ValidatedValueWithDefaultBuilder validatedValueFromBuilder) =>
+      _$this._validatedValueFromBuilder = validatedValueFromBuilder;
+
+  CollectionsValueWithDefaultBuilder _collections;
+  CollectionsValueWithDefaultBuilder get collections =>
+      _$this._collections ??= new CollectionsValueWithDefaultBuilder();
+  set collections(CollectionsValueWithDefaultBuilder collections) =>
+      _$this._collections = collections;
+
+  CollectionsValueWithDefaultBuilder _collectionsFromBuilder;
+  CollectionsValueWithDefaultBuilder get collectionsFromBuilder =>
+      _$this._collectionsFromBuilder ??=
+          new CollectionsValueWithDefaultBuilder();
+  set collectionsFromBuilder(
+          CollectionsValueWithDefaultBuilder collectionsFromBuilder) =>
+      _$this._collectionsFromBuilder = collectionsFromBuilder;
+
+  CompoundValueWithDefaultBuilder();
+
+  CompoundValueWithDefaultBuilder get _$this {
+    if (_$v != null) {
+      _simpleValue = _$v.simpleValue?.toBuilder();
+      _simpleValueFromBuilder = _$v.simpleValueFromBuilder?.toBuilder();
+      _validatedValue = _$v.validatedValue?.toBuilder();
+      _validatedValueFromBuilder = _$v.validatedValueFromBuilder?.toBuilder();
+      _collections = _$v.collections?.toBuilder();
+      _collectionsFromBuilder = _$v.collectionsFromBuilder?.toBuilder();
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(CompoundValueWithDefault other) {
+    if (other == null) {
+      throw new ArgumentError.notNull('other');
+    }
+    _$v = other as _$CompoundValueWithDefault;
+  }
+
+  @override
+  void update(void Function(CompoundValueWithDefaultBuilder) updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  _$CompoundValueWithDefault build() {
+    _$CompoundValueWithDefault _$result;
+    try {
+      _$result = _$v ??
+          new _$CompoundValueWithDefault._(
+              simpleValue: simpleValue.build(),
+              simpleValueFromBuilder: simpleValueFromBuilder.build(),
+              validatedValue: validatedValue.build(),
+              validatedValueFromBuilder: validatedValueFromBuilder.build(),
+              collections: collections.build(),
+              collectionsFromBuilder: collectionsFromBuilder.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'simpleValue';
+        simpleValue.build();
+        _$failedField = 'simpleValueFromBuilder';
+        simpleValueFromBuilder.build();
+        _$failedField = 'validatedValue';
+        validatedValue.build();
+        _$failedField = 'validatedValueFromBuilder';
+        validatedValueFromBuilder.build();
+        _$failedField = 'collections';
+        collections.build();
+        _$failedField = 'collectionsFromBuilder';
+        collectionsFromBuilder.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'CompoundValueWithDefault', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
